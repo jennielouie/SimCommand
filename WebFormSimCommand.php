@@ -1,5 +1,43 @@
 <?php
 include('SimCommandTemplates.php');
+// require '/vendor/autoload.php';
+
+
+// use Aws\S3\S3Client;
+
+// // Instantiate the S3 client with your AWS credentials
+// $s3Client = S3Client::factory(array(
+//     'key'    => 'AKIAIZZMIPSFLUSUJEKQ',
+//     'secret' => 'cEhSSVPoUOLM11cfAIRqi3RYGGirfsaVM/M8jeSy',
+// ));
+
+// $bucket = 'scapi-dev';
+// $s3Client->createBucket(array('Bucket' => $bucket));
+// $s3Client->waitUntil('BucketExists', array('Bucket' => $bucket));
+
+
+
+// // Upload an object by streaming the contents of a file
+// // $pathToFile should be absolute path to a file on disk
+// $result = $s3Client->putObject(array(
+//     'Bucket'     => $bucket,
+//     'Key'        => 'data_from_file.txt',
+//     'SourceFile' => $pathToFile
+//     // 'Metadata'   => array(
+//     //     'Foo' => 'abc',
+//     //     'Baz' => '123'
+//     )
+// ));
+
+// // We can poll the object until it is accessible
+// $s3Client->waitUntil('ObjectExists', array(
+//     'Bucket' => $this->bucket,
+//     'Key'    => 'data_from_file.txt'
+// ));
+
+// echo $result['ObjectURL'] . "\n";
+
+//UNCOMMENT LINE BELOW FOR EXAMPLE OF PRE-LOADING AN EXISTING CASE
 // include('samplejson.php');
 
 
