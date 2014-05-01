@@ -211,7 +211,7 @@ else
         $assessmentsArray = [];
 
           foreach($jvalue as $assessmentIndex=>$assessment) {
-
+            // create a new assessment, and then add to assessment array
             $newAssessment = new Template('mkOneAssessmentObject.php', array(
               'id'=>$assessment['id'],
               'name'=>$assessment['name'],

@@ -127,13 +127,13 @@ $('#footerAssessmentButton').on('click', function(){
         var last_jsonID = parseInt($('.one_assessment_div').last().attr('data-jsonID'));
         var new_jsonID = last_jsonID + 1;
         var newDiv = $(".one_assessment_div").last().clone();
-
-        newDiv.attr('id','assessment_' + new_jsonID);
+//commented out assignation of ids 20140501
+        // newDiv.attr('id','assessment_' + new_jsonID);
         newDiv.attr('data-jsonID', new_jsonID);
         newDiv.attr('data-arrayIndex', new_index);
         newDiv.find('input.assessmentName').attr('value', '');
-        newDiv.find('h3').text('Assessment ID: '+ new_jsonID);
-        newDiv.find('input.assessmentIDHiddenRow').attr('value', new_jsonID);
+        // newDiv.find('h3').text('Assessment ID: '+ new_jsonID);
+        // newDiv.find('input.assessmentIDHiddenRow').attr('value', new_jsonID);
 
 
           uniqueButtonIndex += 1;
@@ -248,13 +248,13 @@ $('#footerAssessmentButton').on('click', function(){
           thistext.removeAttr('id');
         });
 
-
+      //commented out assignation and display of action and state IDs 20140501
         newDiv.attr('id', 'state_' + statejsonID + '_action_' + new_action_jsonID);
         newDiv.attr('data-arrayIndex', new_action_index);
         newDiv.attr('data-actionjsonID', new_action_jsonID);
-        newDiv.find('span.actionTitle').text('State ID: ' + statejsonID + ' Action ' + new_action_jsonID);
+        //newDiv.find('span.actionTitle').text('State ID: ' + statejsonID + ' Action ' + new_action_jsonID);
         newDiv.find('input.actionName').attr('value', '');
-        newDiv.find('input.actionIDHiddenRow').attr('value', new_action_jsonID);
+        //newDiv.find('input.actionIDHiddenRow').attr('value', new_action_jsonID);
 
 
         newDiv.appendTo(action_div);
@@ -307,12 +307,13 @@ $('#footerAddStateButton').on('click', function(){
       thistext.removeAttr('id');
     });
 
-
+//commented out display of jsonID and input of jsonID so they won't be sent to API; jsonID is still used to create unique divID
     newDiv.attr('data-jsonID', new_jsonID);
     newDiv.attr('data-arrayIndex', new_index);
-    newDiv.find('h3').text('State ID: '+ new_jsonID);
+    // newDiv.find('h3').text('State ID: '+ new_jsonID);
     newDiv.find('textarea').text('');
-    newDiv.find('input.hiddenStateJsonID').attr('value', new_jsonID);
+    // newDiv.find('input.hiddenStateJsonID').attr('value', new_jsonID);
+//below were deleted before 20140501
     // newDiv.find('input.hiddenStateJsonID').attr('name', prefix + '[id]');
     // newDiv.find('input.assessmentName').attr('name', prefix + '[name]');
     // newDiv.find('input.assessmentName').attr('value', '');

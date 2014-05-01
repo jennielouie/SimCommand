@@ -9,14 +9,15 @@
 
     <div class="row">
       <div class="small-3 columns">
-        <h3>State ID: <?php echo $this->id; ?> </h3>
+        <h3>State ID: <!--<#?php echo $state_jsonID; ?>--> </h3>
       </div>
       <div class="small-3 columns end"><a href="#" class="delete">Delete this state</a>
       </div>
     </div>
 
     <div class="row">
-      <input type="hidden" class="hiddenStateJsonID" name="<?php echo $name_prefix.'[id]'; ?>" value="<?php echo $state_jsonID; ?>"/>
+      <!-- commented out submittal of state id -->
+      <!-- <input type="hidden" class="hiddenStateJsonID" name="<#?php echo $name_prefix.'[id]'; ?>" value="<#?php echo $state_jsonID; ?>"/> -->
       <div class="large-2 small-10 columns">
         <span data-tooltip class="has-tip [tip-bottom]" title="add text">Notes</span>
       </div>

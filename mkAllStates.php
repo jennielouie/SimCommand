@@ -14,7 +14,7 @@
   <div class="templateForOneActionDiv hiddenDiv">
     <div id="" class="one_action_div borderDiv dataRow row" class="" data-arrayIndex ="0" data-statejsonID = "" data-actionjsonID="">
 
-      <input class="actionIDHiddenRow" type="hidden" name="[placeholder][id]" value=""/>
+      <!-- <input class="actionIDHiddenRow" type="hidden" name="[placeholder][id]" value=""/> -->
 
       <div class="small-12 columns">
         <span class="actionTitle" style="color:purple"></span>

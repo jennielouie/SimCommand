@@ -4,9 +4,10 @@ $id_prefix = 'assessment-'.$this->id;
 ?>
 <div class="one_assessment_div dataRow row" data-jsonID="<?php echo $this->id; ?>" data-arrayIndex="<?php echo $assessmentIndex; ?>">
   <fieldset>
-  <h3>Assessment ID: <?php echo $this->id; ?></h3>
+  <h3>Assessment ID: <!--<#?php echo $this->id; ?>--></h3>
 
-  <input class="assessmentIDHiddenRow" type="hidden" name="<?php echo $name_prefix.'[id]'; ?>" value="<?php echo $this->id; ?>"/>
+<!-- commented out submittal of assessment ID -->
+ <!--  <input class="assessmentIDHiddenRow" type="hidden" name="<#?php echo $name_prefix.'[id]'; ?>" value="<#?php echo $this->id; ?>"/> -->
   <div class="small-1 columns">
     <span data-tooltip class="has-tip [tip-bottom]" title="<?php echo $this->name_tooltip;?>">Name</span>
   </div>

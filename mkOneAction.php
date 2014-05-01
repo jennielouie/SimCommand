@@ -6,10 +6,11 @@
 
 <div id="<?php echo "state_".$state_jsonID."_action_".$this->id; ?>" class="one_action_div borderDiv dataRow row" class="<?php echo "rowForState_".$state_jsonID;?>" data-arrayIndex ="<?php echo $actionIndex; ?>" data-statejsonID = "<?php echo $state_jsonID; ?>" data-actionjsonID="<?php echo $this->id; ?>">
 
-    <input class="actionIDHiddenRow" type="hidden" name="<?php echo $name_prefix.'[id]'; ?>" value="<?php echo $this->id; ?>"/>
-
+<!-- commented out submittal of action ID -->
+    <!-- <input class="actionIDHiddenRow" type="hidden" name="<#?php echo $name_prefix.'[id]'; ?>" value="<#?php echo $this->id; ?>"/>
+ -->
     <div class="small-12 columns">
-      <span class="actionTitle" style="color:purple">State ID: <?php echo $state_jsonID; ?> Action <?php echo $this->id; ?></span>
+      <!-- <span class="actionTitle" style="color:purple">State ID: <#?php echo $state_jsonID; ?> Action <#?php echo $this->id; ?></span> -->
         <input class="actionName" name="<?php echo $name_prefix.'[name]'; ?>" type="text" value="<?php echo $this->name ?>" />
     </div>
     </br>
