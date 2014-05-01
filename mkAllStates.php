@@ -39,8 +39,8 @@
         </div>
 
         <div class="small-3 columns">
-          <input type="radio" checked id="IDholder-ct" name="[placeholder][is_critical_item]" value="true" /><label for="IDholder-ct">Yes</label>
-          <input type="radio" id="IDholder-cf"  name= "[placeholder][is_critical_item]" value="false" /><label for="IDholder-cf">No</label>
+          <input type="radio"  id="IDholder-ct" name="[placeholder][is_critical_item]" value="true" /><label for="IDholder-ct">Yes</label>
+          <input type="radio" checked id="IDholder-cf"  name= "[placeholder][is_critical_item]" value="false" /><label for="IDholder-cf">No</label>
         </div>
 
         <div class="small-4 columns uploadRow">
@@ -53,8 +53,8 @@
         </div>
 
         <div class="small-2 columns">
-          <input type="radio" checked id="IDholder-tt" name="[placeholder][is_timeable]" value="true" /><label for="IDholder-tt">Yes</label>
-          <input type="radio" id="IDholder-tf"  name= "[placeholder][is_timeable]"  value="false" /><label for="IDholder-tf">No</label>
+          <input type="radio" id="IDholder-tt" name="[placeholder][is_timeable]" value="true" /><label for="IDholder-tt">Yes</label>
+          <input type="radio" checked id="IDholder-tf"  name= "[placeholder][is_timeable]"  value="false" /><label for="IDholder-tf">No</label>
         </div>
 
         <div class="small-1 columns" ><a href="#"  class="delete" >Delete this action</a>

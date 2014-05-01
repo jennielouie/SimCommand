@@ -129,6 +129,11 @@ $('#footerAssessmentButton').on('click', function(){
         var newDiv = $(".one_assessment_div").last().clone();
 //commented out assignation of ids 20140501
         // newDiv.attr('id','assessment_' + new_jsonID);
+
+        //clear values from cloned form
+        newDiv.find("[type=text]").val('');
+        newDiv.find("[type=radio][value=false]").prop('checked', true);
+
         newDiv.attr('data-jsonID', new_jsonID);
         newDiv.attr('data-arrayIndex', new_index);
         newDiv.find('input.assessmentName').attr('value', '');
@@ -191,6 +196,9 @@ $('#footerAssessmentButton').on('click', function(){
             $(this).attr('name',new_name);
           });
 
+        //clear values from cloned form
+        newDiv.find("[type=text]").val('');
+        newDiv.find("[type=radio][value=false]").prop('checked', true);
 
           var idHolder = 'radio'+uniqueButtonIndex+'action'+uniqueActionIndex;
           uniqueButtonIndex += 1;
@@ -292,6 +300,11 @@ $('#footerAddStateButton').on('click', function(){
 
     var newDiv = $(".stateWithoutActionsSection").last().clone();
     newDiv.appendTo(container_div);
+
+//clear form values from clone
+    newDiv.find("[type=text]").val('');
+
+
 //MAKE CLONE OF ACTIONS_SECTION_CLASS DIV, APPEND TO CONTAINER_DIV, UPDATE INDICES AND JSON IDS
     $('<div id="section_state_' + new_jsonID +'_actions_div" class="actions_section_class row" data-stateIndex = "' +  new_index + '" datajsonID ="' + new_jsonID + '" ></div>').appendTo(container_div);
     newActionSection = $('.actions_section_class').last();
