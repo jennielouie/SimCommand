@@ -197,6 +197,8 @@ $preparationTab = new Template('mkTabHeader.php', array('tabID'=>'preparation', 
 //CLOSING CONTENT
 $closing = new Template('mkClosingContent.php', array('buttonlabel1'=>'Save', 'buttonlabel2'=>'save progress', 'javascript'=>array("js/vendor/jquery.js", "js/vendor/foundation.min.js")));
 
+$allcasesHeader = new Template('mkallCasesHeaderContent.php', array('foo'=>'bar'));
+$allcasesClosing = new Template('mkallCasesClosingContent.php', array('foo'=>'bar'));
 
 
 //STATE AND ACTIONS OBJECTS
@@ -247,5 +249,6 @@ $assessmentX = new Template('mkOneAssessmentObject.php', array('id'=>'101','name
 
 $allAssessments = new Template('mkAllAssessments.php', array('type'=>'allAssessments','assessmentsArray'=>array($assessmentX)));
 
+// $oneCaseSummary = new Template('showallcases.php', array('caseID'=>'test','number'=>'testnumber','title'=>'testtitle','authors'=>array(),'institutions'=>array(), 'instructionalGoals'=>array(), 'categories'=>array(), 'published'=>'testpublishdate','overview'=>'testOverview'));
 
 ?>

@@ -63,4 +63,12 @@
       }
 
   }
+
+    function render_allcases($caseArray) {
+    foreach ($caseArray as $index=>$case)
+      {
+        $case->render();
+      }
+
+  }
   ?>
