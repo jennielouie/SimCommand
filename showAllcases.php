@@ -2,10 +2,11 @@
     <fieldset>
       <div class="row">
         <div class="small-3 columns">
-       <span>Case Title:</span>
+       <h3>Case Title:</h3>
         </div>
         <div class="title small-9 columns">
-          <h3><?php echo $this->title; ?></h3>
+        <!-- <h3><a href=<#?php echo "http://private-1c15-scapi.apiary-mock.com/cases/$this->caseID.html" ?>><#?php echo $this->title; ?></a></h3> -->
+        <h3><a href='SimCommandShowOneCase.php?id=<?php echo $this->caseID ?>'><?php echo $this->title; ?></a></h3>
         </div>
       </div>
 
@@ -15,14 +16,14 @@
           <span>Case ID:</span>
         </div>
         <div class="caseID small-3 columns">
-          <h3></h3>
+          <p><?php echo $this->caseID; ?></p>
         </div>
 
         <div class="small-2 columns">
           <span>Number:</span>
         </div>
         <div class="number small-3 columns">
-          <h3><?php echo $this->number; ?></h3>
+          <p><?php echo $this->number; ?></p>
         </div>
       </div>
 
@@ -71,11 +72,12 @@
       <div class="row">
         <div class="small-8 columns">
           <span>Instructional Goals:</span></br></br>
-          <ul class="instructionalGoalsList">
-            <?php foreach($this->instructionalGoals as $goal) { ?>
-            <li><?php echo $goal; ?></li></br></br>
-            <?php } ?>
-          </ul>
+          <!-- <ul class="instructionalGoalsList">
+            <#?php foreach($this->instructionalGoals as $goal) { ?>
+            <li><#?php echo $goal; ?></li></br></br>
+            <#?php } ?>
+          </ul> -->
+          <?php echo $this->instructionalGoals; ?>
         </div>
       </div>
 

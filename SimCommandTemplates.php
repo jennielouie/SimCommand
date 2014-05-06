@@ -174,7 +174,7 @@ $allCasesHeader= new Template('mkHeaderContentAllCases.php', array('tabTitle' =>
 
 $mainHeader= new Template('mkHeaderContentAccordion.php', array('tabTitle' => 'SimCommand | Case Information', 'title' => 'SimCommand', 'formAction'=>'/simCommandOutput.php', 'javascript'=>array('modernizrSimCommand.js','//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'simCommand.js','tinymce/js/tinymce/tinymce.min.js','http://cdn.foundation5.zurb.com/foundation.js'),'stylesheet' => 'foundationSimCommand.css', 'caseTitle'=>'', 'caseID'=>''));
 
-
+$mainHeaderOneCase= new Template('mkHeaderContentAccordionOneCase.php', array('tabTitle' => 'SimCommand | Case Information', 'title' => 'SimCommand', 'formAction'=>'/simCommandOutput.php', 'javascript'=>array('modernizrSimCommand.js','//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'simCommandReadOnly.js','http://cdn.foundation5.zurb.com/foundation.js'),'stylesheet' => 'foundationSimCommand.css', 'caseTitle'=>'', 'caseID'=>''));
 
 //TAB HEADER $ = new Template('mkTabHeader.php', array('tabID'=>'', 'tabTitle'=>''));
 
@@ -196,6 +196,8 @@ $preparationTab = new Template('mkTabHeader.php', array('tabID'=>'preparation', 
 
 //CLOSING CONTENT
 $closing = new Template('mkClosingContent.php', array('buttonlabel1'=>'Save', 'buttonlabel2'=>'save progress', 'javascript'=>array("js/vendor/jquery.js", "js/vendor/foundation.min.js")));
+
+$closingOneCase = new Template('mkClosingContentOneCase.php', array('javascript'=>array("js/vendor/jquery.js", "js/vendor/foundation.min.js")));
 
 $allcasesHeader = new Template('mkallCasesHeaderContent.php', array('foo'=>'bar'));
 $allcasesClosing = new Template('mkallCasesClosingContent.php', array('foo'=>'bar'));
