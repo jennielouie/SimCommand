@@ -27,7 +27,7 @@
         <ul class="title-area">
           <!-- Title Area -->
           <li class="name">
-            <h1><a class="alwaysShow" href="#">SimCommand</a></h1>
+            <h1><a class="alwaysShow" href="#"><?php echo $this->title; ?></a></h1>
           </li>
 
         </ul>
@@ -45,6 +45,9 @@
 
       </nav>
 <!-- </div> -->
+<a class="alwaysShow" href="/SimCommandShowAllcases.php">Back to All Cases</a> |
+<a class="alwaysShow" href="/WebFormSimCommand.php">Create New Case</a> |
+<a class="alwaysShow" href="/SimCommandEditCase.php?id=1">Edit This Case</a>
     </div>
   </div>
 </div>

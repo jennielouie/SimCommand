@@ -43,7 +43,7 @@ loadTinyMCEEditor();
         <ul class="title-area">
           <!-- Title Area -->
           <li class="name">
-            <h1><a href="#">SimCommand</a></h1>
+            <h1><a class="alwaysShow" href="#"><?php echo $this->title; ?></a></h1>
           </li>
           <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
           <!-- <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li> -->

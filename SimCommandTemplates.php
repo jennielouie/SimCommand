@@ -174,7 +174,9 @@ $allCasesHeader= new Template('mkHeaderContentAllCases.php', array('tabTitle' =>
 
 $mainHeader= new Template('mkHeaderContentAccordion.php', array('tabTitle' => 'SimCommand | Case Information', 'title' => 'SimCommand', 'formAction'=>'/simCommandOutput.php', 'javascript'=>array('modernizrSimCommand.js','//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'simCommand.js','tinymce/js/tinymce/tinymce.min.js','http://cdn.foundation5.zurb.com/foundation.js'),'stylesheet' => 'foundationSimCommand.css', 'caseTitle'=>'', 'caseID'=>''));
 
-$mainHeaderOneCase= new Template('mkHeaderContentAccordionOneCase.php', array('tabTitle' => 'SimCommand | Case Information', 'title' => 'SimCommand', 'formAction'=>'/simCommandOutput.php', 'javascript'=>array('modernizrSimCommand.js','//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'simCommandReadOnly.js','http://cdn.foundation5.zurb.com/foundation.js'),'stylesheet' => 'foundationSimCommand.css', 'caseTitle'=>'', 'caseID'=>''));
+$mainHeaderOneCase= new Template('mkHeaderContentAccordionOneCase.php', array('tabTitle' => 'SimCommand | Show Single Case', 'title' => 'SimCommand OneCase', 'formAction'=>'/simCommandOutput.php', 'javascript'=>array('modernizrSimCommand.js','//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'simCommandReadOnly.js','http://cdn.foundation5.zurb.com/foundation.js'),'stylesheet' => 'foundationSimCommand.css', 'caseTitle'=>'', 'caseID'=>''));
+
+$mainHeaderEditMode= new Template('mkHeaderContentAccordion.php', array('tabTitle' => 'SimCommand | Edit Assessments', 'title' => 'SimCommand Edit Assessments', 'formAction'=>'/simCommandOutput.php', 'javascript'=>array('modernizrSimCommand.js','//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'simCommand.js','tinymce/js/tinymce/tinymce.min.js','http://cdn.foundation5.zurb.com/foundation.js'),'stylesheet' => 'foundationSimCommand.css', 'caseTitle'=>'', 'caseID'=>''));
 
 //TAB HEADER $ = new Template('mkTabHeader.php', array('tabID'=>'', 'tabTitle'=>''));
 
