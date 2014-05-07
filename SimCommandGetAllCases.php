@@ -17,13 +17,13 @@ $response=$json["body"];
 
 //Iterate through each key:value pair in the json response object for a particular case ID.  All keys should exist in the form, but I use an if statement to be safe.  Iterate to grab the corresponding template object from the form, and add case-specific data in that template object's attributes.  So, these attributes will be associated with the template object when it is rendered.
 
-
+// var_dump($response);
   $caseArray = [];
   $caseArray[] = $allcasesHeader;
 
     foreach($response as $caseIndex=>$case) {
       // create a new assessment, and then add to assessment array
-      $oneCase = new Template('showallcases.php', array(
+      $oneCase = new Template('mkshowallcases.php', array(
 
         'caseID'=>$case['id'],
         'number'=>$case['number'],

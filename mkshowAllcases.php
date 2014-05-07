@@ -6,7 +6,7 @@
         </div>
         <div class="title small-9 columns">
         <!-- <h3><a href=<#?php echo "http://private-1c15-scapi.apiary-mock.com/cases/$this->caseID.html" ?>><#?php echo $this->title; ?></a></h3> -->
-        <h3><a href='SimCommandShowOneCase.php?id=<?php echo $this->caseID; ?>'><?php echo $this->title; ?></a></h3>
+        <h3><a href='SimCommandGetOneCase.php?id=<?php echo $this->caseID; ?>'><?php echo $this->title; ?></a></h3>
         </div>
       </div>
 

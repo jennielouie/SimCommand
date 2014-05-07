@@ -10,7 +10,7 @@ include('SimCommandTemplates.php');
 // create form array
 
 $form = array();
-$form['header'] = $mainHeader;
+$form['header'] = $editCaseHeader;
 
 //CASE INFO TAB
 $form['startTab'] = $caseInfoTab;
@@ -100,7 +100,7 @@ if(isset($_GET["id"])){
 
 
 // Change header to indicate edit mode
-  $form['header'] = $mainHeaderEditMode;
+
   foreach($case as $jkey => $jvalue) {
 
   // print "jkey is $jkey\n";

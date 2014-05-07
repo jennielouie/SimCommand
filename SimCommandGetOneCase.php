@@ -53,7 +53,7 @@ $case=$json["body"];
 // create form array
 
 $form = array();
-$form['header'] = $mainHeaderOneCase;
+$form['header'] = $getCaseHeader;
 
 //CASE INFO TAB
 $form['startTab'] = $caseInfoTab;

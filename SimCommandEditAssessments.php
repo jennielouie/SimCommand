@@ -51,7 +51,7 @@ $assessmentsArray = [];
   foreach($assessments as $assessmentIndex=>$assessment) {
     // create a new assessment, and then add to assessment array
     $newAssessment = new Template('mkOneAssessmentObject.php', array(
-      'id'=>$assessment['id'],
+      'id'=>$assessment['case_id'],
       'name'=>$assessment['name'],
       'is_critical'=>$assessment['is_critical'],
       'type'=>'oneAssessment',
