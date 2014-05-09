@@ -33,7 +33,7 @@ $getAssessmentsHeader->caseID = $specificCaseID;
 $form['assessmentTab'] = $assessmentTab;
 $form['assessment_items'] = $allAssessments;
 
-$form['closing'] = $closingNoShortcuts;
+$form['closing'] = $closingReadOnly;
 
   //Iterate through each key:value pair in the json response object for a particular case ID.  All keys should exist in the form, but I use an if statement to be safe.  Iterate to grab the corresponding template object from the form, and add case-specific data in that template object's attributes.  So, these attributes will be associated with the template object when it is rendered.
 
@@ -62,10 +62,10 @@ $assessmentsArray = [];
     $assessmentsArray[] = $newAssessment;
   };
 
-$allAssessments = new Template('mkAllAssessments.php', array('type'=>'allAssessments','assessmentsArray'=>$assessmentsArray));
+$allAssessments = new Template('mkAllAssessmentsReadOnly.php', array('type'=>'allAssessments','assessmentsArray'=>$assessmentsArray));
 $form['assessment_items'] = $allAssessments;
 
-
+var_dump($json);
 // Finally, render form with case-specific data pre-loaded in fields.
 render_formarray($form);
 

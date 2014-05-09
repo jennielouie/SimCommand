@@ -2,8 +2,8 @@
 <?php
 include_once('SimCommandTemplates.php');
 
-if(isset($_GET["id"])){
-  $specificCaseID = $_GET["id"];
+if(isset($_GET["case_id"])){
+  $specificCaseID = $_GET["case_id"];
 }
 
 $url = "http://private-1c15-scapi.apiary-mock.com/cases/$specificCaseID";

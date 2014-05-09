@@ -13,6 +13,8 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, $jsondata);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array("SCAPI_AUTH_TOKEN: 659d9194f1467c20d7a3a1fd6bbc6540e8ccf85498fad89f4988d85e8a718020"));
 $jsonresponse = curl_exec($ch);
 $response = json_decode($jsonresponse);
+$body = $response->body;
+$thisCaseID = $body->id;
 curl_close($ch);
 
 // var_dump($response);
@@ -56,9 +58,11 @@ curl_close($ch);
     <div class="row responsebox">
       <h3>Response to POST request</h3>
       <p><?php print_r($response->result); ?></p>
+      <p>Case ID: <?php echo $thisCaseID; ?></p>
     </div>
 
     <div class="row">
+      <a class="alwaysShow button tiny" href="/SimCommandEditCaseForm.php?id=<?php echo $thisCaseID; ?>">Continue to Edit this Case</a>
       <a class="alwaysShow button tiny" href="/SimCommandGetAllCases.php">Back to All Cases</a>
       <a class="alwaysShow button tiny" href="/SimCommandNewCaseForm.php">Create New Case</a>
     </div>

@@ -1,8 +1,8 @@
 <?php
 include('SimCommandTemplates.php');
 
-if(isset($_GET["id"])){
-  $specificCaseID = $_GET["id"];
+if(isset($_GET["case_id"])){
+  $specificCaseID = $_GET["case_id"];
 }
 
 //UNCOMMENT LINE BELOW FOR EXAMPLE OF PRE-LOADING AN EXISTING CASE
@@ -15,6 +15,7 @@ $form = array();
 $form['header'] = $editCaseHeader;
 $action ="/simCommandPutCase.php?id=$specificCaseID";
 $editCaseHeader->formAction = $action;
+$editCaseHeader->caseID = $specificCaseID;
 
 //CASE INFO TAB
 $form['startTab'] = $caseInfoTab;

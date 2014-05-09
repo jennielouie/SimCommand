@@ -4,9 +4,7 @@ $id_prefix = 'assessment-'.$this->id;
 ?>
 
 <div id="section_Assessments" class="row">
-  <div class="small-3 columns hiddenDiv">
-    <button id="buttonToAddAssessment" type="button" class="small success button expand">Add Assessment</button>
-  </div></br>
+
   <div class="assessmentsDiv multiInputDiv small-12 columns">
 
 
