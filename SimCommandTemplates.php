@@ -86,7 +86,7 @@ $obj4 = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>''
 
 $obj5 = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'','label'=>'Objective 5 - Professionalism', 'name'=>'obj5_professionalism', 'btnname'=>'addprofessional', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value'=>'<ul> <li></li> </ul>'));
 
-$obj6 = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'','label'=>'Objective 6 - Systems-based Practice', 'name'=>'obj6_system_based_practice', 'btnname'=>'addsysPrac', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value'=>'<ul> <li></li> </ul>'));
+$obj6 = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'','label'=>'Objective 6 - Systems-based Practice', 'name'=>'obj6_systems_based_practice', 'btnname'=>'addsysPrac', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value'=>'<ul> <li></li> </ul>'));
 
 $overview = new Template('mkTextarea.php', array('type'=>'singletext','entity'=>'','label'=>'Case Overview', 'name' =>'overview', 'value'=>'<ul> <li></li> </ul>','tooltip'=>'overview tooltip'));
 
@@ -126,29 +126,29 @@ $notes = new Template('mkTextbarwBtnMultiple.php', array('type' => 'textarray','
 
 
 // TEXT AREA WITH UPLOAD$ = new Template('mkTextarea.php', array('type'=>'singletext', 'entity'=>'','label'=>'', 'name' =>'', 'tooltip'=>'', 'value'=>'')));
-$abdomen = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'initial_patient_examination','label'=>'Abdomen', 'name'=>'abdomen', 'btnname'=>'addabdomen', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
+$abdomen = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'initial_patient_examination','label'=>'Abdomen', 'name'=>'initial_patient_examination[abdomen]', 'btnname'=>'addabdomen', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
 
 $briefing = new Template('mkTextarea.php', array('type' =>'singletext','entity'=>'','label' =>'Briefing', 'name' => 'briefing', 'btnname1' =>'addbriefing', 'btnlabel1'=>'Add row', 'btnname2'=>'uploadbriefing', 'btnlabel2'=>'Add file', 'value' =>'<ul> <li></li> </ul>'));
 
 $debriefing = new Template('mkTextarea.php', array('type' =>'singletext','entity'=>'','label' =>'Debriefing', 'name' => 'debriefing', 'btnname1' =>'adddebriefing', 'btnlabel1'=>'Add row', 'btnname2'=>'uploaddebriefing', 'btnlabel2'=>'Add file', 'values' =>'<ul> <li></li> </ul>'));
 
-$extremities = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'initial_patient_examination','label'=>'Extremities', 'name'=>'extremities', 'btnname'=>'addextremities', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
+$extremities = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'initial_patient_examination','label'=>'Extremities', 'name'=>'initial_patient_examination[extremities]', 'btnname'=>'addextremities', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
 
-$generalIPE = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'initial_patient_examination','label'=>'General', 'name'=>'general', 'btnname' =>'addgeneralIPE', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
+$generalIPE = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'initial_patient_examination','label'=>'General', 'name'=>'initial_patient_examination[general]', 'btnname' =>'addgeneralIPE', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
 
-$heart = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'initial_patient_examination','label'=>'Heart', 'name'=>'heart', 'btnname'=>'addheart', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
+$heart = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'initial_patient_examination','label'=>'Heart', 'name'=>'initial_patient_examination[heart]', 'btnname'=>'addheart', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
 
-$heent = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'initial_patient_examination','label'=>'HEENT', 'name'=>'heent', 'btnname' =>'addheent', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
+$heent = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'initial_patient_examination','label'=>'HEENT', 'name'=>'initial_patient_examination[heent]', 'btnname' =>'addheent', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
 
-$lungs = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'initial_patient_examination','label'=>'Lungs', 'name'=>'lungs', 'btnname'=>'addlung', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
+$lungs = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'initial_patient_examination','label'=>'Lungs', 'name'=>'initial_patient_examination[lungs]', 'btnname'=>'addlung', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
 
 $moulage = new Template('mkTextarea.php', array('type' =>'singletext','entity'=>'','label' =>'Moulage', 'name' => 'moulage', 'btnname1' =>'addMoulage', 'btnlabel1'=>'Add row', 'btnname2'=>'uploadMoulage', 'btnlabel2'=>'Add file', 'value' =>'<ul> <li></li> </ul>'));
 
-$neck = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'initial_patient_examination','label'=>'Neck', 'name'=>'neck', 'btnname' =>'addneck', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
+$neck = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'initial_patient_examination','label'=>'Neck', 'name'=>'initial_patient_examination[neck]', 'btnname' =>'addneck', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
 
-$neurological = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'initial_patient_examination','label'=>'Neuro', 'name'=>'neurological', 'btnname' =>'addneuro', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
+$neurological = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'initial_patient_examination','label'=>'Neuro', 'name'=>'initial_patient_examination[neurological]', 'btnname' =>'addneuro', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
 
-$otherIPE = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'initial_patient_examination','label'=>'Other', 'name'=>'otherIPE', 'btnname' =>'addotherIPE', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
+$otherIPE = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'initial_patient_examination','label'=>'Other', 'name'=>'initial_patient_examination[otherIPE]', 'btnname' =>'addotherIPE', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
 
 $resources = new Template('mkTextarea.php', array('type' =>'singletext','entity'=>'','label' =>'Resources', 'name' => 'resources', 'btnname1' =>'addResource', 'btnlabel1'=>'Add resource', 'btnname2'=>'uploadResource', 'btnlabel2'=>'Add file', 'value' =>'<ul> <li></li> </ul>'));
 
@@ -205,6 +205,7 @@ $preparationTab = new Template('mkTabHeader.php', array('tabID'=>'preparation', 
 
 //CLOSING CONTENT
 $closing = new Template('mkClosingContent.php', array('buttonlabel1'=>'Save', 'javascript'=>array("js/vendor/jquery.js", "js/vendor/foundation.min.js")));
+$closingEditCase = new Template('mkClosingContent.php', array('buttonlabel1'=>'Update this Case', 'javascript'=>array("js/vendor/jquery.js", "js/vendor/foundation.min.js")));
 
 $closingOneCase = new Template('mkClosingContentOneCase.php', array('javascript'=>array("js/vendor/jquery.js", "js/vendor/foundation.min.js")));
 

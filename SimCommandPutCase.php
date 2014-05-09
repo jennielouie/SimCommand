@@ -38,7 +38,7 @@ curl_close($ch);
           <nav class="top-bar" data-topbar>
             <ul class="title-area">
               <li class="name">
-                <h1><a class="alwaysShow" href="#">SimCommand HTTP Response: Edit Case</a></h1>
+                <h1><a class="alwaysShow" href="#">SimCommand HTTP Response: PUT Case</a></h1>
               </li>
             </ul>
           </nav>

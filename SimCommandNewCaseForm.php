@@ -7,7 +7,7 @@ $form['header'] = $newCaseHeader;
 //CASE INFO TAB
 $form['startTab'] = $caseInfoTab;
 $form['title'] = $title;
-$form['id']=$caseID;
+// $form['id']=$caseID;
 $form['case_number'] = $caseNumber;
 $form['published_date']=$publishedDate;
 $form['categories'] = $library_categories;

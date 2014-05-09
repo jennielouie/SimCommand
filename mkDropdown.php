@@ -8,7 +8,7 @@
       </div>
 
       <div class="small-10 columns">
-        <select name="<?php echo $this->__get('entity').'['; echo $this->__get('name').']'; ?>">
+        <select name="<?php echo $this->__get('name'); ?>">
           <?php
             foreach($this->values as $item=>$selected){
           ?>

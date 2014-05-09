@@ -54,7 +54,7 @@ curl_close($ch);
     </div>
 
     <div class="row responsebox">
-      <h3>Response to PUT request</h3>
+      <h3>Response to POST request</h3>
       <p><?php print_r($response->result); ?></p>
     </div>
 

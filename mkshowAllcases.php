@@ -2,12 +2,15 @@
     <fieldset>
       <div class="row">
         <div class="small-3 columns">
-       <h3>Case Title:</h3>
+       <h4>Case Title:</h4>
         </div>
-        <div class="title small-9 columns">
+        <div class="title small-7 columns">
         <!-- <h3><a href=<#?php echo "http://private-1c15-scapi.apiary-mock.com/cases/$this->caseID.html" ?>><#?php echo $this->title; ?></a></h3> -->
-        <h3><a href='SimCommandGetOneCase.php?id=<?php echo $this->caseID; ?>'><?php echo $this->title; ?></a></h3>
+        <h4><a href='SimCommandGetOneCase.php?id=<?php echo $this->caseID; ?>'><?php echo $this->title; ?></a></h4>
         </div>
+        <div class="small-2 columns">
+        <a class="button tiny" href='SimCommandGetOneCase.php?id=<?php echo $this->caseID; ?>'>View Case</a>
+      </div>
       </div>
 
 
@@ -72,11 +75,7 @@
       <div class="row">
         <div class="small-8 columns">
           <span>Instructional Goals:</span></br></br>
-          <!-- <ul class="instructionalGoalsList">
-            <#?php foreach($this->instructionalGoals as $goal) { ?>
-            <li><#?php echo $goal; ?></li></br></br>
-            <#?php } ?>
-          </ul> -->
+
           <?php echo $this->instructionalGoals; ?>
         </div>
       </div>

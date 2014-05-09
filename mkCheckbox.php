@@ -7,7 +7,7 @@
         foreach($this->values as $item=>$checked){
       ?>
 
-      <li><input  id='<?php echo $this->__get('name').'_'.$counter; ?>' type="checkbox" name="<?php echo $this->__get('entity').'['; echo $this->__get('name').'][]'; ?>" value='<?php echo $item;?>' <?php echo $checked;?>>
+      <li><input  id='<?php echo $this->__get('name').'_'.$counter; ?>' type="checkbox" name="<?php echo $this->__get('name').'[]'; ?>" value='<?php echo $item;?>' <?php echo $checked;?>>
       <label for='<?php echo $this->__get('name').'_'.$counter; ?>'><?php echo $item; ?></label></li>
 
 

@@ -9,7 +9,7 @@
       </div>
 
       <div class="large-8 small-10 large-offset-2 columns">
-          <input name="<?php echo $this->__get('entity').'['; echo $this->__get('name').']'; ?>" type="text" value="<?php echo $this->__get('value'); ?>"  />
+          <input name="<?php echo $this->__get('name'); ?>" type="text" value="<?php echo $this->__get('value'); ?>"  />
       </div>
     </div>
 

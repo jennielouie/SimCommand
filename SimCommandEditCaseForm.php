@@ -84,7 +84,7 @@ $form['other']=$otherIPE;
 $form['editStatesLink'] = $editStatesLink;
 
 $form['end tab'] = $endTabs;
-$form['closing'] = $closing;
+$form['closing'] = $closingEditCase;
 
 
 

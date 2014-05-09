@@ -6,7 +6,7 @@
         <span data-tooltip class="has-tip [tip-bottom]" title='<?php echo $this->__get('tooltip');?>'><?php echo $this->__get('label');?></span>
       </div>
       <div class="small-10 columns">
-        <textarea class="textareaMCE" id='<?php echo $this->__get('name');?>' name="<?php echo $this->__get('entity').'['; echo $this->__get('name').']'; ?>"><?php echo $this->__get('value');?></textarea>
+        <textarea class="textareaMCE" id='<?php echo $this->__get('name');?>' name="<?php echo $this->__get('name'); ?>"><?php echo $this->__get('value');?></textarea>
       </div>
     </div>
   </div>

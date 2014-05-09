@@ -1,6 +1,6 @@
 <!-- Beginning of single action -->
   <?php
-      $name_prefix = 'cases[states]['.$stateIndex.'][actions]['.$actionIndex.']';
+      $name_prefix = 'states['.$stateIndex.'][actions]['.$actionIndex.']';
       $id_prefix = 'radio'.$state_jsonID.'action'.$actionIndex.'-';
   ?>
 
