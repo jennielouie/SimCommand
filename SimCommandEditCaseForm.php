@@ -1,7 +1,9 @@
 <?php
 include('SimCommandTemplates.php');
 
-
+if(isset($_GET["id"])){
+  $specificCaseID = $_GET["id"];
+}
 
 //UNCOMMENT LINE BELOW FOR EXAMPLE OF PRE-LOADING AN EXISTING CASE
 // include('samplejson.php');
@@ -11,6 +13,8 @@ include('SimCommandTemplates.php');
 
 $form = array();
 $form['header'] = $editCaseHeader;
+$action ="/simCommandPutCase.php?id=$specificCaseID";
+$editCaseHeader->formAction = $action;
 
 //CASE INFO TAB
 $form['startTab'] = $caseInfoTab;
@@ -43,7 +47,9 @@ $form['debriefing'] = $debriefing;
 
 //ASSESSMENT TAB
 $form['assessmentTab'] = $assessmentTab;
-$form['assessment_items'] = $allAssessments;
+// $form['assessment_items'] = $allAssessments;
+$form['editAssessmentsLink'] = $editAssessmentsLink;
+$editAssessmentsLink->caseID = $specificCaseID;
 
 // PREPARATION TAB
 $form['prepTab'] = $preparationTab;
@@ -74,7 +80,8 @@ $form['neurological']=$neurological;
 $form['other']=$otherIPE;
 //end of IPE fields
 
-$form['states'] = $allStates;
+// $form['states'] = $allStates;
+$form['editStatesLink'] = $editStatesLink;
 
 $form['end tab'] = $endTabs;
 $form['closing'] = $closing;
@@ -82,7 +89,7 @@ $form['closing'] = $closing;
 
 
 if(isset($_GET["id"])){
-  $specificCaseID = $_GET["id"];
+
   $url = "http://private-1c15-scapi.apiary-mock.com/cases/$specificCaseID";
   $ch = curl_init();
 

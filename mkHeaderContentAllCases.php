@@ -9,29 +9,15 @@
     <?php foreach($this->javascript as $script) {?>
     <script src="<?php echo $script; ?>"></script>
     <?php } ?>
-<script src="/js/tinymce/jquery.tinymce.min.js" type="text/javascript"></script>
+<!-- <script src="/js/tinymce/jquery.tinymce.min.js" type="text/javascript"></script> -->
 
 
-
-<script type="text/javascript">
-
-function loadTinyMCEEditor() {
-  tinyMCE.init({
-    selector: "textarea.textareaMCE",
-    entity_encoding : "named+numeric",
-
-    toolbar: "undo redo | fontsizeselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link "
-  });
-}
-loadTinyMCEEditor();
-
-</script>
   </head>
 
   <body>
 
     <div class="row">
-      <form action="<?php echo $this->formAction;?>" method="post" novalidate>
+      <!-- <form action="<#?php echo $this->formAction;?>" method="post" novalidate> -->
 
 
 <!-- NAV -->
@@ -43,7 +29,7 @@ loadTinyMCEEditor();
         <ul class="title-area">
           <!-- Title Area -->
           <li class="name">
-            <h1><a href="#">SimCommand</a></h1>
+            <h1><a href="#">SimCommand Summary of Cases</a></h1>
           </li>
           <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
           <!-- <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li> -->
@@ -59,6 +45,8 @@ loadTinyMCEEditor();
                   </section> -->
 
       </nav>
+
+      <a class="alwaysShow button tiny" href="/SimCommandNewCaseForm.php">Create New Case</a>
 <!-- </div> -->
     </div>
   </div>

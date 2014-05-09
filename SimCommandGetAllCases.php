@@ -19,7 +19,7 @@ $response=$json["body"];
 
 // var_dump($response);
   $caseArray = [];
-  $caseArray[] = $allcasesHeader;
+  $caseArray[] = $allCasesHeader;
 
     foreach($response as $caseIndex=>$case) {
       // create a new assessment, and then add to assessment array

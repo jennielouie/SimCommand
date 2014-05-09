@@ -9,12 +9,12 @@
         <textarea class="textareaMCE" id='<?php echo $this->__get('name');?>' name="<?php echo $this->__get('entity').'['; echo $this->__get('name').']'; ?>"><?php echo $this->__get('value');?></textarea>
       </div>
 
-      <div class="small-2 columns">
-        <!-- <div class="small primary button"> -->
+<!--       <div class="small-2 columns">
+
             <label>
             <input id="uploadBtn" type="file" display="none" class="upload" />Upload File</label>
-        <!-- </div> -->
-      </div>
+
+      </div> -->
     </div>
   </div>
 </div>

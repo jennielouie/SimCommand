@@ -2,7 +2,10 @@
 <?php
 include_once('SimCommandTemplates.php');
 
-$specificCaseID = $_GET["id"];
+if(isset($_GET["id"])){
+  $specificCaseID = $_GET["id"];
+}
+
 $url = "http://private-1c15-scapi.apiary-mock.com/cases/$specificCaseID";
 $ch = curl_init();
 
@@ -54,6 +57,7 @@ $case=$json["body"];
 
 $form = array();
 $form['header'] = $getCaseHeader;
+$getCaseHeader->caseID = $specificCaseID;
 
 //CASE INFO TAB
 $form['startTab'] = $caseInfoTab;

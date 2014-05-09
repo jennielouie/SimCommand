@@ -45,9 +45,11 @@
 
       </nav>
 <!-- </div> -->
-<a class="alwaysShow" href="/SimCommandGetAllCases.php">Back to All Cases</a> |
-<a class="alwaysShow" href="/SimCommandNewCaseForm.php">Create New Case</a> |
-<a class="alwaysShow" href="/SimCommandEditCaseForm.php?id=1">Edit This Case</a>
+<a class="alwaysShow button tiny" href="/SimCommandGetAllCases.php">Back to All Cases</a>
+<a class="alwaysShow button tiny" href="/SimCommandNewCaseForm.php">Create New Case</a>
+<a class="alwaysShow button tiny" href="/SimCommandEditCaseForm.php?id=<?php echo $this->caseID; ?>">Edit This Case</a>
+<a class="alwaysShow button tiny" href="/SimCommandGetCaseAssessments.php?case_id=<?php echo $this->caseID; ?>">Edit Case Assessments</a>
+<a class="alwaysShow button tiny" href="/SimCommandGetCaseStates.php?id=<?php echo $this->caseID; ?>">Edit Case States</a>
     </div>
   </div>
 </div>

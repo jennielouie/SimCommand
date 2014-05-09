@@ -1,0 +1,1 @@
+<a class="alwaysShow" href='<?php echo "$this->link?case_id=$this->caseID"; ?>'><?php echo $this->title; ?></a>

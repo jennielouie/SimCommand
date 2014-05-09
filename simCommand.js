@@ -31,7 +31,7 @@ uniqueActionIndex = 100000;
   // ADD NEW INPUT BAR BELOW BOTTOM ONE, AND INCLUDE REMOVE BUTTON FOR THAT ROW
     var newInputBarName = $(e.currentTarget).attr('data-name');
     var addedRowDivName = $(e.currentTarget).attr('data-newRowDiv');
-   $("</br><div class='dataRow'><div class='large-8 small-10 large-offset-2 columns'><input name=" + newInputBarName+ " type='text' required/></div><div class='small-1 columns'><a href='#'>Delete</a></div></div>").appendTo("." + addedRowDivName);
+   $("</br><div class='dataRow'><div class='large-8 small-10 large-offset-2 columns'><input name=" + newInputBarName+ " type='text' required/></div><div class='small-1 columns'><a href='#' class='delete'>Delete</a></div></div>").appendTo("." + addedRowDivName);
   });
 
   $(".rowWith2Buttons").on('click', 'button', function(e){
@@ -41,13 +41,13 @@ uniqueActionIndex = 100000;
     var addedRowDivName = $(e.currentTarget).attr('data-newRowDiv');
 
 
-   $("</br><div class='dataRow'><div class='small-9 columns'><input name=" + newInputBarName+ " type='text' required/></div><div class='small-2 columns'><span>Upload</span><input type='file' class='upload'></div><div class='small-1 columns'><a href='#'>Delete</a></div></div>").appendTo("." + addedRowDivName);
+   $("</br><div class='dataRow'><div class='small-9 columns'><input name=" + newInputBarName+ " type='text' required/></div><div class='small-2 columns'><span>Upload</span><input type='file' class='upload'></div><div class='small-1 columns'><a href='#' class='delete'>Delete</a></div></div>").appendTo("." + addedRowDivName);
   });
 
 
 /* DELETE FUNCTIONALITY INCLUDING RE-NUMBERING OF ARRAY INDICES */
   // DELEGATE LISTENER TO "MULTITEXTBAR" ROWS DIV, WHICH EXIST AT FIRST RENDER, TO REMOVE ROW WHEN "REMOVE" BUTTON IS CLICKED.
-  $(".multiInputDiv").on('click', 'a', function(e){
+  $(".multiInputDiv").on('click', 'a.delete', function(e){
     e.preventDefault();
     console.log('clicked');
     var selectedRow = $(this).closest(".dataRow");

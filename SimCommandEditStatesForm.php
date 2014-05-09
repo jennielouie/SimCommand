@@ -1,37 +1,12 @@
 <?php
-include('SimCommandTemplates.php');
-
-
-
-//UNCOMMENT LINE BELOW FOR EXAMPLE OF PRE-LOADING AN EXISTING CASE
-// include('samplejson.php');
-
-
-// create form array
-
-$form = array();
-$form['header'] = $mainHeaderEditMode;
-
-//CASE INFO TAB
-$form['startTab'] = $caseInfoTab;
-$form['title'] = $title;
-$form['id']=$caseID;
-$form['case_number'] = $caseNumber;
-
-
-//ASSESSMENT TAB
-$form['assessmentTab'] = $assessmentTab;
-$form['assessment_items'] = $allAssessments;
-
-
-$form['end tab'] = $endTabs;
-$form['closing'] = $closing;
-
+include_once('SimCommandTemplates.php');
 
 //retrieve assessments for given case_id
 
-$specificCaseID = $_GET["id"];
-$url = "http://private-1c15-scapi.apiary-mock.com/assessmentitems?case_id=$specificCaseID";
+if(isset($_GET["id"])){
+  $specificCaseID = $_GET["id"];
+}
+$url = "http://private-1c15-scapi.apiary-mock.com/states?state_id=$specificCaseID";
 $ch = curl_init();
 
 curl_setopt($ch, CURLOPT_URL, $url);
@@ -42,8 +17,24 @@ $httpresponse = curl_exec($ch);
 curl_close($ch);
 
 
+
 $json = json_decode($httpresponse, true);
 $assessments=$json["body"];
+
+
+
+// create form array
+
+$form = array();
+$form['header'] = $editAssessmentsHeader;
+//retrieve Case ID number to display in page heading
+$editAssessmentsHeader->caseID = $specificCaseID;
+
+$form['assessmentTab'] = $assessmentTab;
+$form['assessment_items'] = $allAssessments;
+
+$form['closing'] = $closingNoShortcuts;
+
   //Iterate through each key:value pair in the json response object for a particular case ID.  All keys should exist in the form, but I use an if statement to be safe.  Iterate to grab the corresponding template object from the form, and add case-specific data in that template object's attributes.  So, these attributes will be associated with the template object when it is rendered.
 
 $assessmentsArray = [];
@@ -51,7 +42,7 @@ $assessmentsArray = [];
   foreach($assessments as $assessmentIndex=>$assessment) {
     // create a new assessment, and then add to assessment array
     $newAssessment = new Template('mkOneAssessmentObject.php', array(
-      'id'=>$assessment['case_id'],
+      'id'=>$assessment['id'],
       'name'=>$assessment['name'],
       'is_critical'=>$assessment['is_critical'],
       'type'=>'oneAssessment',

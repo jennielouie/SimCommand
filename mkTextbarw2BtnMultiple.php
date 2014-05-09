@@ -25,13 +25,13 @@
           <div class="small-9 columns">
             <textarea name="<?php echo $this->__get('entity').'['; echo $this->__get('name').'][]'; ?>"><?php echo $item; ?></textarea>
           </div>
-          <div class="small-2 columns uploadRow">
+<!--           <div class="small-2 columns uploadRow">
             <span>Upload</span>
             <input id="uploadBtn" type="file" class="upload" />
-          </div>
+          </div> -->
 
           <div class="small-1 columns">
-            <a href='#'>Delete</a>
+            <a href='#' class="delete">Delete</a>
           </div>
         </div>
         <?php

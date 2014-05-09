@@ -43,10 +43,10 @@
           <input type="radio" checked id="IDholder-cf"  name= "[placeholder][is_critical_item]" value="false" /><label for="IDholder-cf">No</label>
         </div>
 
-        <div class="small-4 columns uploadRow">
+<!--         <div class="small-4 columns uploadRow">
           <span>Upload</span>
           <input id="uploadBtn" type="file" class="upload" />
-        </div>
+        </div> -->
 
         <div class="small-1 columns">
           <span data-tooltip class="has-tip [tip-bottom]" title="<?php echo $this->timer_tooltip;?>"><?php echo $this->timer_label;?></span>

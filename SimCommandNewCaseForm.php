@@ -69,7 +69,7 @@ $form['other']=$otherIPE;
 $form['states'] = $allStates;
 
 $form['end tab'] = $endTabs;
-$form['closing'] = $closingOneCase;
+$form['closing'] = $closing;
 
 // //UNCOMMENT LINE BELOW FOR EXAMPLE OF PRE-LOADING AN EXISTING CASE
 // // include('samplejson.php');

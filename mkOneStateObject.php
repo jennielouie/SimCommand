@@ -1,5 +1,5 @@
   <?php
-      $name_prefix = 'cases[states]['.$stateIndex.']';
+      $name_prefix = 'states['.$stateIndex.']';
       $state_jsonID = $this->id;
   ?>
 

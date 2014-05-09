@@ -23,22 +23,23 @@
             <nav class="top-bar" data-topbar>
               <ul class="title-area">
                 <li class="name">
-                  <h1><a class="alwaysShow" href="#"><?php echo $this->title; ?></a></h1>
+                  <h1><a class="alwaysShow" href="#"><?php echo "$this->title $this->caseID"; ?></a></h1>
                 </li>
               </ul>
 
-              <dl class="tabs" data-tab data-options="deep_linking: true">
+         <!--      <dl class="tabs" data-tab data-options="deep_linking: true">
                 <dd class="active"><a href="#caseInfo">Case Info</a></dd>
                 <dd><a href="#instructionalFoundation">Instructions</a></dd>
                 <dd><a href="#assessment">Assessment</a></dd>
                 <dd><a href="#preparation">Preparation</a></dd>
                 <dd><a href="#caseDetails">Case Details</a></dd>
-              </dl>
+              </dl> -->
             </nav>
 
+            <a class="alwaysShow button tiny" href="/SimCommandGetAllCases.php">Back to All Cases</a>
+            <a class="alwaysShow button tiny" href="/SimCommandEditCaseForm.php?id=<?php echo $this->caseID; ?>">Back to Edit This Case</a>
+            <a class="alwaysShow button tiny" href="/SimCommandGetCaseAssessments.php?case_id=<?php echo $this->caseID; ?>">Assessments List</a>
 
-              <a class="alwaysShow button tiny" href="/SimCommandGetAllCases.php">Back to All Cases</a>
-              <a class="alwaysShow button tiny" href="/SimCommandNewCaseForm.php">Create New Case</a>
           </div>
         </div>
       </div>
