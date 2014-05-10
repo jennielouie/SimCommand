@@ -32,6 +32,7 @@ $form['header'] = $editStateHeader;
 $editStateHeader->caseID = $specificCaseID;
 $action ="/simCommandPutState.php?state_id=$stateID";
 $editStateHeader->formAction = $action;
+$editStateHeader->stateID = $stateID;
 
 // $form['stateTab'] = $stateTab;
 $form['state'] = $stateToEdit;
@@ -43,6 +44,7 @@ $form['closing'] = $closingEditState;
 
     // create a new assessment, and then add to assessment array
     $stateToEdit = new Template('mkOneStateObjectforEdit.php', array(
+      'caseID'=>$state['case_id'],
       'id'=>$state['id'],
       'notes'=>$state['notes'],
       'general'=>$state['general'],

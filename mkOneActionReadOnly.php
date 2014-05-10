@@ -1,15 +1,17 @@
 <!-- Beginning of single action -->
   <?php
-      $name_prefix = 'states['.$stateIndex.'][actions]['.$actionIndex.']';
+      $name_prefix = '';
+      $state_jsonID = '9090' // dummy value, not needed for readonly view
+      $actionIndex = '4444' //dummy value
       $id_prefix = 'radio'.$state_jsonID.'action'.$actionIndex.'-';
   ?>
 
-<div id="<?php echo "state_".$state_jsonID."_action_".$this->id; ?>" class="one_action_div borderDiv dataRow row" class="<?php echo "rowForState_".$state_jsonID;?>" data-arrayIndex ="<?php echo $actionIndex; ?>" data-statejsonID = "<?php echo $state_jsonID; ?>" data-actionjsonID="<?php echo $this->id; ?>">
+<div>
 
 
     <div class="small-12 columns">
 
-        <input class="actionName" disabled="true" name="<?php echo $name_prefix.'[name]'; ?>" type="text" value="<?php echo $this->name ?>" />
+        <input class="actionName" disabled="true" type="text" value="<?php echo $this->name ?>" />
     </div>
     </br>
 

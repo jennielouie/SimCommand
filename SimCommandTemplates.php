@@ -182,13 +182,17 @@ $getAssessmentsHeader= new Template('mkHeaderContentFormAssessments.php', array(
 
 $getStatesHeader= new Template('mkHeaderContentFormStates.php', array('tabTitle' => 'Edit States', 'title' => 'List of States for Case', 'formMethod'=>'post','formAction'=>'/simCommandPutState.php', 'javascript'=>array('modernizrSimCommand.js','//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'simCommand.js','http://cdn.foundation5.zurb.com/foundation.js'),'stylesheet' => 'foundationSimCommand.css', 'caseTitle'=>'', 'caseID'=>''));
 
+$getActionsHeader= new Template('mkHeaderContentShowActions.php', array('tabTitle' => 'Edit Actions', 'title' => 'List of Actions for State', 'javascript'=>array('modernizrSimCommand.js','//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'simCommand.js','http://cdn.foundation5.zurb.com/foundation.js'),'stylesheet' => 'foundationSimCommand.css', 'caseTitle'=>'', 'caseID'=>'', 'stateID'=>''));
+
 $editAssessmentHeader= new Template('mkHeaderContentFormAssessments.php', array('tabTitle' => 'Edit Assessments', 'title' => 'Edit Assessment ', 'formMethod'=>'post','formAction'=>'/simCommandPutAssessment.php', 'javascript'=>array('modernizrSimCommand.js','//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'simCommand.js','http://cdn.foundation5.zurb.com/foundation.js'),'stylesheet' => 'foundationSimCommand.css', 'caseTitle'=>'', 'caseID'=>''));
 
-$editStateHeader= new Template('mkHeaderContentFormAssessments.php', array('tabTitle' => 'Edit State', 'title' => 'Edit State ', 'formMethod'=>'post','formAction'=>'/simCommandPutState.php', 'javascript'=>array('modernizrSimCommand.js','//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'simCommand.js','tinymce/js/tinymce/tinymce.min.js','http://cdn.foundation5.zurb.com/foundation.js','functionTinyMCE.js'),'stylesheet' => 'foundationSimCommand.css', 'caseTitle'=>'', 'caseID'=>''));
+$newAssessmentHeader= new Template('mkHeaderContentFormAssessments.php', array('tabTitle' => 'New Assessment', 'title' => 'New Assessment ', 'formMethod'=>'post','formAction'=>'/simCommandPostAssessment.php', 'javascript'=>array('modernizrSimCommand.js','//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'simCommand.js','http://cdn.foundation5.zurb.com/foundation.js'),'stylesheet' => 'foundationSimCommand.css', 'caseTitle'=>'', 'caseID'=>''));
+
+$editStateHeader= new Template('mkHeaderContentFormStates.php', array('tabTitle' => 'Edit State', 'title' => 'Edit State ', 'formMethod'=>'post','formAction'=>'/simCommandPutState.php', 'javascript'=>array('modernizrSimCommand.js','//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'simCommand.js','tinymce/js/tinymce/tinymce.min.js','http://cdn.foundation5.zurb.com/foundation.js','functionTinyMCE.js'),'stylesheet' => 'foundationSimCommand.css', 'caseTitle'=>'', 'caseID'=>'', 'stateID'=>''));
 
 $editAssessmentsLink = new Template('mkEditSectionLink.php', array('title'=>'Edit this Case\'s Assessments','link'=>'/SimCommandGetCaseAssessments.php', 'caseID'=>''));
 
-$editStatesLink = new Template('mkEditSectionLink.php', array('title'=>'Edit this Case\'s States','link'=>'/SimCommandEditStatesForm.php', 'caseID'=>''));
+$editStatesLink = new Template('mkEditSectionLink.php', array('title'=>'Edit this Case\'s States','link'=>'/SimCommandGetCaseStates.php', 'caseID'=>''));
 //TAB HEADER $ = new Template('mkTabHeader.php', array('tabID'=>'', 'tabTitle'=>''));
 
 $assessmentTab = new Template('mkTabHeader.php', array('tabID'=>'assessment', 'tabTitle'=>'Assessment'));
@@ -216,6 +220,8 @@ $closingOneCase = new Template('mkClosingContentOneCase.php', array('javascript'
 $closingNoShortcuts = new Template('mkClosingContentNoShortcuts.php', array('buttonlabel1'=>'Save','javascript'=>array("js/vendor/jquery.js", "js/vendor/foundation.min.js")));
 
 $closingEditAssessment = new Template('mkClosingContentNoShortcuts.php', array('buttonlabel1'=>'Update', 'javascript'=>array("js/vendor/jquery.js", "js/vendor/foundation.min.js")));
+
+$closingNewAssessment = new Template('mkClosingContentNoShortcuts.php', array('buttonlabel1'=>'Create Assessment', 'javascript'=>array("js/vendor/jquery.js", "js/vendor/foundation.min.js")));
 
 $closingEditState = new Template('mkClosingContentNoShortcuts.php', array('buttonlabel1'=>'Update', 'javascript'=>array("js/vendor/jquery.js", "js/vendor/foundation.min.js")));
 

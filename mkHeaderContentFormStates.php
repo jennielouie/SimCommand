@@ -14,7 +14,7 @@
   <body>
 
     <div class="row">
-
+           <form action="<?php echo $this->formAction;?>" method="<?php echo $this->formMethod;?>" novalidate>
       <!-- NAV -->
       <div class="row">
         <div class="small-12 columns">
@@ -22,7 +22,7 @@
             <nav class="top-bar" data-topbar>
               <ul class="title-area">
                 <li class="name">
-                  <h1><a class="alwaysShow" href="#"><?php echo "$this->title $this->caseID"; ?></a></h1>
+                  <h1><a class="alwaysShow" href="#"><?php echo "$this->title $this->stateID"; ?></a></h1>
                 </li>
               </ul>
 

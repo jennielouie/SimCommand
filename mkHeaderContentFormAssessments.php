@@ -37,3 +37,7 @@
         </div>
       </div>
 
+        <div class="small-6 columns">
+    <a href="SimCommandNewAssessmentForm.php?case_id=<?php echo $this->caseID; ?>" type="button" class="small success button expand">Add Assessment</a>
+  </div></br>
+

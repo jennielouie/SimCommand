@@ -1,5 +1,5 @@
   <?php
-      $name_prefix = 'states['.$stateIndex.']';
+
       $state_jsonID = $this->id;
   ?>
 
@@ -15,12 +15,12 @@
 
     <div class="row">
       <!-- commented out submittal of state id -->
-      <!-- <input type="hidden" class="hiddenStateJsonID" name="<#?php echo $name_prefix.'[id]'; ?>" value="<#?php echo $state_jsonID; ?>"/> -->
+      <input type="hidden" class="hiddenStateJsonID" name="case_id" value="<?php echo $this->caseID; ?>"/>
       <div class="large-2 small-10 columns">
         <span data-tooltip class="has-tip [tip-bottom]" title="add text">Notes</span>
       </div>
       <div class="small-10 columns">
-        <div class="MCEDivToRemove"><textarea class="textareaMCE actionNotes" name="<?php echo $name_prefix.'[notes]'; ?>"><?php echo $this->notes;?></textarea></div>
+        <div class="MCEDivToRemove"><textarea class="textareaMCE actionNotes" name="notes"><?php echo $this->notes;?></textarea></div>
       </div>
     </div>
     </br>
@@ -30,7 +30,7 @@
         <span data-tooltip class="has-tip [tip-bottom]" title='add text'>General</span>
       </div>
       <div class="small-10 columns">
-        <div class="MCEDivToRemove"><textarea class="textareaMCE actionGeneral" name="<?php echo $name_prefix.'[general]'; ?>"><?php echo $this->general;?></textarea></div>
+        <div class="MCEDivToRemove"><textarea class="textareaMCE actionGeneral" name="general"><?php echo $this->general;?></textarea></div>
       </div>
     </div>
     </br>
@@ -40,21 +40,21 @@
         <span>Temperature</span>
       </div>
       <div class="small-2 columns">
-        <input class="actionTemp" name="<?php echo $name_prefix.'[temp_celcius]'; ?>"type="text" value='<?php echo $this->temp_celcius; ?>'/>
+        <input class="actionTemp" name="temp_celcius"type="text" value='<?php echo $this->temp_celcius; ?>'/>
       </div>
 
       <div class="small-2 columns">
         <span>Respiration Rate</span>
       </div>
       <div class="small-2 columns">
-        <input class="actionRespRate" name="<?php echo $name_prefix.'[resp_rate]'; ?>"type="text" value='<?php echo $this->resp_rate; ?>'/>
+        <input class="actionRespRate" name="resp_rate" type="text" value='<?php echo $this->resp_rate; ?>'/>
       </div>
 
       <div class="small-2 columns">
         <span>Heart Rate</span>
       </div>
       <div class="small-2 columns">
-        <input class="actionHeartRate" name="<?php echo $name_prefix.'[heart_rate]'; ?>"type="text" value='<?php echo $this->heart_rate ;?>'/>
+        <input class="actionHeartRate" name="heart_rate" type="text" value='<?php echo $this->heart_rate ;?>'/>
       </div>
     </div>
 
@@ -63,21 +63,21 @@
         <span >BP Systolic</span>
       </div>
       <div class="small-2 columns">
-        <input class="actionBPSys" name="<?php echo $name_prefix.'[bp_systolic]'; ?>"type="text" value='<?php echo $this->bp_systolic; ?>'/>
+        <input class="actionBPSys" name="bp_systolic" type="text" value='<?php echo $this->bp_systolic; ?>'/>
       </div>
 
       <div class="small-2 columns">
         <span >BP Diastolic</span>
       </div>
       <div class="small-2 columns">
-        <input class="actionBPDia" name="<?php echo $name_prefix.'[bp_diastolic]'; ?>"type="text" value='<?php echo $this->bp_diastolic; ?>'/>
+        <input class="actionBPDia" name="bp_diastolic" type="text" value='<?php echo $this->bp_diastolic; ?>'/>
       </div>
 
       <div class="small-2 columns">
         <span >SpO2</span>
       </div>
       <div class="small-2 columns">
-        <input class="actionSpO2" name="<?php echo $name_prefix.'[spo2]'; ?>"type="text" value='<?php echo $this->spo2; ?>'/>
+        <input class="actionSpO2" name="spo2" type="text" value='<?php echo $this->spo2; ?>'/>
       </div>
     </div>
 
@@ -86,14 +86,14 @@
         <span >Weight</span>
       </div>
       <div class="small-2 columns">
-        <input class="actionWeight" name="<?php echo $name_prefix.'[weight]'; ?>"type="text" value='<?php echo $this->weight; ?>'/>
+        <input class="actionWeight" name="weight" type="text" value='<?php echo $this->weight; ?>'/>
       </div>
 
       <div class="small-2 columns">
         <span>Pain Score</span>
       </div>
       <div class="small-2 columns">
-        <input class="actionPainScore" name="<?php echo $name_prefix.'[pain_score]'; ?>" type="text" value="<?php echo $this->pain_score; ?>"/>
+        <input class="actionPainScore" name="pain_score" type="text" value="<?php echo $this->pain_score; ?>"/>
       </div>
 
       <div class="small-2 columns">
@@ -101,7 +101,7 @@
       </div>
 
       <div class="small-2 columns">
-        <input class="actionOther"name="<?php echo $name_prefix.'[other]'; ?>" type="text" value="<?php echo $this->other; ?>"/>
+        <input class="actionOther"name="other" type="text" value="<?php echo $this->other; ?>"/>
       </div>
     </div>
 
@@ -113,7 +113,7 @@
           </div>
           <div class="small-10 columns">
             <div class="MCEDivToRemove">
-              <textarea class="textareaMCE actionDiscussionItems" name="<?php echo $name_prefix.'[discussion_items]'; ?>"><?php echo $this->discussion_items;?>
+              <textarea class="textareaMCE actionDiscussionItems" name="discussion_items"><?php echo $this->discussion_items;?>
               </textarea>
             </br></br>
             </div>

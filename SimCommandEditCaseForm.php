@@ -83,6 +83,7 @@ $form['other']=$otherIPE;
 
 // $form['states'] = $allStates;
 $form['editStatesLink'] = $editStatesLink;
+$editStatesLink->caseID = $specificCaseID;
 
 $form['end tab'] = $endTabs;
 $form['closing'] = $closingEditCase;

@@ -65,7 +65,6 @@ $assessmentsArray = [];
 $allAssessments = new Template('mkAllAssessmentsReadOnly.php', array('type'=>'allAssessments','assessmentsArray'=>$assessmentsArray));
 $form['assessment_items'] = $allAssessments;
 
-var_dump($json);
 // Finally, render form with case-specific data pre-loaded in fields.
 render_formarray($form);
 
