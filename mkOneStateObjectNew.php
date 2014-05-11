@@ -1,6 +1,6 @@
   <?php
       $name_prefix = 'states['.$stateIndex.']';
-      $state_jsonID = $this->state_id;
+      $state_jsonID = $this->id;
   ?>
 
 <div id="<?php echo "state_".$state_jsonID; ?>" class="dataRow borderDiv one_state_div" data-jsonID="<?php echo $state_jsonID; ?>" data-arrayIndex="<?php echo $stateIndex; ?>">
@@ -9,15 +9,13 @@
 
     <div class="row">
       <div class="small-3 columns">
-        <h3>State ID: <?php echo $this->state_id; ?> </h3>
+        <h3>State ID: <?php echo $this->stateID; ?> </h3>
       </div>
       <div class="small-3 columns end"><a href="#" class="delete">Delete this state</a>
       </div>
     </div>
 
     <div class="row">
-
-      <input type="hidden" class="hiddenStateJsonID" name="<?php echo $name_prefix.'[id]'; ?>" value="<?php echo $this->state_id; ?>"/>
 
       <div class="large-2 small-10 columns">
         <span data-tooltip class="has-tip [tip-bottom]" title="add text">Notes</span>

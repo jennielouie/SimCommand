@@ -137,7 +137,7 @@ $('#footerAssessmentButton').on('click', function(){
         newDiv.attr('data-jsonID', new_jsonID);
         newDiv.attr('data-arrayIndex', new_index);
         newDiv.find('input.assessmentName').attr('value', '');
-        // newDiv.find('h3').text('Assessment ID: '+ new_jsonID);
+        newDiv.find('h3').text('Assessment ID: '+ new_jsonID);
         // newDiv.find('input.assessmentIDHiddenRow').attr('value', new_jsonID);
 
 
@@ -262,7 +262,7 @@ $('#footerAssessmentButton').on('click', function(){
         newDiv.attr('data-actionjsonID', new_action_jsonID);
         //newDiv.find('span.actionTitle').text('State ID: ' + statejsonID + ' Action ' + new_action_jsonID);
         newDiv.find('input.actionName').attr('value', '');
-        //newDiv.find('input.actionIDHiddenRow').attr('value', new_action_jsonID);
+        newDiv.find('input.actionIDHiddenRow').attr('value', new_action_jsonID);
 
 
         newDiv.appendTo(action_div);
