@@ -6,10 +6,10 @@
         </div>
         <div class="title small-7 columns">
         <!-- <h3><a href=<#?php echo "http://private-1c15-scapi.apiary-mock.com/cases/$this->caseID.html" ?>><#?php echo $this->title; ?></a></h3> -->
-        <h4><a href='SimCommandGetOneCase.php?case_id=<?php echo $this->caseID; ?>'><?php echo $this->title; ?></a></h4>
+        <h4><a href='SimCommandEditOneCaseForm.php?case_id=<?php echo $this->caseID; ?>'><?php echo $this->title; ?></a></h4>
         </div>
         <div class="small-2 columns">
-        <a class="button tiny" href='SimCommandGetOneCase.php?case_id=<?php echo $this->caseID; ?>'>View Case</a>
+        <a class="button tiny" href='SimCommandEditOneCaseForm.php?case_id=<?php echo $this->caseID; ?>'>View/Edit Case</a>
       </div>
       </div>
 

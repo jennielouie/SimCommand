@@ -14,7 +14,7 @@
   <body>
 
     <div class="row">
-      <form action="<?php echo $this->formAction;?>" method="<?php echo $this->formMethod;?>" novalidate>
+      <form action=<?php echo "$this->formAction$this->caseID";?> method="<?php echo $this->formMethod;?>" novalidate>
 
       <!-- NAV -->
       <div class="row">
@@ -39,8 +39,7 @@
 
               <a class="alwaysShow button tiny" href="/SimCommandGetAllCases.php">Back to All Cases</a>
               <a class="alwaysShow button tiny" href="/SimCommandNewCaseForm.php">Create New Case</a>
-              <a class="alwaysShow button tiny" href="/SimCommandGetCaseAssessments.php?case_id=<?php echo $this->caseID; ?>">Edit Case Assessments</a>
-              <a class="alwaysShow button tiny" href="/SimCommandGetCaseStates.php?case_id=<?php echo $this->caseID; ?>">Edit Case States</a>
+
           </div>
         </div>
       </div>

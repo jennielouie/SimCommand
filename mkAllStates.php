@@ -17,7 +17,7 @@
       <!-- <input class="actionIDHiddenRow" type="hidden" name="[placeholder][id]" value=""/> -->
 
       <div class="small-12 columns">
-        <span class="actionTitle" style="color:purple"></span>
+        <span class="actionTitle" >Name</span>
         <input class="actionName" name="[placeholder][name]" type="text" value="" />
       </div>
 

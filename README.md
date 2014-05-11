@@ -1,7 +1,16 @@
 SimCommand
 ==========
+SimCommandGetAllCases.php;  Sends HTTP GET request for all cases and renders view displaying case summaries.  Includes links to view/edit one specific case.
 
-WebFormSimCommand.php: contains definition of web form and code to pre-load a case from a json file.  Renders form.  When Save button is clicked, it outputs json data to simCommandOutput.php.  This will eventually post to the API.
+SimCommandEditOneCaseForm.php:  contains definition of web form and code to pre-load a case from a HTTP GET response.  Renders form. It saves the "pre-edited" case as a json string, to be used before sending PUT request.  Contains definitions for state, action, assessment objects that includes id and case/state ids. 
+
+SimCommandPutCase.php: json-encodes case data containing edits; compares edited data to pre-edit json string, makes POST/PUT HTTP REQUESTS to corresponding API endpoints.
+
+SimCommandNewCaseForm.php:  contains definition of web form and renders form.
+
+SimCommandPostNewCase.php: sends HTTP POST request to API with json-encoded case data.
+
+
 
 formTemplateClass.php:  This file defines the "Template" class that the form objects (textareas, checkboxes, etc.) are based on.  Each Template object has an associated HTML render file and array of values used to render that object.
 

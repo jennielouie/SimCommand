@@ -303,6 +303,7 @@ $('#footerAddStateButton').on('click', function(){
 
 //clear form values from clone
     newDiv.find("[type=text]").val('');
+    newDiv.find("h3").html('New State');
 
 
 //MAKE CLONE OF ACTIONS_SECTION_CLASS DIV, APPEND TO CONTAINER_DIV, UPDATE INDICES AND JSON IDS

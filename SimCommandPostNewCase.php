@@ -2,17 +2,29 @@
 <?php
 header('Content-Type: application/json');
 $jsondata = json_encode($_POST);
+// $states = $_POST['states'];
+// foreach($states as $stateIndex=>$state) {
+//   unset($states[$stateIndex]['actions']);
+// };
+
+// $assessment_items = $_POST['assessment_items'];
+// $actions = $_POST['states']['actions'];
+// $ipe = $_POST['initial_patient_examination'];
+// $case = $_POST;
+// unset($case['states']);
+// unset($case['assessment_items']);
+// unset($case['initial_patient_examination']);
 
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, "http://private-1c15-scapi.apiary-mock.com/cases");
+curl_setopt($ch, CURLOPT_URL, "http://scapi-dev.ganasa.com/cases");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 curl_setopt($ch, CURLOPT_HEADER, FALSE);
 curl_setopt($ch, CURLOPT_POST, TRUE);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $jsondata);
-curl_setopt($ch, CURLOPT_HTTPHEADER, array("SCAPI_AUTH_TOKEN: 659d9194f1467c20d7a3a1fd6bbc6540e8ccf85498fad89f4988d85e8a718020"));
+curl_setopt($ch, CURLOPT_HTTPHEADER, array("SCAPI_AUTH_TOKEN: bac44f0517415a56043c20261a9916feb87e092dd9fdb35118707e70876510cb"));
 $jsonresponse = curl_exec($ch);
-$response = json_decode($jsonresponse);
+$response = json_decode($jsonresponse, true);
 $body = $response->body;
 $thisCaseID = $body->id;
 curl_close($ch);
@@ -52,7 +64,7 @@ curl_close($ch);
 
     <div class="row requestbox">
       <h3>Request</h3>
-      <p><?php echo $jsondata; ?></p>
+      <p><?php print_r($jsondata); ?></p>
     </div>
 
     <div class="row responsebox">
@@ -62,7 +74,7 @@ curl_close($ch);
     </div>
 
     <div class="row">
-      <a class="alwaysShow button tiny" href="/SimCommandEditCaseForm.php?id=<?php echo $thisCaseID; ?>">Continue to Edit this Case</a>
+      <a class="alwaysShow button tiny" href="/SimCommandEditOneCaseForm.php?case_id=<?php echo $thisCaseID; ?>">Continue to Edit this Case</a>
       <a class="alwaysShow button tiny" href="/SimCommandGetAllCases.php">Back to All Cases</a>
       <a class="alwaysShow button tiny" href="/SimCommandNewCaseForm.php">Create New Case</a>
     </div>

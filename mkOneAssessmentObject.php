@@ -4,10 +4,14 @@ $id_prefix = 'assessment-'.$this->id;
 ?>
 <div class="one_assessment_div dataRow row" data-jsonID="<?php echo $this->id; ?>" data-arrayIndex="<?php echo $assessmentIndex; ?>">
   <fieldset>
-  <h3>Assessment ID: <?php echo $this->id; ?></h3>
+  <h3>Assessment ID: <?php echo $this->assessment_id; ?></h3>
 
 <!-- commented out submittal of assessment ID -->
- <!--  <input class="assessmentIDHiddenRow" type="hidden" name="<#?php echo $name_prefix.'[id]'; ?>" value="<#?php echo $this->id; ?>"/> -->
+
+  <input class="assessmentIDHiddenRow" type="hidden" name="<?php echo $name_prefix.'[id]'; ?>" value="<?php echo $this->assessment_id; ?>"/>
+
+  <input class="assessmentIDHiddenRow" type="hidden" name="<?php echo $name_prefix.'[case_id]'; ?>" value="<?php echo $this->case_id; ?>"/>
+
   <div class="small-1 columns">
     <span data-tooltip class="has-tip [tip-bottom]" title="<?php echo $this->name_tooltip;?>">Name</span>
   </div>
@@ -36,16 +40,16 @@ $id_prefix = 'assessment-'.$this->id;
     <span data-tooltip class="has-tip [tip-bottom]" title="<?php echo $this->critical_tooltip;?>"><?php echo $this->critical_label;?></span>
   </div>
 
-<!-- Render radio buttons based on value of is_critical -->
-  <?php if ($this->is_critical  =="true") { ?>
+<!-- Render radio buttons based on value of is_critical_item -->
+  <?php if ($this->is_critical_item  =="true") { ?>
   <div class="small-3 columns">
-    <input type="radio" checked id="<?php echo $id_prefix.'sct'; ?>" name="<?php echo $name_prefix.'[is_critical]'; ?>" value="true" /><label for="<?php echo $id_prefix.'sct'; ?>">Yes</label>
-    <input type="radio" id="<?php echo $id_prefix.'scf'; ?>"  name= "<?php echo $name_prefix.'[is_critical]'; ?>" value="false" /><label for="<?php echo $id_prefix.'scf'; ?>">No</label>
+    <input type="radio" checked id="<?php echo $id_prefix.'sct'; ?>" name="<?php echo $name_prefix.'[is_critical_item]'; ?>" value="true" /><label for="<?php echo $id_prefix.'sct'; ?>">Yes</label>
+    <input type="radio" id="<?php echo $id_prefix.'scf'; ?>"  name= "<?php echo $name_prefix.'[is_critical_item]'; ?>" value="false" /><label for="<?php echo $id_prefix.'scf'; ?>">No</label>
   </div>
   <?php } else { ?>
   <div class="small-3 columns">
-    <input type="radio"  id="<?php echo $id_prefix.'sct'; ?>" name="<?php echo $name_prefix.'[is_critical]'; ?>" value="true" /><label for="<?php echo $id_prefix.'sct'; ?>">Yes</label>
-    <input type="radio" id="<?php echo $id_prefix.'scf'; ?>" checked name= "<?php echo $name_prefix.'[is_critical]'; ?>" value="false" /><label for="<?php echo $id_prefix.'scf'; ?>">No</label>
+    <input type="radio"  id="<?php echo $id_prefix.'sct'; ?>" name="<?php echo $name_prefix.'[is_critical_item]'; ?>" value="true" /><label for="<?php echo $id_prefix.'sct'; ?>">Yes</label>
+    <input type="radio" id="<?php echo $id_prefix.'scf'; ?>" checked name= "<?php echo $name_prefix.'[is_critical_item]'; ?>" value="false" /><label for="<?php echo $id_prefix.'scf'; ?>">No</label>
   </div>
   <?php } ?>
 
