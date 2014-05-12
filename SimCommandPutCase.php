@@ -229,9 +229,9 @@ foreach($states as $state){
     </div>
 
     <div class="row">
-      <a class="alwaysShow button tiny" href="/SimCommandGetAllCases.php">Back to All Cases</a>
-      <a class="alwaysShow button tiny" href="/SimCommandNewCaseForm.php">Create New Case</a>
-      <a class="alwaysShow button tiny" href="/SimCommandEditOneCaseForm.php?case_id=<?php echo $case_id; ?>">Continue to Edit this Case</a>
+      <a class="alwaysShow button tiny" href="SimCommandGetAllCases.php">Back to All Cases</a>
+      <a class="alwaysShow button tiny" href="SimCommandNewCaseForm.php">Create New Case</a>
+      <a class="alwaysShow button tiny" href="SimCommandEditOneCaseForm.php?case_id=<?php echo $case_id; ?>">Continue to Edit this Case</a>
 
     </div>
 

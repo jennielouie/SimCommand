@@ -23,7 +23,7 @@ $response=$json["body"];
 
     foreach($response as $caseIndex=>$case) {
       // create a new assessment, and then add to assessment array
-      $oneCase = new Template('mkshowallcases.php', array(
+      $oneCase = new Template('mkShowAllCases.php', array(
 
         'caseID'=>$case['id'],
         'number'=>$case['number'],

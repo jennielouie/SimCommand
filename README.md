@@ -2,7 +2,7 @@ SimCommand
 ==========
 SimCommandGetAllCases.php;  Sends HTTP GET request for all cases and renders view displaying case summaries.  Includes links to view/edit one specific case.
 
-SimCommandEditOneCaseForm.php:  contains definition of web form and code to pre-load a case from a HTTP GET response.  Renders form. It saves the "pre-edited" case as a json string, to be used before sending PUT request.  Contains definitions for state, action, assessment objects that includes id and case/state ids. 
+SimCommandEditOneCaseForm.php:  contains definition of web form and code to pre-load a case from a HTTP GET response.  Renders form. Contains definitions for state, action, assessment objects that includes id and case/state ids. 
 
 SimCommandPutCase.php: json-encodes case data containing edits; compares edited data to pre-edit json string, makes POST/PUT HTTP REQUESTS to corresponding API endpoints.
 
@@ -22,4 +22,7 @@ foundationSimCommand.css:  CSS file based on ZURB Foundation 5
 
 simCommand.js: file where all custom js is defined
 
+Relative filepaths:  found in "SimCommandTemplates.php", "SimCommand" files, "mk" files.
+
+Delete:  uses data-attributes to specify endpoint (data-endpoint) and id of record to be deleted (data-jsonid or data-actionjsonid).  These are in the mkassessment, mkonestate, mkoneaction, mkallstates, and simcommand.js files.
 

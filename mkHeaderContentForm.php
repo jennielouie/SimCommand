@@ -37,8 +37,8 @@
             </nav>
 
 
-              <a class="alwaysShow button tiny" href="/SimCommandGetAllCases.php">Back to All Cases</a>
-              <a class="alwaysShow button tiny" href="/SimCommandNewCaseForm.php">Create New Case</a>
+              <a class="alwaysShow button tiny" href="SimCommandGetAllCases.php">Back to All Cases</a>
+              <a class="alwaysShow button tiny" href="SimCommandNewCaseForm.php">Create New Case</a>
           </div>
         </div>
       </div>
