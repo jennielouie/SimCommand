@@ -10,7 +10,6 @@ $id_prefix = 'assessment-'.$this->assessment_id;
 
   <input class="assessmentIDHiddenRow" type="hidden" name="<?php echo $name_prefix.'[id]'; ?>" value="<?php echo $this->assessment_id; ?>"/>
 
-  <input class="assessmentIDHiddenRow" type="hidden" name="<?php echo $name_prefix.'[case_id]'; ?>" value="<?php echo $this->case_id; ?>"/>
 
   <div class="small-1 columns">
     <span data-tooltip class="has-tip [tip-bottom]" title="<?php echo $this->name_tooltip;?>">Name</span>

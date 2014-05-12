@@ -137,6 +137,7 @@ $('#footerAssessmentButton').on('click', function(){
         newDiv.attr('data-jsonID', new_jsonID);
         newDiv.attr('data-arrayIndex', new_index);
         newDiv.find('input.assessmentName').attr('value', '');
+        newDiv.find('input.id').attr('value', 'new');
         newDiv.find('h3').text('Assessment ID: '+ new_jsonID);
         // newDiv.find('input.assessmentIDHiddenRow').attr('value', new_jsonID);
 
