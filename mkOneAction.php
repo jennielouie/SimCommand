@@ -63,7 +63,7 @@
       </div>
       <?php } ?>
 
-      <div class="small-1 columns" ><a href="#"  class="delete" >Delete this action</a>
+      <div class="small-1 columns" ><a href="#"  class="delete" data-action_id = "<?php echo $this->action_id; ?>">Delete this action</a>
       </div>
     </div>
 

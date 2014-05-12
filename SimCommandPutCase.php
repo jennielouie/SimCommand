@@ -1,5 +1,5 @@
 <!doctype html>
-// <?php
+<?php
 header('Content-Type: application/json');
 $case = $_POST;
 $case_id = $_POST["id"];
@@ -24,28 +24,46 @@ $jsoncase = json_encode($case);
 
 
 // //PUT ACTIONS
-// foreach($states as $state){
+// foreach($states as $state)
+// {
 //   $state_id = $state['id'];
 //   $actions = $state['actions'];
-//   foreach($actions as $action){
-//     $action_id = $action['id'];
-//     $url = "private-1c15-scapi.apiary-mock.com/actions/$action_id";
+//   foreach($actions as $action)
+//   {
 //     $action['state_id'] = $state_id;
-//     unset($action['id']);
-//     $jsonaction = json_encode($action);
-//     echo $jsonaction;
-
-//     $ch = curl_init();
-//     curl_setopt($ch, CURLOPT_URL, $url);
-//     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-//     curl_setopt($ch, CURLOPT_HEADER, FALSE);
-//     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
-//     curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonaction);
-//     // curl_setopt($ch, CURLOPT_HTTPHEADER, array("SCAPI_AUTH_TOKEN: bac44f0517415a56043c20261a9916feb87e092dd9fdb35118707e70876510cb"));
-//     curl_setopt($ch, CURLOPT_HTTPHEADER, array("SCAPI_AUTH_TOKEN: 659d9194f1467c20d7a3a1fd6bbc6540e8ccf85498fad89f4988d85e8a718020"));
-//     $putCaseResponseJson = curl_exec($ch);
-//     $putCaseResponse = json_decode($putCaseResponseJson);
-//     curl_close($ch);
+//     if (array_key_exists('id', $action))
+//     {
+//       $action_id = $action['id'];
+//       $url = "private-1c15-scapi.apiary-mock.com/actions/$action_id";
+//       unset($action['id']);
+//       $jsonaction = json_encode($action);
+//       $ch = curl_init();
+//       curl_setopt($ch, CURLOPT_URL, $url);
+//       curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+//       curl_setopt($ch, CURLOPT_HEADER, FALSE);
+//       curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+//       curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonaction);
+//       // curl_setopt($ch, CURLOPT_HTTPHEADER, array("SCAPI_AUTH_TOKEN: bac44f0517415a56043c20261a9916feb87e092dd9fdb35118707e70876510cb"));
+//       curl_setopt($ch, CURLOPT_HTTPHEADER, array("SCAPI_AUTH_TOKEN: 659d9194f1467c20d7a3a1fd6bbc6540e8ccf85498fad89f4988d85e8a718020"));
+//       $putCaseResponseJson = curl_exec($ch);
+//       $putCaseResponse = json_decode($putCaseResponseJson);
+//       curl_close($ch);
+//     } else
+//     {
+//       $url = "private-1c15-scapi.apiary-mock.com/actions";
+//       $jsonaction = json_encode($action);
+//       $ch = curl_init();
+//       curl_setopt($ch, CURLOPT_URL, $url);
+//       curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+//       curl_setopt($ch, CURLOPT_HEADER, FALSE);
+//       curl_setopt($ch, CURLOPT_POST, TRUE);
+//       curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonaction);
+//       // curl_setopt($ch, CURLOPT_HTTPHEADER, array("SCAPI_AUTH_TOKEN: bac44f0517415a56043c20261a9916feb87e092dd9fdb35118707e70876510cb"));
+//       curl_setopt($ch, CURLOPT_HTTPHEADER, array("SCAPI_AUTH_TOKEN: 659d9194f1467c20d7a3a1fd6bbc6540e8ccf85498fad89f4988d85e8a718020"));
+//       $putCaseResponseJson = curl_exec($ch);
+//       $putCaseResponse = json_decode($putCaseResponseJson);
+//       curl_close($ch);
+//     }
 //   }
 // }
 
@@ -53,28 +71,48 @@ $jsoncase = json_encode($case);
 
 
 
-// //PUT STATES
+//PUT STATES
+// print_r($states)
+foreach($states as $state){
 
-// foreach($states as $state){
-//   $state_id = $state['id'];
-//   $url = "private-1c15-scapi.apiary-mock.com/states/$state_id";
-//   $state['case_id'] = $case_id;
-//   unset($state['id']);
-//   unset($state['actions']);
-//   $jsonstate = json_encode($state);
+  unset($state['actions']);
+  $state['case_id'] = $case_id;
 
-//   $ch = curl_init();
-//   curl_setopt($ch, CURLOPT_URL, $url);
-//   curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-//   curl_setopt($ch, CURLOPT_HEADER, FALSE);
-//   curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
-//   curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonstate);
-//   // curl_setopt($ch, CURLOPT_HTTPHEADER, array("SCAPI_AUTH_TOKEN: bac44f0517415a56043c20261a9916feb87e092dd9fdb35118707e70876510cb"));
-//   curl_setopt($ch, CURLOPT_HTTPHEADER, array("SCAPI_AUTH_TOKEN: 659d9194f1467c20d7a3a1fd6bbc6540e8ccf85498fad89f4988d85e8a718020"));
-//   $putCaseResponseJson = curl_exec($ch);
-//   $putCaseResponse = json_decode($putCaseResponseJson);
-//   curl_close($ch);
-// }
+  if (array_key_exists('id', $state))
+  {
+    $state_id = $state['id'];
+    $url = "private-1c15-scapi.apiary-mock.com/states/$state_id";
+    unset($state['id']);
+    $jsonstate = json_encode($state);
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+    curl_setopt($ch, CURLOPT_HEADER, FALSE);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonstate);
+    // curl_setopt($ch, CURLOPT_HTTPHEADER, array("SCAPI_AUTH_TOKEN: bac44f0517415a56043c20261a9916feb87e092dd9fdb35118707e70876510cb"));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array("SCAPI_AUTH_TOKEN: 659d9194f1467c20d7a3a1fd6bbc6540e8ccf85498fad89f4988d85e8a718020"));
+    $putCaseResponseJson = curl_exec($ch);
+    $putCaseResponse = json_decode($putCaseResponseJson);
+    curl_close($ch);
+  }
+  else
+  {
+    $url = "private-1c15-scapi.apiary-mock.com/states";
+    $jsonstate = json_encode($state);
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+    curl_setopt($ch, CURLOPT_HEADER, FALSE);
+    curl_setopt($ch, CURLOPT_POST, TRUE);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonstate);
+    // curl_setopt($ch, CURLOPT_HTTPHEADER, array("SCAPI_AUTH_TOKEN: bac44f0517415a56043c20261a9916feb87e092dd9fdb35118707e70876510cb"));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array("SCAPI_AUTH_TOKEN: 659d9194f1467c20d7a3a1fd6bbc6540e8ccf85498fad89f4988d85e8a718020"));
+    $putCaseResponseJson = curl_exec($ch);
+    $putCaseResponse = json_decode($putCaseResponseJson);
+    curl_close($ch);
+  }
+}
 
 
 
@@ -83,24 +121,40 @@ $jsoncase = json_encode($case);
 // //PUT ASSESSMENTS
 
 // foreach($assessment_items as $assessment){
-//   $assessment_id = $assessment['id'];
-//   $url = "private-1c15-scapi.apiary-mock.com/assessmentitems/$assessment_id";
-//   $assessment['case_id'] = $case_id;
-//   unset($assessment['id']);
-//   unset($assessment['scale']);
-//   $jsonassessment = json_encode($assessment);
 
-//   $ch = curl_init();
-//   curl_setopt($ch, CURLOPT_URL, $url);
-//   curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-//   curl_setopt($ch, CURLOPT_HEADER, FALSE);
-//   curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
-//   curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonassessment);
-//   // curl_setopt($ch, CURLOPT_HTTPHEADER, array("SCAPI_AUTH_TOKEN: bac44f0517415a56043c20261a9916feb87e092dd9fdb35118707e70876510cb"));
-//   curl_setopt($ch, CURLOPT_HTTPHEADER, array("SCAPI_AUTH_TOKEN: 659d9194f1467c20d7a3a1fd6bbc6540e8ccf85498fad89f4988d85e8a718020"));
-//   $putCaseResponseJson = curl_exec($ch);
-//   $putCaseResponse = json_decode($putCaseResponseJson);
-//   curl_close($ch);
+//   unset($assessment['scale']);
+//   $assessment['case_id'] = $case_id;
+//   if (array_key_exists('id', $assessment)){
+//     $assessment_id = $assessment['id'];
+//     $url = "private-1c15-scapi.apiary-mock.com/assessmentitems/$assessment_id";
+//     unset($assessment['id']);
+//     $jsonassessment = json_encode($assessment);
+//     $ch = curl_init();
+//     curl_setopt($ch, CURLOPT_URL, $url);
+//     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+//     curl_setopt($ch, CURLOPT_HEADER, FALSE);
+//     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+//     curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonassessment);
+//     // curl_setopt($ch, CURLOPT_HTTPHEADER, array("SCAPI_AUTH_TOKEN: bac44f0517415a56043c20261a9916feb87e092dd9fdb35118707e70876510cb"));
+//     curl_setopt($ch, CURLOPT_HTTPHEADER, array("SCAPI_AUTH_TOKEN: 659d9194f1467c20d7a3a1fd6bbc6540e8ccf85498fad89f4988d85e8a718020"));
+//     $putCaseResponseJson = curl_exec($ch);
+//     $putCaseResponse = json_decode($putCaseResponseJson);
+//     curl_close($ch);
+//   } else {
+//       $url = "private-1c15-scapi.apiary-mock.com/assessmentitems";
+//       $jsonassessment = json_encode($assessment);
+//       $ch = curl_init();
+//       curl_setopt($ch, CURLOPT_URL, $url);
+//       curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+//       curl_setopt($ch, CURLOPT_HEADER, FALSE);
+//       curl_setopt($ch, CURLOPT_POST, TRUE);
+//       curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonassessment);
+//       // curl_setopt($ch, CURLOPT_HTTPHEADER, array("SCAPI_AUTH_TOKEN: bac44f0517415a56043c20261a9916feb87e092dd9fdb35118707e70876510cb"));
+//       curl_setopt($ch, CURLOPT_HTTPHEADER, array("SCAPI_AUTH_TOKEN: 659d9194f1467c20d7a3a1fd6bbc6540e8ccf85498fad89f4988d85e8a718020"));
+//       $putCaseResponseJson = curl_exec($ch);
+//       $putCaseResponse = json_decode($putCaseResponseJson);
+//       curl_close($ch);
+//     }
 // }
 
 
@@ -176,7 +230,7 @@ $jsoncase = json_encode($case);
     <div class="row">
       <a class="alwaysShow button tiny" href="/SimCommandGetAllCases.php">Back to All Cases</a>
       <a class="alwaysShow button tiny" href="/SimCommandNewCaseForm.php">Create New Case</a>
-      <a class="alwaysShow button tiny" href="/SimCommandEditOneCaseForm.php?case_id=<?php echo $specificCaseID; ?>">Continue to Edit this Case</a>
+      <a class="alwaysShow button tiny" href="/SimCommandEditOneCaseForm.php?case_id=<?php echo $case_id; ?>">Continue to Edit this Case</a>
 
     </div>
 

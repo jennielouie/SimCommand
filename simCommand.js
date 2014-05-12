@@ -137,9 +137,9 @@ $('#footerAssessmentButton').on('click', function(){
         newDiv.attr('data-jsonID', new_jsonID);
         newDiv.attr('data-arrayIndex', new_index);
         newDiv.find('input.assessmentName').attr('value', '');
-        newDiv.find('input.id').attr('value', 'new');
-        newDiv.find('h3').text('Assessment ID: '+ new_jsonID);
-        // newDiv.find('input.assessmentIDHiddenRow').attr('value', new_jsonID);
+
+        newDiv.find('h3').text('New Assessment');
+        newDiv.find('input.assessmentIDHiddenRow').remove();
 
 
           uniqueButtonIndex += 1;
@@ -263,7 +263,7 @@ $('#footerAssessmentButton').on('click', function(){
         newDiv.attr('data-actionjsonID', new_action_jsonID);
         //newDiv.find('span.actionTitle').text('State ID: ' + statejsonID + ' Action ' + new_action_jsonID);
         newDiv.find('input.actionName').attr('value', '');
-        newDiv.find('input.actionIDHiddenRow').attr('value', new_action_jsonID);
+        newDiv.find('input.actionIDHiddenRow').remove();
 
 
         newDiv.appendTo(action_div);
@@ -292,7 +292,7 @@ $('#footerAddStateButton').on('click', function(){
     var new_jsonID_string = new_jsonID.toString();
 
 //CREATE CONTAINER DIV FOR STATE AND ITS ACTIONS
-    var prefix = 'cases[states][' + new_index+ ']';
+    // var prefix = 'states[' + new_index+ ']';
     $('<div id="" class="dataRow borderDiv one_state_div" data-arrayIndex="" data-jsonID=""></div>').appendTo('.allStatesDiv');
     container_div=$('.one_state_div').last();
     container_div.attr('data-jsonID', new_jsonID);
@@ -305,6 +305,7 @@ $('#footerAddStateButton').on('click', function(){
 //clear form values from clone
     newDiv.find("[type=text]").val('');
     newDiv.find("h3").html('New State');
+    newDiv.find('input.hiddenStateJsonID').remove();
 
 
 //MAKE CLONE OF ACTIONS_SECTION_CLASS DIV, APPEND TO CONTAINER_DIV, UPDATE INDICES AND JSON IDS
@@ -334,12 +335,13 @@ $('#footerAddStateButton').on('click', function(){
     // newDiv.find('input.assessmentName').attr('value', '');
 
 
-    newDiv.find("input[name], select[name]").each(function(){
+    newDiv.find("input[name], text[name], select[name], textarea[name]").each(function(){
       var name = $(this).attr('name');
-      var new_name = name.replace(/\[states\]\[[0-9]+\]/g, '[states]['+ new_index +']');
+      var new_name = name.replace(/states\[[0-9]+\]/g, 'states['+ new_index +']');
       $(this).attr('name',new_name);
       $(this).attr('value','');
     });
+
 
     // newActionSection.find('h3').text('Actions for State ID ' + new_jsonID);
     //grab button
@@ -348,6 +350,7 @@ $('#footerAddStateButton').on('click', function(){
     $("#" + newButtonID).attr('data-statejsonID', new_jsonID);
     $("#" + newButtonID).attr('data-stateIndex', new_index);
     loadTinyMCEEditor();
+
 
   });
 });

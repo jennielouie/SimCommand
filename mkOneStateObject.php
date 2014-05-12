@@ -11,7 +11,7 @@
       <div class="small-3 columns">
         <h3>State ID: <?php echo $this->state_id; ?> </h3>
       </div>
-      <div class="small-3 columns end"><a href="#" class="delete">Delete this state</a>
+      <div class="small-3 columns end"><a href="#" data-state_id = "<?php echo $state_jsonID; ?>"class="delete">Delete this state</a>
       </div>
     </div>
 

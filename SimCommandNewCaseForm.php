@@ -2,7 +2,7 @@
 include('SimCommandTemplates.php');
 
 $form = array();
-$form['header'] = $CaseHeader;
+$form['header'] = $newCaseHeader;
 
 //CASE INFO TAB
 $form['startTab'] = $caseInfoTab;

@@ -53,7 +53,7 @@ $id_prefix = 'assessment-'.$this->assessment_id;
   <?php } ?>
 
   <div class="row">
-    <div class="small-2 small-offset-10 columns" ><a href="#" class="delete">Delete this assessment</a>
+    <div class="small-2 small-offset-10 columns" ><a href="#" class="delete" data-assessment_id ="<?php echo $this->assessment_id; ?>" >Delete this assessment</a>
     </div>
   </div>
 

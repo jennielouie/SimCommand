@@ -172,28 +172,28 @@ $supplies = new Template('mkTextarea.php', array('type' =>'singletext','entity'=
 
 $allCasesHeader= new Template('mkHeaderContentAllCases.php', array('tabTitle' => 'SimCommand | Case List', 'title' => 'SimCommand','formAction'=>'/showAllCases.php', 'javascript'=>array('modernizrSimCommand.js','//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'simCommand.js','//tinymce/js/tinymce/tinymce.min.js','http://cdn.foundation5.zurb.com/foundation.js'),'stylesheet' => 'foundationSimCommand.css', 'caseTitle'=>'', 'caseID'=>''));
 
-$CaseHeader= new Template('mkHeaderContentForm.php', array('tabTitle' => 'SimCommand | Case Information', 'title' => 'SimCommand New Case', 'formMethod'=>'post','formAction'=>'/simCommandPostNewCase.php', 'javascript'=>array('modernizrSimCommand.js','//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'simCommand.js','tinymce/js/tinymce/tinymce.min.js','http://cdn.foundation5.zurb.com/foundation.js','functionTinyMCE.js'),'stylesheet' => 'foundationSimCommand.css', 'caseTitle'=>'', 'caseID'=>''));
+$newCaseHeader= new Template('mkHeaderContentForm.php', array('tabTitle' => 'SimCommand | Case Information', 'title' => 'SimCommand New Case', 'formMethod'=>'post','formAction'=>'/simCommandPostNewCase.php', 'javascript'=>array('modernizrSimCommand.js','//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'simCommand.js','tinymce/js/tinymce/tinymce.min.js','http://cdn.foundation5.zurb.com/foundation.js','functionTinyMCE.js'),'stylesheet' => 'foundationSimCommand.css', 'caseTitle'=>'', 'caseID'=>''));
 
 // $getCaseHeader= new Template('mkHeaderContentShow.php', array('tabTitle' => 'SimCommand | Show Single Case', 'title' => 'SimCommand OneCase', 'javascript'=>array('modernizrSimCommand.js','//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'simCommand.js','tinymce/js/tinymce/tinymce.min.js','http://cdn.foundation5.zurb.com/foundation.js','functionTinyMCE.js'),'stylesheet' => 'foundationSimCommand.css', 'caseTitle'=>'', 'caseID'=>''));
 
 $editCaseHeader= new Template('mkHeaderContentEditForm.php', array('tabTitle' => 'SimCommand | Edit Case', 'title' => 'SimCommand Edit Case', 'formMethod'=>'post','formAction'=>'/simCommandPutCase.php?case_id=', 'javascript'=>array('modernizrSimCommand.js','//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'simCommand.js','tinymce/js/tinymce/tinymce.min.js','http://cdn.foundation5.zurb.com/foundation.js','functionTinyMCE.js'),'stylesheet' => 'foundationSimCommand.css', 'caseTitle'=>'', 'caseID'=>''));
 
-$getAssessmentsHeader= new Template('mkHeaderContentFormAssessments.php', array('tabTitle' => 'Edit Assessments', 'title' => 'List of Assessments for Case', 'formMethod'=>'post','formAction'=>'/simCommandPutAssessment.php', 'javascript'=>array('modernizrSimCommand.js','//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'simCommand.js','http://cdn.foundation5.zurb.com/foundation.js'),'stylesheet' => 'foundationSimCommand.css', 'caseTitle'=>'', 'caseID'=>'9'));
+// $getAssessmentsHeader= new Template('mkHeaderContentFormAssessments.php', array('tabTitle' => 'Edit Assessments', 'title' => 'List of Assessments for Case', 'formMethod'=>'post','formAction'=>'/simCommandPutAssessment.php', 'javascript'=>array('modernizrSimCommand.js','//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'simCommand.js','http://cdn.foundation5.zurb.com/foundation.js'),'stylesheet' => 'foundationSimCommand.css', 'caseTitle'=>'', 'caseID'=>'9'));
 
-$getStatesHeader= new Template('mkHeaderContentFormStates.php', array('tabTitle' => 'Edit States', 'title' => 'List of States for Case', 'formMethod'=>'post','formAction'=>'/simCommandPutState.php', 'javascript'=>array('modernizrSimCommand.js','//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'simCommand.js','http://cdn.foundation5.zurb.com/foundation.js'),'stylesheet' => 'foundationSimCommand.css', 'caseTitle'=>'', 'caseID'=>''));
+// $getStatesHeader= new Template('mkHeaderContentFormStates.php', array('tabTitle' => 'Edit States', 'title' => 'List of States for Case', 'formMethod'=>'post','formAction'=>'/simCommandPutState.php', 'javascript'=>array('modernizrSimCommand.js','//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'simCommand.js','http://cdn.foundation5.zurb.com/foundation.js'),'stylesheet' => 'foundationSimCommand.css', 'caseTitle'=>'', 'caseID'=>''));
 
-$getActionsHeader= new Template('mkHeaderContentShowActions.php', array('tabTitle' => 'Edit Actions', 'title' => 'List of Actions for State', 'javascript'=>array('modernizrSimCommand.js','//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'simCommand.js','http://cdn.foundation5.zurb.com/foundation.js'),'stylesheet' => 'foundationSimCommand.css', 'caseTitle'=>'', 'caseID'=>'', 'stateID'=>''));
+// $getActionsHeader= new Template('mkHeaderContentShowActions.php', array('tabTitle' => 'Edit Actions', 'title' => 'List of Actions for State', 'javascript'=>array('modernizrSimCommand.js','//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'simCommand.js','http://cdn.foundation5.zurb.com/foundation.js'),'stylesheet' => 'foundationSimCommand.css', 'caseTitle'=>'', 'caseID'=>'', 'stateID'=>''));
 
-$editAssessmentHeader= new Template('mkHeaderContentFormAssessments.php', array('tabTitle' => 'Edit Assessments', 'title' => 'Edit Assessment ', 'formMethod'=>'post','formAction'=>'/simCommandPutAssessment.php', 'javascript'=>array('modernizrSimCommand.js','//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'simCommand.js','http://cdn.foundation5.zurb.com/foundation.js'),'stylesheet' => 'foundationSimCommand.css', 'caseTitle'=>'', 'caseID'=>''));
+// $editAssessmentHeader= new Template('mkHeaderContentFormAssessments.php', array('tabTitle' => 'Edit Assessments', 'title' => 'Edit Assessment ', 'formMethod'=>'post','formAction'=>'/simCommandPutAssessment.php', 'javascript'=>array('modernizrSimCommand.js','//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'simCommand.js','http://cdn.foundation5.zurb.com/foundation.js'),'stylesheet' => 'foundationSimCommand.css', 'caseTitle'=>'', 'caseID'=>''));
 
-$newAssessmentHeader= new Template('mkHeaderContentFormAssessments.php', array('tabTitle' => 'New Assessment', 'title' => 'New Assessment ', 'formMethod'=>'post','formAction'=>'/simCommandPostAssessment.php', 'javascript'=>array('modernizrSimCommand.js','//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'simCommand.js','http://cdn.foundation5.zurb.com/foundation.js'),'stylesheet' => 'foundationSimCommand.css', 'caseTitle'=>'', 'caseID'=>''));
+// $newAssessmentHeader= new Template('mkHeaderContentFormAssessments.php', array('tabTitle' => 'New Assessment', 'title' => 'New Assessment ', 'formMethod'=>'post','formAction'=>'/simCommandPostAssessment.php', 'javascript'=>array('modernizrSimCommand.js','//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'simCommand.js','http://cdn.foundation5.zurb.com/foundation.js'),'stylesheet' => 'foundationSimCommand.css', 'caseTitle'=>'', 'caseID'=>''));
 
-$editStateHeader= new Template('mkHeaderContentFormStates.php', array('tabTitle' => 'Edit State', 'title' => 'Edit State ', 'formMethod'=>'post','formAction'=>'/simCommandPutState.php', 'javascript'=>array('modernizrSimCommand.js','//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'simCommand.js','tinymce/js/tinymce/tinymce.min.js','http://cdn.foundation5.zurb.com/foundation.js','functionTinyMCE.js'),'stylesheet' => 'foundationSimCommand.css', 'caseTitle'=>'', 'caseID'=>'', 'stateID'=>''));
+// $editStateHeader= new Template('mkHeaderContentFormStates.php', array('tabTitle' => 'Edit State', 'title' => 'Edit State ', 'formMethod'=>'post','formAction'=>'/simCommandPutState.php', 'javascript'=>array('modernizrSimCommand.js','//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'simCommand.js','tinymce/js/tinymce/tinymce.min.js','http://cdn.foundation5.zurb.com/foundation.js','functionTinyMCE.js'),'stylesheet' => 'foundationSimCommand.css', 'caseTitle'=>'', 'caseID'=>'', 'stateID'=>''));
 
-$editAssessmentsLink = new Template('mkEditSectionLink.php', array('title'=>'Edit this Case\'s Assessments','link'=>'/SimCommandGetCaseAssessments.php', 'caseID'=>''));
+// $editAssessmentsLink = new Template('mkEditSectionLink.php', array('title'=>'Edit this Case\'s Assessments','link'=>'/SimCommandGetCaseAssessments.php', 'caseID'=>''));
 
-$editStatesLink = new Template('mkEditSectionLink.php', array('title'=>'Edit this Case\'s States','link'=>'/SimCommandGetCaseStates.php', 'caseID'=>''));
-//TAB HEADER $ = new Template('mkTabHeader.php', array('tabID'=>'', 'tabTitle'=>''));
+// $editStatesLink = new Template('mkEditSectionLink.php', array('title'=>'Edit this Case\'s States','link'=>'/SimCommandGetCaseStates.php', 'caseID'=>''));
+// //TAB HEADER $ = new Template('mkTabHeader.php', array('tabID'=>'', 'tabTitle'=>''));
 
 $assessmentTab = new Template('mkTabHeader.php', array('tabID'=>'assessment', 'tabTitle'=>'Assessment'));
 
@@ -213,30 +213,30 @@ $preparationTab = new Template('mkTabHeader.php', array('tabID'=>'preparation', 
 
 //CLOSING CONTENT
 $closing = new Template('mkClosingContent.php', array('buttonlabel1'=>'Save', 'javascript'=>array("js/vendor/jquery.js", "js/vendor/foundation.min.js")));
-$closingEditCase = new Template('mkClosingContent.php', array('buttonlabel1'=>'Update this Case', 'javascript'=>array("js/vendor/jquery.js", "js/vendor/foundation.min.js")));
+// $closingEditCase = new Template('mkClosingContent.php', array('buttonlabel1'=>'Update this Case', 'javascript'=>array("js/vendor/jquery.js", "js/vendor/foundation.min.js")));
 
 // $closingOneCase = new Template('mkClosingContentOneCase.php', array('javascript'=>array("js/vendor/jquery.js", "js/vendor/foundation.min.js")));
 
-$closingNoShortcuts = new Template('mkClosingContentNoShortcuts.php', array('buttonlabel1'=>'Save','javascript'=>array("js/vendor/jquery.js", "js/vendor/foundation.min.js")));
+// $closingNoShortcuts = new Template('mkClosingContentNoShortcuts.php', array('buttonlabel1'=>'Save','javascript'=>array("js/vendor/jquery.js", "js/vendor/foundation.min.js")));
 
-$closingEditAssessment = new Template('mkClosingContentNoShortcuts.php', array('buttonlabel1'=>'Update', 'javascript'=>array("js/vendor/jquery.js", "js/vendor/foundation.min.js")));
+// $closingEditAssessment = new Template('mkClosingContentNoShortcuts.php', array('buttonlabel1'=>'Update', 'javascript'=>array("js/vendor/jquery.js", "js/vendor/foundation.min.js")));
 
-$closingNewAssessment = new Template('mkClosingContentNoShortcuts.php', array('buttonlabel1'=>'Create Assessment', 'javascript'=>array("js/vendor/jquery.js", "js/vendor/foundation.min.js")));
+// $closingNewAssessment = new Template('mkClosingContentNoShortcuts.php', array('buttonlabel1'=>'Create Assessment', 'javascript'=>array("js/vendor/jquery.js", "js/vendor/foundation.min.js")));
 
-$closingEditState = new Template('mkClosingContentNoShortcuts.php', array('buttonlabel1'=>'Update', 'javascript'=>array("js/vendor/jquery.js", "js/vendor/foundation.min.js")));
+// $closingEditState = new Template('mkClosingContentNoShortcuts.php', array('buttonlabel1'=>'Update', 'javascript'=>array("js/vendor/jquery.js", "js/vendor/foundation.min.js")));
 
-$closingReadOnly = new Template('mkClosingContentReadOnly.php', array('buttonlabel1'=>'Update', 'javascript'=>array("js/vendor/jquery.js", "js/vendor/foundation.min.js")));
+// $closingReadOnly = new Template('mkClosingContentReadOnly.php', array('buttonlabel1'=>'Update', 'javascript'=>array("js/vendor/jquery.js", "js/vendor/foundation.min.js")));
 
-$allcasesHeader = new Template('mkallCasesHeaderContent.php', array('foo'=>'bar'));
-$allcasesClosing = new Template('mkallCasesClosingContent.php', array('foo'=>'bar'));
+// $allcasesHeader = new Template('mkallCasesHeaderContent.php', array('foo'=>'bar'));
+$allCasesClosing = new Template('mkallCasesClosingContent.php', array('foo'=>'bar'));
 
 
 //STATE AND ACTIONS OBJECTS
 
 $action1 = new Template('mkOneActionNew.php', array(
-  "is_critical_item"=>"",
-  "name"=>"",
-  "results"=>"",
+  'is_critical_item'=>'',
+  'name'=>'',
+  'results'=>'',
   'critical_item_label'=>'Critical Item?',
   'critical_item_tooltip'=>'',
   'critical_item_values'=>array('True'=>'','False'=>''),
@@ -246,9 +246,9 @@ $action1 = new Template('mkOneActionNew.php', array(
   ));
 
 $action2 = new Template('mkOneActionNew.php', array(
-  "is_critical_item"=>'',
-  "name"=>"",
-  "results"=>null,
+  'is_critical_item'=>'',
+  'name'=>'',
+  'results'=>null,
   'critical_item_label'=>'Critical Item?',
   'critical_item_tooltip'=>'',
   'critical_item_values'=>array('True'=>'','False'=>''),
@@ -257,14 +257,14 @@ $action2 = new Template('mkOneActionNew.php', array(
   'timer_values'=>array('True'=>'','False'=>'')
   ));
 
-$stateNew = new Template('mkOneStateObjectNew.php', array('notes'=>'','general'=>'','temp_celcius'=>'','resp_rate'=>'','heart_rate'=>'','notes'=>'','general'=>'','bp_systolic'=>'','bp_diastolic'=>'', 'spo2'=>'','weight'=>'','pain_score'=>'','other'=>'','discussion_items'=>'','type'=>'oneState','actions'=>array($action1, $action2)));
+$stateNew = new Template('mkOneStateObjectNew.php', array('startcounter'=>'3333333333','notes'=>'','general'=>'','temp_celcius'=>'','resp_rate'=>'','heart_rate'=>'','notes'=>'','general'=>'','bp_systolic'=>'','bp_diastolic'=>'', 'spo2'=>'','weight'=>'','pain_score'=>'','other'=>'','discussion_items'=>'','type'=>'oneState','actions'=>array($action1, $action2)));
 
 $allStates = new Template('mkAllStates.php', array('type'=>'allStates','statesArray'=>array($stateNew), 'is_critical_item'=>'','critical_item_label'=>'Critical Item?','critical_item_tooltip'=>'','critical_item_values'=>array('True'=>'','False'=>''),'timer_tooltip'=>'','timer_label'=>'Include Timer?','timer_values'=>array('True'=>'','False'=>'')));
 
 
 //ASSESSMENT OBJECTS
 
-$assessmentNew = new Template('mkOneAssessmentObjectNew.php', array('name'=>'','is_critical_item'=>'','namePrefix'=>'assessment_items', 'name_tooltip'=>'',
+$assessmentNew = new Template('mkOneAssessmentObjectNew.php', array('startcounter'=>'999999','name'=>'','is_critical_item'=>'','namePrefix'=>'assessment_items', 'name_tooltip'=>'',
   'scale_tooltip'=>'',
   'scale_label'=>'Scale',
   'namePrefix'=>'assessment_items',

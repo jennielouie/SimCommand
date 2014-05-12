@@ -1,6 +1,6 @@
   <?php
       $name_prefix = 'states['.$stateIndex.']';
-      $state_jsonID = $this->id;
+      $state_jsonID = $this->startcounter;
   ?>
 
 <div id="<?php echo "state_".$state_jsonID; ?>" class="dataRow borderDiv one_state_div" data-jsonID="<?php echo $state_jsonID; ?>" data-arrayIndex="<?php echo $stateIndex; ?>">
@@ -9,7 +9,7 @@
 
     <div class="row">
       <div class="small-3 columns">
-        <h3>State ID: <?php echo $this->stateID; ?> </h3>
+        <h3>New State</h3>
       </div>
       <div class="small-3 columns end"><a href="#" class="delete">Delete this state</a>
       </div>

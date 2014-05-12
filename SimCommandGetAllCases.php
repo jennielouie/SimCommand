@@ -39,7 +39,7 @@ $response=$json["body"];
       $caseArray[] = $oneCase;
     };
 
-  $caseArray[] = $allcasesClosing;
+  $caseArray[] = $allCasesClosing;
 
 
 // Finally, render case summary.

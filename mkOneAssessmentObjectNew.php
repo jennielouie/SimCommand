@@ -1,8 +1,8 @@
 <?php
 $name_prefix = "$this->namePrefix[$assessmentIndex]";
-$id_prefix = 'assessment-'.$this->id;
+$id_prefix = 'assessment-'.$this->startcounter;
 ?>
-<div class="one_assessment_div dataRow row" data-jsonID="<?php echo $this->id; ?>" data-arrayIndex="<?php echo $assessmentIndex; ?>">
+<div class="one_assessment_div dataRow row" data-jsonID="<?php echo $this->startcounter; ?>" data-arrayIndex="<?php echo $assessmentIndex; ?>">
   <fieldset>
   <h3>New</h3>
 
