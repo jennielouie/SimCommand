@@ -6,32 +6,12 @@ uniqueButtonIndex = 100000;
 uniqueActionIndex = 100000;
 
 
-//When "save" button clicked, posts form (without checking for completeness) and shows modal indicating that form has been posted.
-
-// $('#simCommandForm').submit(function(event){
-//   alert("Save button clicked!");
-//   // event.preventDefault();
-//   // $.ajax({
-//   //   type: "POST",
-//   //   url: 'https://private-1c15-scapi.apiary-mock.com',
-//   //   beforeSend: function (request){
-//   //       request.setRequestHeader("SCAPI_AUTH_TOKEN", "659d9194f1467c20d7a3a1fd6bbc6540e8ccf85498fad89f4988d85e8a718020");
-//   //     },
-//   //   data: $(this).serialize(),
-//   //   success: function(response){
-//   //       alert(response);
-//   //       alert('done');
-//   //   }
-//   // });
-// });
-
-
   $(".rowWithAddButton").on('click', 'button', function(e){
 
   // ADD NEW INPUT BAR BELOW BOTTOM ONE, AND INCLUDE REMOVE BUTTON FOR THAT ROW
     var newInputBarName = $(e.currentTarget).attr('data-name');
     var addedRowDivName = $(e.currentTarget).attr('data-newRowDiv');
-   $("</br><div class='dataRow'><div class='large-8 small-10 large-offset-2 columns'><input name=" + newInputBarName+ " type='text' required/></div><div class='small-1 columns'><a href='#' class='delete'>Delete</a></div></div>").appendTo("." + addedRowDivName);
+   $("</br><div class='dataRow'><div class='large-8 small-10 large-offset-2 columns'><input name=" + newInputBarName+ " type='text' required/></div><div class='small-1 columns'><a href='#' class='deletefromlist'>Delete</a></div></div>").appendTo("." + addedRowDivName);
   });
 
   $(".rowWith2Buttons").on('click', 'button', function(e){
@@ -41,98 +21,10 @@ uniqueActionIndex = 100000;
     var addedRowDivName = $(e.currentTarget).attr('data-newRowDiv');
 
 
-   $("</br><div class='dataRow'><div class='small-9 columns'><input name=" + newInputBarName+ " type='text' required/></div><div class='small-2 columns'><span>Upload</span><input type='file' class='upload'></div><div class='small-1 columns'><a href='#' class='delete'>Delete</a></div></div>").appendTo("." + addedRowDivName);
+   $("</br><div class='dataRow'><div class='small-9 columns'><input name=" + newInputBarName+ " type='text' required/></div><div class='small-2 columns'><span>Upload</span><input type='file' class='upload'></div><div class='small-1 columns'><a href='#' class='deletefromlist'>Delete</a></div></div>").appendTo("." + addedRowDivName);
   });
 
 
-/* DELETE FUNCTIONALITY INCLUDING RE-NUMBERING OF ARRAY INDICES */
-  // DELEGATE LISTENER TO "MULTITEXTBAR" ROWS DIV, WHICH EXIST AT FIRST RENDER, TO REMOVE ROW WHEN "REMOVE" BUTTON IS CLICKED.
-  $(".multiInputDiv").on('click', 'a.delete', function(e){
-    e.preventDefault();
-    console.log('clicked');
-
-
-
-    var selectedRow = $(this).closest(".dataRow");
-    var endpoint = selectedRow.attr('data-endpoint');
-//Check if row needs to be deleted from API
-if (selectedRow.attr('data-actionjsonid')){
-  var id_to_delete = selectedRow.attr('data-actionjsonid');
-} else if (selectedRow.attr('data-jsonid')){
-  var id_to_delete = selectedRow.attr('data-jsonid');
-}
-
-  alert('starting ajax');
-  $.ajax({
-    url: '/SimCommandDelete.php?endpoint=' + endpoint + '&delete_id=' + id_to_delete,
-
-  }).done(function() {
-    alert("completed");
-  });
-
-
-
-
-    //count sibling datarows, if total is 1, do not delete and show alert
-    var siblingCount = $(selectedRow).siblings().length;
-      if (siblingCount == 0) {
-        alert("Sorry, cannot delete only instance of this data");
-      }
-      else {
-        $(selectedRow).remove();
-      }
-
-
-    //loop through elements for a given set of assessments, actions, or states
-
-        $('.one_assessment_div').each(function(rowIndex){
-          $(this).attr('data-arrayIndex', rowIndex);
-          $(this).find("input[name], select[name]").each(function(){
-            var name = $(this).attr('name');
-            var new_name = name.replace(/\[[0-9]+\]/g, '['+rowIndex+']');
-            $(this).attr('name',new_name);
-          });
-        });
-
-        $('.one_state_div').each(function(rowIndex){
-      /// find each input with a name attribute inside each row.  This will change state index for embedded actions too.
-          $(this).attr('data-arrayIndex', rowIndex);
-          $(this).find("input[name], select[name], textarea[name]").each(function(){
-            var name = $(this).attr('name');
-            var new_name = name.replace(/states\[[0-9]+\]/g, 'states['+rowIndex+']');
-            // console.log('state regex');
-            $(this).attr('name',new_name);
-          });
-
-
-          //NEED TO LIMIT RE-NUMBERING TO ACTIONS FOR THE SAME STATE. SO INVOKE WHEN LOOPING THROUGH STATES TO LIMIT SCOPE
-          var childrenActions = $(this).find('.one_action_div');
-          console.log(childrenActions.length);
-          childrenActions.each(function(rowIndex){
-            console.log('begin re-numbering actions');
-            $(this).attr('data-arrayIndex', rowIndex);
-            $(this).find("input[name], select[name], textarea[name]").each(function(){
-              var name = $(this).attr('name');
-              var new_name = name.replace(/\[actions\]\[[0-9]+\]/g, '[actions]['+rowIndex+']');
-              $(this).attr('name',new_name);
-            });
-            //UPDATE IDS AND LABELS FOR RADIO BUTTONS
-            var idHolder = 'radio' + statejsonID + 'action' + new_action_index;
-            $(this).find("input:radio[id]").each(function() {
-              var radio_id= $(this).attr('id');
-              var new_radio_id = radio_id.replace(/radio[0-9]action[0-9]/g, idHolder);
-              $(this).attr('id',new_radio_id);
-            });
-
-            $(this).find("label[for]").each(function() {
-              var radio_id= $(this).attr('for');
-              var new_radio_id = radio_id.replace(/radio[0-9]action[0-9]/g, idHolder);
-               $(this).attr('for',new_radio_id);
-            });
-
-          });
-        });
-      });
 
 
 //ADD ASSESSMENT
@@ -162,6 +54,7 @@ $('#footerAssessmentButton').on('click', function(){
 
         newDiv.find('h3').text('New Assessment');
         newDiv.find('input.assessmentIDHiddenRow').remove();
+        newDiv.addClass("newelement");
 
 
           uniqueButtonIndex += 1;
@@ -222,6 +115,7 @@ $('#footerAssessmentButton').on('click', function(){
         //clear values from cloned form
         newDiv.find("[type=text]").val('');
         newDiv.find("[type=radio][value=false]").prop('checked', true);
+        newDiv.addClass("newelement");
 
           var idHolder = 'radio'+uniqueButtonIndex+'action'+uniqueActionIndex;
           uniqueButtonIndex += 1;
@@ -243,6 +137,7 @@ $('#footerAssessmentButton').on('click', function(){
 
         } else {
           newDiv = $('.templateForOneActionDiv').find('div.one_action_div').clone();
+          newDiv.addClass("newelement");
           new_action_jsonID = 100*(statejsonID-200) + 201;
           new_action_index = 0;
 
@@ -320,6 +215,7 @@ $('#footerAddStateButton').on('click', function(){
     container_div.attr('data-jsonID', new_jsonID);
     container_div.attr('data-arrayIndex', new_index);
     container_div.attr('id', 'state_' + new_jsonID);
+    container_div.addClass("newelement");
 
     var newDiv = $(".stateWithoutActionsSection").last().clone();
     newDiv.appendTo(container_div);
@@ -328,6 +224,7 @@ $('#footerAddStateButton').on('click', function(){
     newDiv.find("[type=text]").val('');
     newDiv.find("h3").html('New State');
     newDiv.find('input.hiddenStateJsonID').remove();
+
 
 
 //MAKE CLONE OF ACTIONS_SECTION_CLASS DIV, APPEND TO CONTAINER_DIV, UPDATE INDICES AND JSON IDS
@@ -375,4 +272,119 @@ $('#footerAddStateButton').on('click', function(){
 
 
   });
+
+
+
+
+
+
+
+/* DELETE FUNCTIONALITY INCLUDING RE-NUMBERING OF ARRAY INDICES */
+  // DELEGATE LISTENER TO "MULTITEXTBAR" ROWS DIV, WHICH EXIST AT FIRST RENDER, TO REMOVE ROW WHEN "REMOVE" BUTTON IS CLICKED.
+  $(".multiInputDiv").on('click', 'a.delete', function(e){
+    e.preventDefault();
+    var confirmdelete = confirm("Are you sure you want to delete this?");
+    if (confirmdelete==true){
+      var selectedRow = $(this).closest(".dataRow");
+      var endpoint = selectedRow.attr('data-endpoint');
+
+      if (!selectedRow.hasClass("newelement")) {
+        if(selectedRow.attr("data-jsonid")) {
+          var id_to_delete = selectedRow.attr("data-jsonid");
+        }
+        else if (selectedRow.attr("data-actionjsonid")) {
+            var id_to_delete = selectedRow.attr("data-actionjsonid");
+        }
+          $.ajax({
+            url: '/SimCommandDelete.php?endpoint=' + endpoint + '&delete_id=' + id_to_delete,
+
+          }).done(function() {
+            alert("completed delete");
+          });
+      }
+
+
+      //count sibling datarows, if total is 1, do not delete and show alert
+      var siblingCount = $(selectedRow).siblings().length;
+        if (siblingCount == 0) {
+          alert("Sorry, cannot delete only instance of this data");
+        }
+        else {
+          $(selectedRow).remove();
+        }
+
+
+      //loop through elements for a given set of assessments, actions, or states
+
+          $('.one_assessment_div').each(function(rowIndex){
+            $(this).attr('data-arrayIndex', rowIndex);
+            $(this).find("input[name], select[name]").each(function(){
+              var name = $(this).attr('name');
+              var new_name = name.replace(/\[[0-9]+\]/g, '['+rowIndex+']');
+              $(this).attr('name',new_name);
+            });
+          });
+
+          $('.one_state_div').each(function(rowIndex){
+        /// find each input with a name attribute inside each row.  This will change state index for embedded actions too.
+            $(this).attr('data-arrayIndex', rowIndex);
+            $(this).find("input[name], select[name], textarea[name]").each(function(){
+              var name = $(this).attr('name');
+              var new_name = name.replace(/states\[[0-9]+\]/g, 'states['+rowIndex+']');
+              // console.log('state regex');
+              $(this).attr('name',new_name);
+            });
+
+
+            //NEED TO LIMIT RE-NUMBERING TO ACTIONS FOR THE SAME STATE. SO INVOKE WHEN LOOPING THROUGH STATES TO LIMIT SCOPE
+            var childrenActions = $(this).find('.one_action_div');
+            console.log(childrenActions.length);
+            childrenActions.each(function(rowIndex){
+              console.log('begin re-numbering actions');
+              $(this).attr('data-arrayIndex', rowIndex);
+              $(this).find("input[name], select[name], textarea[name]").each(function(){
+                var name = $(this).attr('name');
+                var new_name = name.replace(/\[actions\]\[[0-9]+\]/g, '[actions]['+rowIndex+']');
+                $(this).attr('name',new_name);
+              });
+              //UPDATE IDS AND LABELS FOR RADIO BUTTONS
+              var idHolder = 'radio' + statejsonID + 'action' + new_action_index;
+              $(this).find("input:radio[id]").each(function() {
+                var radio_id= $(this).attr('id');
+                var new_radio_id = radio_id.replace(/radio[0-9]action[0-9]/g, idHolder);
+                $(this).attr('id',new_radio_id);
+              });
+
+              $(this).find("label[for]").each(function() {
+                var radio_id= $(this).attr('for');
+                var new_radio_id = radio_id.replace(/radio[0-9]action[0-9]/g, idHolder);
+                 $(this).attr('for',new_radio_id);
+              });
+
+            });
+          });
+        }
+      });
+
+
+
+
+$(".multiInputDiv").on('click', 'a.deletefromlist', function(e){
+  e.preventDefault();
+  var confirmdelete = confirm("Are you sure you want to delete this?");
+  if (confirmdelete==true){
+    var selectedRow = $(this).closest(".dataRow");
+    //count sibling datarows, if total is 1, do not delete and show alert
+    var siblingCount = selectedRow.siblings().length;
+    if (siblingCount == 0) {
+      alert("Sorry, cannot delete only instance of this data");
+    }
+    else {
+      $(selectedRow).remove();
+    }
+  }
+});
+
+
+
 });

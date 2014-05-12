@@ -99,6 +99,8 @@ $form['other']=$otherIPE;
 $form['states'] = $allStates;
 
 $form['end tab'] = $endTabs;
+// $form['origCaseData'] = $origCaseData;
+// $origCaseData->value = $httpresponse;
 $form['closing'] = $closing;
 
 

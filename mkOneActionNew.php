@@ -6,7 +6,7 @@
 
 <!-- <div id="<#?php echo "state_".$state_jsonID."_action_".$this->id; ?>" class="one_action_div borderDiv dataRow row" class="<#?php echo "rowForState_".$state_jsonID;?>" data-arrayIndex ="<#?php echo $actionIndex; ?>" data-statejsonID = "<#?php echo $state_jsonID; ?>" data-actionjsonID="<#?php echo $this->id; ?>"> -->
 
-  <div class="one_action_div borderDiv dataRow row" class="<?php echo "rowForState_".$state_jsonID;?>" data-arrayIndex ="<?php echo $actionIndex; ?>" data-endpoint="actions" data-statejsonID = "<?php echo $state_jsonID; ?>" data-actionjsonID="99999">
+  <div class="one_action_div borderDiv newelement dataRow row" class="<?php echo "rowForState_".$state_jsonID;?>" data-arrayIndex ="<?php echo $actionIndex; ?>" data-endpoint="actions" data-statejsonID = "<?php echo $state_jsonID; ?>" data-actionjsonID="99999">
 
 <!-- commented out submittal of action ID -->
     <!-- <input class="actionIDHiddenRow" type="hidden" name="<#?php echo $name_prefix.'[id]'; ?>" value="<#?php echo $this->id; ?>"/>

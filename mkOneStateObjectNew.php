@@ -3,7 +3,7 @@
       $state_jsonID = $this->startcounter;
   ?>
 
-<div id="<?php echo "state_".$state_jsonID; ?>" class="dataRow borderDiv one_state_div" data-endpoint="states" data-jsonID="<?php echo $state_jsonID; ?>" data-arrayIndex="<?php echo $stateIndex; ?>">
+<div id="<?php echo "state_".$state_jsonID; ?>" class="dataRow newelement borderDiv one_state_div" data-endpoint="states" data-jsonID="<?php echo $state_jsonID; ?>" data-arrayIndex="<?php echo $stateIndex; ?>">
 
   <div class="stateWithoutActionsSection" data-jsonID="<?php echo $state_jsonID; ?>" data-arrayIndex="<?php echo $stateIndex; ?>">
 

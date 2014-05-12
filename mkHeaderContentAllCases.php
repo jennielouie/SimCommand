@@ -9,16 +9,12 @@
     <?php foreach($this->javascript as $script) {?>
     <script src="<?php echo $script; ?>"></script>
     <?php } ?>
-<!-- <script src="/js/tinymce/jquery.tinymce.min.js" type="text/javascript"></script> -->
-
 
   </head>
 
   <body>
 
     <div class="row">
-      <!-- <form action="<#?php echo $this->formAction;?>" method="post" novalidate> -->
-
 
 <!-- NAV -->
 <div class="row">
@@ -31,22 +27,13 @@
           <li class="name">
             <h1><a href="#">SimCommand Summary of Cases</a></h1>
           </li>
-          <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-          <!-- <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li> -->
+
         </ul>
 
-        <!-- <section class="top-bar-section"> -->
-
-          <!-- Right Nav Section -->
-          <!--           <ul class="right">
-                      <li class="divider hide-for-small"></li>
-                      <li><a href="#">Main Item 1</a></li>
-                    </ul>
-                  </section> -->
 
       </nav>
 
-      <a class="alwaysShow button tiny" href="SimCommandNewCaseForm.php">Create New Case</a>
+      <a class="alwaysShow success button tiny" href="SimCommandNewCaseForm.php">Create New Case</a>
 <!-- </div> -->
     </div>
   </div>

@@ -24,19 +24,8 @@ include('formTemplateClass.php');
     )
   );
 
-  // $simulators = new Template('mkCheckbox.php',
-  //   array(
-  //   'type'=>'checkbox',
-  //   'entity'=>'',
-  //   'name' => 'simulators',
-  //   'label' => 'Simulators (Click on labels for all that apply)',
-  //   'tooltip' => 'Click all that apply',
-  //   'values' => array('Mannequin - adult' => '', 'Mannequin - OB' => '', 'Mannequin - pediatric' => '', 'Mannequin - neonatal' => '', 'Mannequin - trauma' => '', 'Task trainer - airway' => '', 'Task trainer - surgical' => '', 'Task trainer - catheter' => '', 'Simulated patient - adult male' => '', 'Simulated patient - adult female' => '', 'Simulated patient - pediatric male' => '', 'Simulated patient - pediatric female' => '')
-  //   )
-  // );
 
-
-// DROPDOWNS  $ = new Template('mkDropdown.php',array('type'=>'dropdown','entity'=>'','name' => '','label' => '','values' => array('option'=>'selected/[blank]'), 'tooltip'=>''));
+// DROPDOWNS
 
   $actionScale = new Template('mkDropdown.php',
     array(
@@ -61,7 +50,7 @@ include('formTemplateClass.php');
   );
 
 
-// TEXT AREA $ = new Template('mkTextarea.php', array('type'=>'singletext', 'entity'=>'','label'=>'', 'name' =>'', 'tooltip'=>'', 'value'=>'')));
+// TEXT AREA
 
 $authors = new Template('mkTextbarwBtnMultiple.php', array('type' => 'textarray','entity'=>'','label' =>'Author(s)', 'name' => 'authors','tooltip'=>'[add text]','btnname' =>'addAuthor', 'btnlabel'=>'Add author','values'=>array('')));
 
@@ -94,7 +83,7 @@ $simulatorPrograms = new Template('mkTextarea.php', array('type'=>'singletext','
 
 
 
-// SINGLE TEXTBAR   $ = new Template('mkTextbar.php', array('type'=>'singletext','label'=>'', 'name'=>'', 'value'=>''));
+// SINGLE TEXTBAR
 $action_scale = new Template('mkTextbar.php', array('type'=>'singletext','label'=>'', 'name'=>'', 'value'=>''));
 
 $caseID =  new Template('mkTextbar.php', array('type'=>'singletext','label'=>'Case ID', 'name'=>'id','entity'=>'', 'value'=>''));
@@ -107,13 +96,13 @@ $title = new Template('mkTextbar.php', array('type' => 'singletext','entity'=>''
 
 
 
-//SHORT TEXTBAR $ = new Template('mkShortTextbar.php', array('type' => 'singletext', 'entity'=>'','label'=>'', 'name'=>'', 'tooltip'=>'','value'=>'<ul> <li></li> </ul>'));
+//SHORT TEXTBAR
 
 $age = new Template('mkshortTextbarAge.php', array('type' => 'singletext', 'entity'=>'','label'=>'Age', 'name'=>'age','value'=>''));
 
 
 
-//MULTIPLE TEXT BARS $ = new Template('mkTextbarwBtnMultiple.php',array('type' => 'textarray','entity'=>'','label' =>'', 'name' => '','tooltip'=>'[add text]','btnname' =>'addmedEqmt', 'btnlabel'=>'Add row','values'=>array('')));
+//MULTIPLE TEXT BARS
 
 $addAnotherCategory = new Template('mkTextbarwBtnMultiple.php', array('type' => 'textarray','entity'=>'','label' =>'Other Category (describe)', 'name' => 'categories', 'btnname' =>'addCategory', 'btnlabel'=>'Add category','tooltip'=>'[Add text]','values'=>array('')));
 
@@ -125,30 +114,30 @@ $notes = new Template('mkTextbarwBtnMultiple.php', array('type' => 'textarray','
 
 
 
-// TEXT AREA WITH UPLOAD$ = new Template('mkTextarea.php', array('type'=>'singletext', 'entity'=>'','label'=>'', 'name' =>'', 'tooltip'=>'', 'value'=>'')));
-$abdomen = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'initial_patient_examination','label'=>'Abdomen', 'name'=>'initial_patient_examination[abdomen]', 'btnname'=>'addabdomen', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
+// TEXT AREA WITH UPLOAD$
+$abdomen = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'physical_exam','label'=>'Abdomen', 'name'=>'physical_exam[abdomen]', 'btnname'=>'addabdomen', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
 
 $briefing = new Template('mkTextarea.php', array('type' =>'singletext','entity'=>'','label' =>'Briefing', 'name' => 'briefing', 'btnname1' =>'addbriefing', 'btnlabel1'=>'Add row', 'btnname2'=>'uploadbriefing', 'btnlabel2'=>'Add file', 'value' =>'<ul> <li></li> </ul>'));
 
 $debriefing = new Template('mkTextarea.php', array('type' =>'singletext','entity'=>'','label' =>'Debriefing', 'name' => 'debriefing', 'btnname1' =>'adddebriefing', 'btnlabel1'=>'Add row', 'btnname2'=>'uploaddebriefing', 'btnlabel2'=>'Add file', 'values' =>'<ul> <li></li> </ul>'));
 
-$extremities = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'initial_patient_examination','label'=>'Extremities', 'name'=>'initial_patient_examination[extremities]', 'btnname'=>'addextremities', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
+$extremities = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'physical_exam','label'=>'Extremities', 'name'=>'physical_exam[extremities]', 'btnname'=>'addextremities', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
 
-$generalIPE = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'initial_patient_examination','label'=>'General', 'name'=>'initial_patient_examination[general]', 'btnname' =>'addgeneralIPE', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
+$generalIPE = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'physical_exam','label'=>'General', 'name'=>'physical_exam[general]', 'btnname' =>'addgeneralIPE', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
 
-$heart = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'initial_patient_examination','label'=>'Heart', 'name'=>'initial_patient_examination[heart]', 'btnname'=>'addheart', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
+$heart = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'physical_exam','label'=>'Heart', 'name'=>'physical_exam[heart]', 'btnname'=>'addheart', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
 
-$heent = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'initial_patient_examination','label'=>'HEENT', 'name'=>'initial_patient_examination[heent]', 'btnname' =>'addheent', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
+$heent = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'physical_exam','label'=>'HEENT', 'name'=>'physical_exam[heent]', 'btnname' =>'addheent', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
 
-$lungs = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'initial_patient_examination','label'=>'Lungs', 'name'=>'initial_patient_examination[lungs]', 'btnname'=>'addlung', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
+$lungs = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'physical_exam','label'=>'Lungs', 'name'=>'physical_exam[lungs]', 'btnname'=>'addlung', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
 
 $moulage = new Template('mkTextarea.php', array('type' =>'singletext','entity'=>'','label' =>'Moulage', 'name' => 'moulage', 'btnname1' =>'addMoulage', 'btnlabel1'=>'Add row', 'btnname2'=>'uploadMoulage', 'btnlabel2'=>'Add file', 'value' =>'<ul> <li></li> </ul>'));
 
-$neck = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'initial_patient_examination','label'=>'Neck', 'name'=>'initial_patient_examination[neck]', 'btnname' =>'addneck', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
+$neck = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'physical_exam','label'=>'Neck', 'name'=>'physical_exam[neck]', 'btnname' =>'addneck', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
 
-$neurological = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'initial_patient_examination','label'=>'Neuro', 'name'=>'initial_patient_examination[neurological]', 'btnname' =>'addneuro', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
+$neurological = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'physical_exam','label'=>'Neuro', 'name'=>'physical_exam[neurological]', 'btnname' =>'addneuro', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
 
-$otherIPE = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'initial_patient_examination','label'=>'Other', 'name'=>'initial_patient_examination[otherIPE]', 'btnname' =>'addotherIPE', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
+$otherIPE = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'physical_exam','label'=>'Other', 'name'=>'physical_exam[otherIPE]', 'btnname' =>'addotherIPE', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
 
 $resources = new Template('mkTextarea.php', array('type' =>'singletext','entity'=>'','label' =>'Resources', 'name' => 'resources', 'btnname1' =>'addResource', 'btnlabel1'=>'Add resource', 'btnname2'=>'uploadResource', 'btnlabel2'=>'Add file', 'value' =>'<ul> <li></li> </ul>'));
 
@@ -168,32 +157,13 @@ $studyQs = new Template('mkTextarea.php', array('type' =>'singletext','entity'=>
 $supplies = new Template('mkTextarea.php', array('type' =>'singletext','entity'=>'','label' =>'Supplies', 'name' => 'supplies', 'value' =>'<ul> <li></li> </ul>'));
 
 
-//HEADER CONTENT $= new Template('mkHeaderContentAccordion.php', array('tabTitle' => '', 'title' => '', 'formAction'=>'', 'javascript'=>array('modernizrSimCommand.js','//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'simCommand.js') ,'stylesheet' => 'foundationSimCommand.css'));
+//HEADER CONTENT
 
 $allCasesHeader= new Template('mkHeaderContentAllCases.php', array('tabTitle' => 'SimCommand | Case List', 'title' => 'SimCommand','formAction'=>'showAllCases.php', 'javascript'=>array('modernizrSimCommand.js','//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'simCommand.js','//tinymce/js/tinymce/tinymce.min.js','http://cdn.foundation5.zurb.com/foundation.js'),'stylesheet' => 'foundationSimCommand.css', 'caseTitle'=>'', 'caseID'=>''));
 
 $newCaseHeader= new Template('mkHeaderContentForm.php', array('tabTitle' => 'SimCommand | Case Information', 'title' => 'SimCommand New Case', 'formMethod'=>'post','formAction'=>'SimCommandPostNewCase.php', 'javascript'=>array('modernizrSimCommand.js','//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'simCommand.js','tinymce/js/tinymce/tinymce.min.js','http://cdn.foundation5.zurb.com/foundation.js','functionTinyMCE.js'),'stylesheet' => 'foundationSimCommand.css', 'caseTitle'=>'', 'caseID'=>''));
 
-// $getCaseHeader= new Template('mkHeaderContentShow.php', array('tabTitle' => 'SimCommand | Show Single Case', 'title' => 'SimCommand OneCase', 'javascript'=>array('modernizrSimCommand.js','//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'simCommand.js','tinymce/js/tinymce/tinymce.min.js','http://cdn.foundation5.zurb.com/foundation.js','functionTinyMCE.js'),'stylesheet' => 'foundationSimCommand.css', 'caseTitle'=>'', 'caseID'=>''));
-
 $editCaseHeader= new Template('mkHeaderContentEditForm.php', array('tabTitle' => 'SimCommand | Edit Case', 'title' => 'SimCommand Edit Case', 'formMethod'=>'post','formAction'=>'SimCommandPutCase.php?case_id=', 'javascript'=>array('modernizrSimCommand.js','//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'simCommand.js','tinymce/js/tinymce/tinymce.min.js','http://cdn.foundation5.zurb.com/foundation.js','functionTinyMCE.js'),'stylesheet' => 'foundationSimCommand.css', 'caseTitle'=>'', 'caseID'=>''));
-
-// $getAssessmentsHeader= new Template('mkHeaderContentFormAssessments.php', array('tabTitle' => 'Edit Assessments', 'title' => 'List of Assessments for Case', 'formMethod'=>'post','formAction'=>'/simCommandPutAssessment.php', 'javascript'=>array('modernizrSimCommand.js','//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'simCommand.js','http://cdn.foundation5.zurb.com/foundation.js'),'stylesheet' => 'foundationSimCommand.css', 'caseTitle'=>'', 'caseID'=>'9'));
-
-// $getStatesHeader= new Template('mkHeaderContentFormStates.php', array('tabTitle' => 'Edit States', 'title' => 'List of States for Case', 'formMethod'=>'post','formAction'=>'/simCommandPutState.php', 'javascript'=>array('modernizrSimCommand.js','//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'simCommand.js','http://cdn.foundation5.zurb.com/foundation.js'),'stylesheet' => 'foundationSimCommand.css', 'caseTitle'=>'', 'caseID'=>''));
-
-// $getActionsHeader= new Template('mkHeaderContentShowActions.php', array('tabTitle' => 'Edit Actions', 'title' => 'List of Actions for State', 'javascript'=>array('modernizrSimCommand.js','//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'simCommand.js','http://cdn.foundation5.zurb.com/foundation.js'),'stylesheet' => 'foundationSimCommand.css', 'caseTitle'=>'', 'caseID'=>'', 'stateID'=>''));
-
-// $editAssessmentHeader= new Template('mkHeaderContentFormAssessments.php', array('tabTitle' => 'Edit Assessments', 'title' => 'Edit Assessment ', 'formMethod'=>'post','formAction'=>'/simCommandPutAssessment.php', 'javascript'=>array('modernizrSimCommand.js','//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'simCommand.js','http://cdn.foundation5.zurb.com/foundation.js'),'stylesheet' => 'foundationSimCommand.css', 'caseTitle'=>'', 'caseID'=>''));
-
-// $newAssessmentHeader= new Template('mkHeaderContentFormAssessments.php', array('tabTitle' => 'New Assessment', 'title' => 'New Assessment ', 'formMethod'=>'post','formAction'=>'/simCommandPostAssessment.php', 'javascript'=>array('modernizrSimCommand.js','//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'simCommand.js','http://cdn.foundation5.zurb.com/foundation.js'),'stylesheet' => 'foundationSimCommand.css', 'caseTitle'=>'', 'caseID'=>''));
-
-// $editStateHeader= new Template('mkHeaderContentFormStates.php', array('tabTitle' => 'Edit State', 'title' => 'Edit State ', 'formMethod'=>'post','formAction'=>'/simCommandPutState.php', 'javascript'=>array('modernizrSimCommand.js','//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'simCommand.js','tinymce/js/tinymce/tinymce.min.js','http://cdn.foundation5.zurb.com/foundation.js','functionTinyMCE.js'),'stylesheet' => 'foundationSimCommand.css', 'caseTitle'=>'', 'caseID'=>'', 'stateID'=>''));
-
-// $editAssessmentsLink = new Template('mkEditSectionLink.php', array('title'=>'Edit this Case\'s Assessments','link'=>'/SimCommandGetCaseAssessments.php', 'caseID'=>''));
-
-// $editStatesLink = new Template('mkEditSectionLink.php', array('title'=>'Edit this Case\'s States','link'=>'/SimCommandGetCaseStates.php', 'caseID'=>''));
-// //TAB HEADER $ = new Template('mkTabHeader.php', array('tabID'=>'', 'tabTitle'=>''));
 
 $assessmentTab = new Template('mkTabHeader.php', array('tabID'=>'assessment', 'tabTitle'=>'Assessment'));
 
@@ -210,24 +180,9 @@ $instructionalTab = new Template('mkTabHeader.php', array('tabID'=>'instructiona
 $preparationTab = new Template('mkTabHeader.php', array('tabID'=>'preparation', 'tabTitle'=>'Preparation'));
 
 
-
 //CLOSING CONTENT
 $closing = new Template('mkClosingContent.php', array('buttonlabel1'=>'Save', 'javascript'=>array("js/vendor/jquery.js", "js/vendor/foundation.min.js")));
-// $closingEditCase = new Template('mkClosingContent.php', array('buttonlabel1'=>'Update this Case', 'javascript'=>array("js/vendor/jquery.js", "js/vendor/foundation.min.js")));
 
-// $closingOneCase = new Template('mkClosingContentOneCase.php', array('javascript'=>array("js/vendor/jquery.js", "js/vendor/foundation.min.js")));
-
-// $closingNoShortcuts = new Template('mkClosingContentNoShortcuts.php', array('buttonlabel1'=>'Save','javascript'=>array("js/vendor/jquery.js", "js/vendor/foundation.min.js")));
-
-// $closingEditAssessment = new Template('mkClosingContentNoShortcuts.php', array('buttonlabel1'=>'Update', 'javascript'=>array("js/vendor/jquery.js", "js/vendor/foundation.min.js")));
-
-// $closingNewAssessment = new Template('mkClosingContentNoShortcuts.php', array('buttonlabel1'=>'Create Assessment', 'javascript'=>array("js/vendor/jquery.js", "js/vendor/foundation.min.js")));
-
-// $closingEditState = new Template('mkClosingContentNoShortcuts.php', array('buttonlabel1'=>'Update', 'javascript'=>array("js/vendor/jquery.js", "js/vendor/foundation.min.js")));
-
-// $closingReadOnly = new Template('mkClosingContentReadOnly.php', array('buttonlabel1'=>'Update', 'javascript'=>array("js/vendor/jquery.js", "js/vendor/foundation.min.js")));
-
-// $allcasesHeader = new Template('mkallCasesHeaderContent.php', array('foo'=>'bar'));
 $allCasesClosing = new Template('mkallCasesClosingContent.php', array('foo'=>'bar'));
 
 
@@ -277,10 +232,9 @@ $assessmentNew = new Template('mkOneAssessmentObjectNew.php', array('startcounte
 
 $allAssessments = new Template('mkAllAssessments.php', array('type'=>'allAssessments','assessmentsArray'=>array($assessmentNew)));
 
-// $oneCaseSummary = new Template('showallcases.php', array('caseID'=>'test','number'=>'testnumber','title'=>'testtitle','authors'=>array(),'institutions'=>array(), 'instructionalGoals'=>array(), 'categories'=>array(), 'published'=>'testpublishdate','overview'=>'testOverview'));
 
-$hiddenIPEid = new Template('mkHiddenInput.php', array('name'=>'initial_patient_examination[id]','value'=>''));
-
+$hiddenIPEid = new Template('mkHiddenInput.php', array('name'=>'physical_exam[id]','value'=>'','class'=>'hiddenStateJsonID'));
+$origCaseData = new Template('mkHiddenInput.php', array('name'=>'origCaseData','value'=>'','class'=>''));
 $globalRatingScale = new Template('mkshortTextbarAge.php', array('type' => 'singletext', 'entity'=>'','label'=>'Global Rating Scale', 'name'=>'global_rating_scale','value'=>''));
 
 $assessmentItemScale = new Template('mkshortTextbarAge.php', array('type' => 'singletext', 'entity'=>'','label'=>'Assessment Item Scale', 'name'=>'assessment_item_scale','value'=>''));

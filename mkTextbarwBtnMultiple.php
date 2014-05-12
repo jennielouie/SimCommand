@@ -23,7 +23,7 @@
               <input name="<?php echo $this->__get('name').'[]'; ?>" type="text" value='<?php echo $item ?>' required />
           </div>
           <!-- <div class='small-1 columns'><button type='button' class='small alert button expand deletebutton' class=>Delete</button> -->
-            <div class="small-1 columns"><a href='#' class="delete">Delete</a>
+            <div class="small-1 columns"><a href='#' class="deletefromlist">Delete</a>
           </div>
         </div>
         <?php
