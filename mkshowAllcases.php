@@ -13,7 +13,6 @@
       </div>
       </div>
 
-
       <div class="row">
         <div class="small-2 columns">
           <span>Case ID:</span>
