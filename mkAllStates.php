@@ -12,7 +12,7 @@
 <!-- Beginning of hidden single action -->
 
   <div class="templateForOneActionDiv hiddenDiv">
-    <div id="" class="one_action_div borderDiv dataRow row" class="" data-arrayIndex ="0" data-statejsonID = "" data-actionjsonID="">
+    <div id="" class="one_action_div borderDiv dataRow row" data-endpoint="actions" class="" data-arrayIndex ="0" data-statejsonID = "" data-actionjsonID="">
 
       <!-- <input class="actionIDHiddenRow" type="hidden" name="[placeholder][id]" value=""/> -->
 

@@ -50,7 +50,29 @@ uniqueActionIndex = 100000;
   $(".multiInputDiv").on('click', 'a.delete', function(e){
     e.preventDefault();
     console.log('clicked');
+
+
+
     var selectedRow = $(this).closest(".dataRow");
+    var endpoint = selectedRow.attr('data-endpoint');
+//Check if row needs to be deleted from API
+if (selectedRow.attr('data-actionjsonid')){
+  var id_to_delete = selectedRow.attr('data-actionjsonid');
+} else if (selectedRow.attr('data-jsonid')){
+  var id_to_delete = selectedRow.attr('data-jsonid');
+}
+
+  alert('starting ajax');
+  $.ajax({
+    url: '/SimCommandDelete.php?endpoint=' + endpoint + '&delete_id=' + id_to_delete,
+
+  }).done(function() {
+    alert("completed");
+  });
+
+
+
+
     //count sibling datarows, if total is 1, do not delete and show alert
     var siblingCount = $(selectedRow).siblings().length;
       if (siblingCount == 0) {
@@ -77,7 +99,7 @@ uniqueActionIndex = 100000;
           $(this).attr('data-arrayIndex', rowIndex);
           $(this).find("input[name], select[name], textarea[name]").each(function(){
             var name = $(this).attr('name');
-            var new_name = name.replace(/\[states\]\[[0-9]+\]/g, '[states]['+rowIndex+']');
+            var new_name = name.replace(/states\[[0-9]+\]/g, 'states['+rowIndex+']');
             // console.log('state regex');
             $(this).attr('name',new_name);
           });

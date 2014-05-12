@@ -2,7 +2,7 @@
 $name_prefix = "$this->namePrefix[$assessmentIndex]";
 $id_prefix = 'assessment-'.$this->assessment_id;
 ?>
-<div class="one_assessment_div dataRow row" data-jsonID="<?php echo $this->assessment_id; ?>" data-arrayIndex="<?php echo $assessmentIndex; ?>">
+<div class="one_assessment_div dataRow row" data-endpoint="assessmentitems" data-jsonID="<?php echo $this->assessment_id; ?>" data-arrayIndex="<?php echo $assessmentIndex; ?>">
   <fieldset>
   <h3>Assessment ID: <?php echo $this->assessment_id; ?></h3>
 
