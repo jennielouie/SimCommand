@@ -78,11 +78,8 @@ foreach($states as $state)
 }
 
 
-
-
-
 //PUT STATES
-// print_r($states)
+
 foreach($states as $state){
 
   unset($state['actions']);
@@ -123,9 +120,6 @@ foreach($states as $state){
     curl_close($ch);
   }
 }
-
-
-
 
 
 //PUT ASSESSMENTS
@@ -184,10 +178,12 @@ $putCaseResponseJson = curl_exec($ch);
 $putCaseResponse = json_decode($putCaseResponseJson);
 curl_close($ch);
 
-// PUT IPE EDITS
+
+
+// PUT PHYSICAL EXAM EDITS
 $ch = curl_init();
 $ipeID = $_POST['[initial_patient_examination']['id'];
-$putCaseUrl = "http://private-1c15-scapi.apiary-mock.com/initialpatientexaminations/$ipeID";
+$putCaseUrl = "http://private-1c15-scapi.apiary-mock.com/physicalexams/$ipeID";
 curl_setopt($ch, CURLOPT_URL, $putCaseUrl);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 curl_setopt($ch, CURLOPT_HEADER, FALSE);
