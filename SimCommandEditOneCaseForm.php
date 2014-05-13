@@ -83,17 +83,16 @@ $form['gender']=$gender;
 $form['age']=$age;
 
 // Initial Patient Examinations
-//id
-$form['ipe_id']=$hiddenIPEid;
-$form['general']=$generalIPE;
-$form['heent']=$heent;
-$form['neck']=$neck;
-$form['lungs']=$lungs;
-$form['heart']=$heart;
-$form['abdomen']=$abdomen;
-$form['extremeties']=$extremities;
-$form['neurological']=$neurological;
-$form['other']=$otherIPE;
+// $form['ipe_id']=$hiddenIPEid;
+// $form['general']=$generalIPE;
+// $form['heent']=$heent;
+// $form['neck']=$neck;
+// $form['lungs']=$lungs;
+// $form['heart']=$heart;
+// $form['abdomen']=$abdomen;
+// $form['extremeties']=$extremities;
+// $form['neurological']=$neurological;
+// $form['other']=$otherIPE;
 //end of IPE fields
 
 $form['states'] = $allStates;
@@ -189,7 +188,17 @@ else
               'other'=>$state['other'],
               'discussion_items'=>$state['discussion_items'],
               'type'=>'oneState',
-              'actions'=>$actions
+              'actions'=>$actions,
+              'pe_id'=>$state['physical_exam']['id'],
+              'pe_general'=>$state['physical_exam']['general'],
+              'heent'=>$state['physical_exam']['heent'],
+              'neck'=>$state['physical_exam']['neck'],
+              'lungs' =>$state['physical_exam']['lungs'],
+              'heart'=>$state['physical_exam']['heart'],
+              'abdomen'=>$state['physical_exam']['abdomen'],
+              'extremeties'=>$state['physical_exam']['extremeties'],
+              'neurological'=>$state['physical_exam']['neurological'],
+              'pe_other'=>$state['physical_exam']['other']
             ));
 
             //add states to array of states

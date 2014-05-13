@@ -1,11 +1,13 @@
   <?php
       $name_prefix = 'states['.$stateIndex.']';
+      $pe_name_prefix = $name_prefix.'[physical_exam]';
       $state_jsonID = $this->state_id;
   ?>
 
 <div id="<?php echo "state_".$state_jsonID; ?>" class="dataRow borderDiv one_state_div" data-endpoint="states" data-jsonID="<?php echo $state_jsonID; ?>" data-arrayIndex="<?php echo $stateIndex; ?>">
 
   <div class="stateWithoutActionsSection" data-jsonID="<?php echo $state_jsonID; ?>" data-arrayIndex="<?php echo $stateIndex; ?>">
+
 
     <div class="row">
       <div class="small-3 columns">
@@ -19,11 +21,152 @@
 
       <input type="hidden" class="hiddenStateJsonID" name="<?php echo $name_prefix.'[id]'; ?>" value="<?php echo $this->state_id; ?>"/>
 
+<!-- PHYSICAL EXAM INPUTS -->
+<h4>Initial Physical Examination</h4>
+    <input type="hidden" class="hiddenPEJsonID" name="<?php echo $pe_name_prefix.'[id]'?>" value="<?php echo $this->pe_id; ?>"/>
+    <!-- text area box -->
+<div class="row">
+  <div class="large-12 columns">
+    <div class="row">
+      <div class="large-2 small-10 columns">
+        <span data-tooltip class="has-tip [tip-bottom]" title='[add text]'>Physical Exam General</span>
+      </div>
+      <div class="small-10 columns">
+        <textarea class="textareaMCE" name="<?php echo $pe_name_prefix.'[general]';?>"><?php echo $this->pe_general;?></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+</br>
+<!-- text area box -->
+<div class="row">
+  <div class="large-12 columns">
+    <div class="row">
+      <div class="large-2 small-10 columns">
+        <span data-tooltip class="has-tip [tip-bottom]" title='[add text]'>HEENT</span>
+      </div>
+      <div class="small-10 columns">
+        <textarea class="textareaMCE" name="<?php echo $pe_name_prefix.'[heent]'; ?>"><?php echo $this->heent;?></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+</br>
+<!-- text area box -->
+<div class="row">
+  <div class="large-12 columns">
+    <div class="row">
+      <div class="large-2 small-10 columns">
+        <span data-tooltip class="has-tip [tip-bottom]" title='[add text]'>Neck</span>
+      </div>
+      <div class="small-10 columns">
+        <textarea class="textareaMCE" name="<?php echo $pe_name_prefix.'[neck]';?>"><?php echo $this->neck;?></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+</br>
+<!-- text area box -->
+<div class="row">
+  <div class="large-12 columns">
+    <div class="row">
+      <div class="large-2 small-10 columns">
+        <span data-tooltip class="has-tip [tip-bottom]" title='[add text]'>Lungs</span>
+      </div>
+      <div class="small-10 columns">
+        <textarea class="textareaMCE" name="<?php echo $pe_name_prefix.'[lungs]';?>"><?php echo $this->lungs;?>></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+</br>
+<!-- text area box -->
+<div class="row">
+  <div class="large-12 columns">
+    <div class="row">
+      <div class="large-2 small-10 columns">
+        <span data-tooltip class="has-tip [tip-bottom]" title='[add text]'>Heart</span>
+      </div>
+      <div class="small-10 columns">
+        <textarea class="textareaMCE" name="<?php echo $pe_name_prefix.'[heart]';?>"><?php echo $this->heart;?></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+</br>
+<!-- text area box -->
+<div class="row">
+  <div class="large-12 columns">
+    <div class="row">
+      <div class="large-2 small-10 columns">
+        <span data-tooltip class="has-tip [tip-bottom]" title='[add text]'>Abdomen</span>
+      </div>
+      <div class="small-10 columns">
+        <textarea class="textareaMCE" name="<?php echo $pe_name_prefix.'[abdomen]';?>"><?php echo $this->abdomen;?></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+</br>
+<!-- text area box -->
+<div class="row">
+  <div class="large-12 columns">
+    <div class="row">
+      <div class="large-2 small-10 columns">
+        <span data-tooltip class="has-tip [tip-bottom]" title='[add text]'>Extremities</span>
+      </div>
+      <div class="small-10 columns">
+        <textarea class="textareaMCE" name="<?php echo $pe_name_prefix.'[extremeties]';?>"><?php echo $this->extremeties;?></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+</br>
+<!-- text area box -->
+<div class="row">
+  <div class="large-12 columns">
+    <div class="row">
+      <div class="large-2 small-10 columns">
+        <span data-tooltip class="has-tip [tip-bottom]" title='[add text]'>Neuro</span>
+      </div>
+      <div class="small-10 columns">
+        <textarea class="textareaMCE" name="<?php echo $pe_name_prefix.'[neurological]';?>"><?php echo $this->neurological;?></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+</br>
+<!-- text area box -->
+<div class="row">
+  <div class="large-12 columns">
+    <div class="row">
+      <div class="large-2 small-10 columns">
+        <span data-tooltip class="has-tip [tip-bottom]" title='[add text]'>Other</span>
+      </div>
+      <div class="small-10 columns">
+        <textarea class="textareaMCE" name="<?php echo $pe_name_prefix.'[otherIPE]'; ?>"><?php echo $this->pe_other;?></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+</br>
+
+
+
+
+
+
+
+
+
+
       <div class="large-2 small-10 columns">
         <span data-tooltip class="has-tip [tip-bottom]" title="add text">Notes</span>
       </div>
       <div class="small-10 columns">
-        <div class="MCEDivToRemove"><textarea class="textareaMCE actionNotes" name="<?php echo $name_prefix.'[notes]'; ?>"><?php echo $this->notes;?></textarea></div>
+        <!-- <div class="MCEDivToRemove"> -->
+            <textarea class="textareaMCE actionNotes" name="<?php echo $name_prefix.'[notes]'; ?>"><?php echo $this->notes;?></textarea>
+        <!-- </div> -->
       </div>
     </div>
     </br>
@@ -33,7 +176,9 @@
         <span data-tooltip class="has-tip [tip-bottom]" title='add text'>General</span>
       </div>
       <div class="small-10 columns">
-        <div class="MCEDivToRemove"><textarea class="textareaMCE actionGeneral" name="<?php echo $name_prefix.'[general]'; ?>"><?php echo $this->general;?></textarea></div>
+        <!-- <div class="MCEDivToRemove"> -->
+          <textarea class="textareaMCE actionGeneral" name="<?php echo $name_prefix.'[general]'; ?>"><?php echo $this->general;?></textarea>
+        <!-- </div> -->
       </div>
     </div>
     </br>
@@ -115,11 +260,11 @@
             <span data-tooltip class="has-tip [tip-bottom]" title='add text'>Discussion Items</span>
           </div>
           <div class="small-10 columns">
-            <div class="MCEDivToRemove">
+            <!-- <div class="MCEDivToRemove"> -->
               <textarea class="textareaMCE actionDiscussionItems" name="<?php echo $name_prefix.'[discussion_items]'; ?>"><?php echo $this->discussion_items;?>
               </textarea>
             </br></br>
-            </div>
+            <!-- </div> -->
           </div>
         </div>
       </div>
