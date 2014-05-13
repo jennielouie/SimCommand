@@ -144,7 +144,7 @@
         <span data-tooltip class="has-tip [tip-bottom]" title='[add text]'>Other</span>
       </div>
       <div class="small-10 columns">
-        <textarea class="textareaMCE" name="<?php echo $pe_name_prefix.'[otherIPE]'; ?>"><?php echo $this->pe_other;?></textarea>
+        <textarea class="textareaMCE" name="<?php echo $pe_name_prefix.'[other]'; ?>"><?php echo $this->pe_other;?></textarea>
       </div>
     </div>
   </div>

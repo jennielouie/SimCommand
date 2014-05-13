@@ -11,27 +11,20 @@ $case = $_POST;
 // $origActions = $origCaseData['states']['actions'];
 
 
-// $case_id = $_POST["id"];
-// $_POST['initial_patient_examination']['state_id'] = $case_id;
-//print_r($_POST);
-// $states = $_POST['states'];
+$case_id = $_POST["id"];
 
-// foreach($states as $stateIndex=>$state) {
-//   unset($states[$stateIndex]['actions']);
-// };
-
-// $assessment_items = $_POST['assessment_items'];
-// $actions = $_POST['states']['actions'];
-// $ipe = $_POST['initial_patient_examination'];
+$states = $_POST['states'];
 
 
 
-// unset($case['states']);
-// unset($case['assessment_items']);
-// unset($case['initial_patient_examination']);
+$assessment_items = $_POST['assessment_items'];
+
+//REMOVE nested objects from case
+unset($case['states']);
+unset($case['assessment_items']);
 // unset($case['origCaseData']);
-$jsoncase = json_encode($case);
-echo $jsoncase;
+// $jsoncase = json_encode($case);
+// echo $jsoncase;
 
 
 // //PUT ACTIONS
@@ -84,6 +77,8 @@ echo $jsoncase;
 // foreach($states as $state){
 
 //   unset($state['actions']);
+// unset($state['physical_exam']);
+
 //   $state['case_id'] = $case_id;
 
 //   if (array_key_exists('id', $state))
@@ -181,20 +176,46 @@ echo $jsoncase;
 
 
 
-// // PUT PHYSICAL EXAM EDITS
-// $ch = curl_init();
-// $ipeID = $_POST['[initial_patient_examination']['id'];
-// $putCaseUrl = "http://private-1c15-scapi.apiary-mock.com/physicalexams/$ipeID";
-// curl_setopt($ch, CURLOPT_URL, $putCaseUrl);
-// curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-// curl_setopt($ch, CURLOPT_HEADER, FALSE);
-// curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
-// curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonipe );
-// curl_setopt($ch, CURLOPT_HTTPHEADER, array("SCAPI_AUTH_TOKEN: 659d9194f1467c20d7a3a1fd6bbc6540e8ccf85498fad89f4988d85e8a718020", "Content-Type: text/plain"));
-// $putCaseResponseJson = curl_exec($ch);
-// $putCaseResponse = json_decode($putCaseResponseJson);
-// curl_close($ch)
+// PUT PHYSICAL EXAM EDITS
+foreach($states as $state){
+  $physical_exam = $state['physical_exam'];
+  $physical_exam['state_id'] = $state['id'];
 
+echo $physical_exam['state_id'];
+  if (array_key_exists('id', $physical_exam)) {
+    echo "start";
+    $pe_id = $physical_exam['id'];
+    unset($physical_exam['id']);
+    echo $pe_id;
+    $url = "private-1c15-scapi.apiary-mock.com/physicalexams/$pe_id";
+    $jsonphysical_exam = json_encode($physical_exam);
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+    curl_setopt($ch, CURLOPT_HEADER, FALSE);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonphysical_exam);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array("SCAPI_AUTH_TOKEN: 659d9194f1467c20d7a3a1fd6bbc6540e8ccf85498fad89f4988d85e8a718020", "Content-Type: application/json"));
+    $putCaseResponseJson = curl_exec($ch);
+    $putCaseResponse = json_decode($putCaseResponseJson);
+    curl_close($ch);
+  } else {
+      $url = "private-1c15-scapi.apiary-mock.com/physicalexams";
+      $jsonphysical_exam = json_encode($physical_exam);
+      $ch = curl_init();
+      curl_setopt($ch, CURLOPT_URL, $url);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+      curl_setopt($ch, CURLOPT_HEADER, FALSE);
+      curl_setopt($ch, CURLOPT_POST, TRUE);
+      curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonphysical_exam);
+      // curl_setopt($ch, CURLOPT_HTTPHEADER, array("SCAPI_AUTH_TOKEN: bac44f0517415a56043c20261a9916feb87e092dd9fdb35118707e70876510cb"));
+      curl_setopt($ch, CURLOPT_HTTPHEADER, array("SCAPI_AUTH_TOKEN: 659d9194f1467c20d7a3a1fd6bbc6540e8ccf85498fad89f4988d85e8a718020"));
+      $putCaseResponseJson = curl_exec($ch);
+      $putCaseResponse = json_decode($putCaseResponseJson);
+      curl_close($ch);
+
+  }
+}
 
 
 ?>
@@ -231,7 +252,7 @@ echo $jsoncase;
     <div class="row responsebox">
       <h3>Response to PUT request</h3>
 
-      <p>Result:<#?php print_r($putCaseResponse->result); ?></p>
+      <p>Result:<?php print_r($putCaseResponse->result); ?></p>
     </div>
 
     <div class="row">
