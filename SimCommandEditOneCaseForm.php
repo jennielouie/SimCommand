@@ -83,16 +83,17 @@ $form['gender']=$gender;
 $form['age']=$age;
 
 // Initial Patient Examinations
-// $form['ipe_id']=$hiddenIPEid;
-// $form['general']=$generalIPE;
-// $form['heent']=$heent;
-// $form['neck']=$neck;
-// $form['lungs']=$lungs;
-// $form['heart']=$heart;
-// $form['abdomen']=$abdomen;
-// $form['extremeties']=$extremities;
-// $form['neurological']=$neurological;
-// $form['other']=$otherIPE;
+//id
+$form['ipe_id']=$hiddenIPEid;
+$form['general']=$generalIPE;
+$form['heent']=$heent;
+$form['neck']=$neck;
+$form['lungs']=$lungs;
+$form['heart']=$heart;
+$form['abdomen']=$abdomen;
+$form['extremeties']=$extremities;
+$form['neurological']=$neurological;
+$form['other']=$otherIPE;
 //end of IPE fields
 
 $form['states'] = $allStates;

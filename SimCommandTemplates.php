@@ -212,17 +212,7 @@ $action2 = new Template('mkOneActionNew.php', array(
   'timer_values'=>array('True'=>'','False'=>'')
   ));
 
-$stateNew = new Template('mkOneStateObjectNew.php', array('startcounter'=>'3333333333','notes'=>'','general'=>'','temp_celcius'=>'','resp_rate'=>'','heart_rate'=>'','notes'=>'','general'=>'','bp_systolic'=>'','bp_diastolic'=>'', 'spo2'=>'','weight'=>'','pain_score'=>'','other'=>'','discussion_items'=>'','type'=>'oneState','actions'=>array($action1, $action2),
-  'pe_id'=>'',
-  'pe_general'=>'',
-  'heent'=>'',
-  'neck'=>'',
-  'lungs' =>'',
-  'heart'=>'',
-  'abdomen'=>'',
-  'extremeties'=>'',
-  'neurological'=>'',
-  'pe_other'=>''));
+$stateNew = new Template('mkOneStateObjectNew.php', array('startcounter'=>'3333333333','notes'=>'','general'=>'','temp_celcius'=>'','resp_rate'=>'','heart_rate'=>'','notes'=>'','general'=>'','bp_systolic'=>'','bp_diastolic'=>'', 'spo2'=>'','weight'=>'','pain_score'=>'','other'=>'','discussion_items'=>'','type'=>'oneState','actions'=>array($action1, $action2)));
 
 $allStates = new Template('mkAllStates.php', array('type'=>'allStates','statesArray'=>array($stateNew), 'is_critical_item'=>'','critical_item_label'=>'Critical Item?','critical_item_tooltip'=>'','critical_item_values'=>array('True'=>'','False'=>''),'timer_tooltip'=>'','timer_label'=>'Include Timer?','timer_values'=>array('True'=>'','False'=>'')));
 

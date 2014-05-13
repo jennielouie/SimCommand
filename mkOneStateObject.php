@@ -1,13 +1,11 @@
   <?php
       $name_prefix = 'states['.$stateIndex.']';
-      $pe_name_prefix = $name_prefix.'[physical_exam]';
       $state_jsonID = $this->state_id;
   ?>
 
 <div id="<?php echo "state_".$state_jsonID; ?>" class="dataRow borderDiv one_state_div" data-endpoint="states" data-jsonID="<?php echo $state_jsonID; ?>" data-arrayIndex="<?php echo $stateIndex; ?>">
 
   <div class="stateWithoutActionsSection" data-jsonID="<?php echo $state_jsonID; ?>" data-arrayIndex="<?php echo $stateIndex; ?>">
-
 
     <div class="row">
       <div class="small-3 columns">
@@ -164,9 +162,7 @@
         <span data-tooltip class="has-tip [tip-bottom]" title="add text">Notes</span>
       </div>
       <div class="small-10 columns">
-        <!-- <div class="MCEDivToRemove"> -->
-            <textarea class="textareaMCE actionNotes" name="<?php echo $name_prefix.'[notes]'; ?>"><?php echo $this->notes;?></textarea>
-        <!-- </div> -->
+        <div class="MCEDivToRemove"><textarea class="textareaMCE actionNotes" name="<?php echo $name_prefix.'[notes]'; ?>"><?php echo $this->notes;?></textarea></div>
       </div>
     </div>
     </br>
@@ -176,9 +172,7 @@
         <span data-tooltip class="has-tip [tip-bottom]" title='add text'>General</span>
       </div>
       <div class="small-10 columns">
-        <!-- <div class="MCEDivToRemove"> -->
-          <textarea class="textareaMCE actionGeneral" name="<?php echo $name_prefix.'[general]'; ?>"><?php echo $this->general;?></textarea>
-        <!-- </div> -->
+        <div class="MCEDivToRemove"><textarea class="textareaMCE actionGeneral" name="<?php echo $name_prefix.'[general]'; ?>"><?php echo $this->general;?></textarea></div>
       </div>
     </div>
     </br>
@@ -260,11 +254,11 @@
             <span data-tooltip class="has-tip [tip-bottom]" title='add text'>Discussion Items</span>
           </div>
           <div class="small-10 columns">
-            <!-- <div class="MCEDivToRemove"> -->
+            <div class="MCEDivToRemove">
               <textarea class="textareaMCE actionDiscussionItems" name="<?php echo $name_prefix.'[discussion_items]'; ?>"><?php echo $this->discussion_items;?>
               </textarea>
             </br></br>
-            <!-- </div> -->
+            </div>
           </div>
         </div>
       </div>
