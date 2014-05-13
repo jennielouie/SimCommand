@@ -1,5 +1,6 @@
   <?php
       $name_prefix = 'states['.$stateIndex.']';
+      $pe_name_prefix = $name_prefix.'[physical_exam]';
       $state_jsonID = $this->state_id;
   ?>
 
