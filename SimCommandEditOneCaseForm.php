@@ -2,11 +2,12 @@
 <?php
 include_once('SimCommandTemplates.php');
 
+$urlroot="http://private-1c15-scapi.apiary-mock.com";
 if(isset($_GET["case_id"])){
   $specificCaseID = $_GET["case_id"];
 }
 
-$url = "http://private-1c15-scapi.apiary-mock.com/cases/$specificCaseID";
+$url = "$urlroot/cases/$specificCaseID";
 $ch = curl_init();
 
 curl_setopt($ch, CURLOPT_URL, $url);
@@ -50,7 +51,7 @@ $form['global_rating_scale'] = $globalRatingScale;
 $form['assessment_item_scale'] = $assessmentItemScale;
 
 //INSTRUCTIONAL FOUNDATION TAB
-$form['ddd'] = $instructionalTab;
+$form['instTab'] = $instructionalTab;
 $form['instructional_goals'] = $instGoals;
 $form['obj1_medical_knowledge'] = $obj1;
 $form['obj2_patient_care'] = $obj2;
@@ -74,7 +75,7 @@ $form['medical_equipment'] = $medEqmt;
 $form['medications'] = $medications;
 $form['moulage'] = $moulage;
 $form['supplies'] = $supplies;
-$form ['fsdfsdf'] = $expectedActionsTab;
+$form ['actionsTab'] = $expectedActionsTab;
 
 //CASE DETAILS TAB
 $form['caseDetailsTab'] = $caseDetailsTab;

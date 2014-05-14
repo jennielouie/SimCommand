@@ -1,36 +1,24 @@
 <!doctype html>
 <?php
+include_once('SimCommandConstants.php');
 header('Content-Type: application/json');
 $jsondata = json_encode($_POST);
-// $states = $_POST['states'];
-// foreach($states as $stateIndex=>$state) {
-//   unset($states[$stateIndex]['actions']);
-// };
-
-// $assessment_items = $_POST['assessment_items'];
-// $actions = $_POST['states']['actions'];
-// $ipe = $_POST['initial_patient_examination'];
-// $case = $_POST;
-// unset($case['states']);
-// unset($case['assessment_items']);
-// unset($case['initial_patient_examination']);
 
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, "http://scapi-dev.ganasa.com/cases");
+curl_setopt($ch, CURLOPT_URL, "$urlroot/cases");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 curl_setopt($ch, CURLOPT_HEADER, FALSE);
 curl_setopt($ch, CURLOPT_POST, TRUE);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $jsondata);
-curl_setopt($ch, CURLOPT_HTTPHEADER, array("SCAPI_AUTH_TOKEN: bac44f0517415a56043c20261a9916feb87e092dd9fdb35118707e70876510cb"));
+curl_setopt($ch, CURLOPT_HTTPHEADER, $curlHeaderArray);
 $jsonresponse = curl_exec($ch);
 $response = json_decode($jsonresponse, true);
+
+//Grab id of new case from response body
 $body = $response->body;
 $thisCaseID = $body->id;
 curl_close($ch);
-
-// var_dump($response);
-// print_r($_FILES);
 
 ?>
 

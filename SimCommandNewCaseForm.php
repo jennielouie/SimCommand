@@ -23,7 +23,7 @@ $form['global_rating_scale'] = $globalRatingScale;
 $form['assessment_item_scale'] = $assessmentItemScale;
 
 //INSTRUCTIONAL FOUNDATION TAB
-$form['ddd'] = $instructionalTab;
+$form['instTab'] = $instructionalTab;
 $form['instructional_goals'] = $instGoals;
 $form['obj1_medical_knowledge'] = $obj1;
 $form['obj2_patient_care'] = $obj2;
@@ -47,7 +47,7 @@ $form['medical_equipment'] = $medEqmt;
 $form['medications'] = $medications;
 $form['moulage'] = $moulage;
 $form['supplies'] = $supplies;
-$form ['fsdfsdf'] = $expectedActionsTab;
+$form ['actionsTab'] = $expectedActionsTab;
 
 //CASE DETAILS TAB
 $form['caseDetailsTab'] = $caseDetailsTab;
@@ -55,22 +55,9 @@ $form['background']=$background;
 $form['gender']=$gender;
 $form['age']=$age;
 
-// Initial Patient Examinations
-//id
-$form['general']=$generalIPE;
-$form['heent']=$heent;
-$form['neck']=$neck;
-$form['lungs']=$lungs;
-$form['heart']=$heart;
-$form['abdomen']=$abdomen;
-$form['extremeties']=$extremities;
-$form['neurological']=$neurological;
-$form['other']=$otherIPE;
-//end of IPE fields
-
 $form['states'] = $allStates;
 
-$form['end tab'] = $endTabs;
+$form['endTab'] = $endTabs;
 $form['closing'] = $closing;
 
 
