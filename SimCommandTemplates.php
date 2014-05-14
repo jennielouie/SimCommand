@@ -213,7 +213,6 @@ $action2 = new Template('mkOneActionNew.php', array(
   ));
 
 $stateNew = new Template('mkOneStateObjectNew.php', array('startcounter'=>'3333333333','notes'=>'','general'=>'','temp_celcius'=>'','resp_rate'=>'','heart_rate'=>'','notes'=>'','general'=>'','bp_systolic'=>'','bp_diastolic'=>'', 'spo2'=>'','weight'=>'','pain_score'=>'','other'=>'','discussion_items'=>'','type'=>'oneState','actions'=>array($action1, $action2),
-                'pe_id'=>'',
               'pe_general'=>'',
               'heent'=>'',
               'neck'=>'',

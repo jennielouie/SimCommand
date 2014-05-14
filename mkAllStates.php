@@ -3,7 +3,7 @@
 <!-- mkAllStates -->
 <div class="states_section row">
   <div class="small-12 columns hiddenDiv end">
-    <button id="buttonToAddState" type="button" class="small success button expand" data-nameprefix='cases[states]' data-newRowDiv ='addStates_Div'>Add State</button>
+    <button id="buttonToAddState" type="button" class="small success button expand" data-nameprefix='states' data-newRowDiv ='addStates_Div'>Add State</button>
   </div>
 </div>
 </br>

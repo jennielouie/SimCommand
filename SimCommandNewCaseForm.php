@@ -54,9 +54,7 @@ $form['caseDetailsTab'] = $caseDetailsTab;
 $form['background']=$background;
 $form['gender']=$gender;
 $form['age']=$age;
-
 $form['states'] = $allStates;
-
 $form['endTab'] = $endTabs;
 $form['closing'] = $closing;
 

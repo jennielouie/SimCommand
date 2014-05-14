@@ -21,8 +21,10 @@
       <input type="hidden" class="hiddenStateJsonID" name="<?php echo $name_prefix.'[id]'; ?>" value="<?php echo $this->state_id; ?>"/>
 
 <!-- PHYSICAL EXAM INPUTS -->
-<h4>Initial Physical Examination</h4>
-    <input type="hidden" class="hiddenPEJsonID" name="<?php echo $pe_name_prefix.'[id]'?>" value="<?php echo $this->pe_id; ?>"/>
+<div class="row">
+  <h4>Physical Examination</h4>
+  <input type="hidden" class="hiddenPEJsonID" name="<?php echo $pe_name_prefix.'[id]'?>" value="<?php echo $this->pe_id; ?>"/>
+</div>
     <!-- text area box -->
 <div class="row">
   <div class="large-12 columns">
@@ -137,7 +139,7 @@
 </br>
 <!-- text area box -->
 <div class="row">
-  <div class="large-12 columns">
+  <div class="large-10 columns">
     <div class="row">
       <div class="large-2 small-10 columns">
         <span data-tooltip class="has-tip [tip-bottom]" title='[add text]'>Other</span>
@@ -149,13 +151,6 @@
   </div>
 </div>
 </br>
-
-
-
-
-
-
-
 
 
 
