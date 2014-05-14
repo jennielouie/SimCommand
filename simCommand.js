@@ -4,29 +4,22 @@
 $(document).ready(function() {
 
 //These indices are used to create unique ids for each set of radio buttons.  Problems occurred when the ids were not unique.  In actuality, element ids are not used much.
-uniqueButtonIndex = 100000;
-uniqueActionIndex = 100000;
-
-
-$(".rowWithAddButton").on('click', 'button', function(e){
-
+  uniqueButtonIndex = 100000;
+  uniqueActionIndex = 100000;
 
 //*********************************************************************************************************
   // ADD NEW INPUT BAR BELOW BOTTOM ONE, AND INCLUDE REMOVE BUTTON FOR THAT ROW
+  $(".rowWithAddButton").on('click', 'button', function(e){
     var newInputBarName = $(e.currentTarget).attr('data-name');
     var addedRowDivName = $(e.currentTarget).attr('data-newRowDiv');
    $("</br><div class='dataRow'><div class='large-8 small-10 large-offset-2 columns'><input name=" + newInputBarName+ " type='text' /></div><div class='small-1 columns'><a href='#' class='deletefromlist'>Delete</a></div></div>").appendTo("." + addedRowDivName);
   });
 
-  $(".rowWith2Buttons").on('click', 'button', function(e){
-
-
 //*********************************************************************************************************
   // ADD NEW INPUT BAR BELOW BOTTOM ONE, AND INCLUDE REMOVE AND ADD FILE BUTTONS FOR THAT ROW
+  $(".rowWith2Buttons").on('click', 'button', function(e){
     var newInputBarName = $(e.currentTarget).attr('data-name');
     var addedRowDivName = $(e.currentTarget).attr('data-newRowDiv');
-
-
    $("</br><div class='dataRow'><div class='small-9 columns'><input name=" + newInputBarName+ " type='text' /></div><div class='small-2 columns'><span>Upload</span><input type='file' class='upload'></div><div class='small-1 columns'><a href='#' class='deletefromlist'>Delete</a></div></div>").appendTo("." + addedRowDivName);
   });
 
@@ -37,15 +30,12 @@ $(".rowWithAddButton").on('click', 'button', function(e){
 
 /* Note: originally the 'add' button was at the top of the page; this makes functional the "add" button moved to the bottom of the page.*/
 
+  $('#footerAssessmentButton').on('click', function(){
+    $('#buttonToAddAssessment').click();
+    return false;
+  });
 
-
-$('#footerAssessmentButton').on('click', function(){
-  $('#buttonToAddAssessment').click();
-  return false;
-});
-
-$('#buttonToAddAssessment').on('click', function(){
-
+  $('#buttonToAddAssessment').on('click', function(){
 /*This was originally coded to allow for automated generation of state, assessment and action ids (hence the use of data-jsonID, etc.).  This is no longer necessary because the API now assigns ID.  These attributes remain in the code and are still used to create div ids and to hold id data for use in forms. */
     var last_index= parseInt($('.one_assessment_div').last().attr('data-arrayIndex'));
     var new_index = last_index +1;
@@ -85,127 +75,125 @@ $('#buttonToAddAssessment').on('click', function(){
     });
 
     newDiv.appendTo('.assessmentsDiv');
-});
+  });  //end of add assessment
 
 
 //*********************************************************************************************************
 //ADD NEW ACTION
-$('.allStatesDiv').on('click', 'button', function(){
+  $('.allStatesDiv').on('click', 'button', function(){
 
-  event.stopPropagation();
-  if($(this).hasClass("buttonClassToAddAction")){
+    event.stopPropagation();
+    if($(this).hasClass("buttonClassToAddAction")){
 
-    var statejsonID=$(this).attr('data-statejsonID');
-    var stateIndex=$(this).attr('data-stateIndex');
-    var action_divID = "#ActionsForState_" + statejsonID;
-    var action_div = $(action_divID);
-    var new_action_index;
-    var new_action_jsonID;
-    var newDiv;
+      var statejsonID=$(this).attr('data-statejsonID');
+      var stateIndex=$(this).attr('data-stateIndex');
+      var action_divID = "#ActionsForState_" + statejsonID;
+      var action_div = $(action_divID);
+      var new_action_index;
+      var new_action_jsonID;
+      var newDiv;
 
 
-//Count number of existing one_action_divs; if zero, need to copy from hidden template and set index and json_ID
-    var currentActionCount = action_div.children('.one_action_div').length;
-    if (currentActionCount > 0) {
-      var last_action = action_div.find('div.one_action_div').last();
-      new_action_jsonID = parseInt(last_action.attr('data-actionjsonID')) +1 ;
-      new_action_index = parseInt(last_action.attr('data-arrayIndex')) +1;
-      newDiv = last_action.clone();
+  //Count number of existing one_action_divs; if zero, need to copy from hidden template and set index and json_ID
+      var currentActionCount = action_div.children('.one_action_div').length;
+      if (currentActionCount > 0) {
+        var last_action = action_div.find('div.one_action_div').last();
+        new_action_jsonID = parseInt(last_action.attr('data-actionjsonID')) +1 ;
+        new_action_index = parseInt(last_action.attr('data-arrayIndex')) +1;
+        newDiv = last_action.clone();
 
-      newDiv.find("input[name], select[name], textarea[name]").each(function(){
-        var name = $(this).attr('name');
-        var new_name = name.replace(/\[actions\]\[[0-9]+\]/g, '[actions]['+ new_action_index +']');
-        $(this).attr('name',new_name);
+        newDiv.find("input[name], select[name], textarea[name]").each(function(){
+          var name = $(this).attr('name');
+          var new_name = name.replace(/\[actions\]\[[0-9]+\]/g, '[actions]['+ new_action_index +']');
+          $(this).attr('name',new_name);
+        });
+
+        //clear values from cloned form
+        newDiv.find("[type=text]").val('');
+        newDiv.find("[type=radio][value=false]").prop('checked', true);
+        newDiv.addClass("newelement");
+
+        var idHolder = 'radio'+uniqueButtonIndex+'action'+uniqueActionIndex;
+        uniqueButtonIndex += 1;
+        uniqueActionIndex += 1;
+        newDiv.find("input:radio[id]").each(function() {
+          var radio_id= $(this).attr('id');
+          var new_radio_id = radio_id.replace(/radio[0-9]+action[0-9]+/g, idHolder);
+          $(this).attr('id',new_radio_id);
+          console.log('new radio id is ', new_radio_id);
+
+        })
+
+        newDiv.find("label[for]").each(function() {
+          var radio_id= $(this).attr('for');
+          var new_radio_id = radio_id.replace(/radio[0-9]+action[0-9]+/g, idHolder);
+           $(this).attr('for',new_radio_id);
+        })
+
+      } else {
+
+        /*If no existing actions, use the hidden template to create the first action.  "jsonID's" are legacy values from when state, assessment and action id's were being dynamically generated; now they are assigned by the API, but these jsonID values remain in the code. */
+        newDiv = $('.templateForOneActionDiv').find('div.one_action_div').clone();
+        newDiv.addClass("newelement");
+        new_action_jsonID = 100*(statejsonID-200) + 201;
+        new_action_index = 0;
+
+        newDiv.find("input[name], select[name], textarea[name]").each(function(){
+          var name = $(this).attr('name');
+          var new_name = name.replace(/\[placeholder\]/g, 'cases[states][' + stateIndex + '][actions]['+ new_action_index +']');
+          $(this).attr('name',new_name);
+        });
+
+        var idHolder = 'radio'+uniqueButtonIndex+'action'+uniqueActionIndex;
+        uniqueButtonIndex += 1;
+        uniqueActionIndex += 1;
+        newDiv.find("input:radio[id]").each(function() {
+          var radio_id= $(this).attr('id');
+          var new_radio_id = radio_id.replace(/IDholder/g, idHolder);
+          console.log(new_radio_id);
+          $(this).attr('id',new_radio_id);
+        });
+
+        newDiv.find("label[for]").each(function() {
+          var radio_id= $(this).attr('for');
+          var new_radio_id = radio_id.replace(/IDholder/g, idHolder);
+          console.log(new_radio_id);
+           $(this).attr('for',new_radio_id);
+        });
+      } //end of if statement
+
+
+  /*The following code was added so that tinyMCE editors that were cloned from existing state divs would be functional.  */
+      newDiv.find('div.mce-tinymce').each(function(){
+        var thistext =  $(this).next('textarea');
+        thistext.attr('id', 'tempID');
+        thistext.removeAttr('aria-hidden style');
+        $(this).remove();
+        thistext.removeAttr('id');
       });
 
-      //clear values from cloned form
-      newDiv.find("[type=text]").val('');
-      newDiv.find("[type=radio][value=false]").prop('checked', true);
-      newDiv.addClass("newelement");
+      newDiv.attr('id', 'state_' + statejsonID + '_action_' + new_action_jsonID);
+      newDiv.attr('data-arrayIndex', new_action_index);
+      newDiv.attr('data-actionjsonID', new_action_jsonID);
+      newDiv.find('input.actionName').attr('value', '');
+      newDiv.find('input.actionIDHiddenRow').remove();
+      newDiv.appendTo(action_div);
+      loadTinyMCEEditor();
+    }  //end of if hasClass buttonClassToAddAction
+  }); //end of add action
 
-      var idHolder = 'radio'+uniqueButtonIndex+'action'+uniqueActionIndex;
-      uniqueButtonIndex += 1;
-      uniqueActionIndex += 1;
-      newDiv.find("input:radio[id]").each(function() {
-        var radio_id= $(this).attr('id');
-        var new_radio_id = radio_id.replace(/radio[0-9]+action[0-9]+/g, idHolder);
-        $(this).attr('id',new_radio_id);
-        console.log('new radio id is ', new_radio_id);
+  //*********************************************************************************************************
+  //ADD STATE
 
-      })
-
-      newDiv.find("label[for]").each(function() {
-        var radio_id= $(this).attr('for');
-        var new_radio_id = radio_id.replace(/radio[0-9]+action[0-9]+/g, idHolder);
-         $(this).attr('for',new_radio_id);
-      })
-
-    } else {
-
-      /*If no existing actions, use the hidden template to create the first action.  "jsonID's" are legacy values from when state, assessment and action id's were being dynamically generated; now they are assigned by the API, but these jsonID values remain in the code. */
-      newDiv = $('.templateForOneActionDiv').find('div.one_action_div').clone();
-      newDiv.addClass("newelement");
-      new_action_jsonID = 100*(statejsonID-200) + 201;
-      new_action_index = 0;
-
-      newDiv.find("input[name], select[name], textarea[name]").each(function(){
-        var name = $(this).attr('name');
-        var new_name = name.replace(/\[placeholder\]/g, 'cases[states][' + stateIndex + '][actions]['+ new_action_index +']');
-        $(this).attr('name',new_name);
-      });
-
-      var idHolder = 'radio'+uniqueButtonIndex+'action'+uniqueActionIndex;
-      uniqueButtonIndex += 1;
-      uniqueActionIndex += 1;
-      newDiv.find("input:radio[id]").each(function() {
-        var radio_id= $(this).attr('id');
-        var new_radio_id = radio_id.replace(/IDholder/g, idHolder);
-        console.log(new_radio_id);
-        $(this).attr('id',new_radio_id);
-
-      })
-
-      newDiv.find("label[for]").each(function() {
-        var radio_id= $(this).attr('for');
-        var new_radio_id = radio_id.replace(/IDholder/g, idHolder);
-        console.log(new_radio_id);
-         $(this).attr('for',new_radio_id);
-      })
-    } //end of if statement
+  $('#footerAddStateButton').on('click', function(){
+    $('#buttonToAddState').click();
+    return false;
+  });
 
 
-/*The following code was added so that tinyMCE editors that were cloned from existing state divs would be functional.  */
-    newDiv.find('div.mce-tinymce').each(function(){
-      var thistext =  $(this).next('textarea');
-      thistext.attr('id', 'tempID');
-      thistext.removeAttr('aria-hidden style');
-      $(this).remove();
-      thistext.removeAttr('id');
-    });
+  $('#buttonToAddState').on('click', function(){
 
-    newDiv.attr('id', 'state_' + statejsonID + '_action_' + new_action_jsonID);
-    newDiv.attr('data-arrayIndex', new_action_index);
-    newDiv.attr('data-actionjsonID', new_action_jsonID);
-    newDiv.find('input.actionName').attr('value', '');
-    newDiv.find('input.actionIDHiddenRow').remove();
-
-    newDiv.appendTo(action_div);
-    loadTinyMCEEditor();
-  }
-});
-
-//*********************************************************************************************************
-//ADD STATE
-
-$('#footerAddStateButton').on('click', function(){
-  $('#buttonToAddState').click();
-  return false;
-});
-
-
- $('#buttonToAddState').on('click', function(){
-
-//GRAB MOST RECENT STATE DIV'S INDEX AND JSON ID, AND INCREMENT FOR NEW DIV
+  //GRAB MOST RECENT STATE DIV'S INDEX AND JSON ID, AND INCREMENT FOR NEW DIV
     var last_index_string=$('.one_state_div').last().attr('data-arrayIndex');
     var last_index= parseInt(last_index_string);
     var new_index = last_index +1;
@@ -271,12 +259,7 @@ $('#footerAddStateButton').on('click', function(){
     $("#" + newButtonID).attr('data-statejsonID', new_jsonID);
     $("#" + newButtonID).attr('data-stateIndex', new_index);
     loadTinyMCEEditor();
-
-
-  });
-
-
-
+  }); //end of add state
 
 //*********************************************************************************************************
 
@@ -290,22 +273,20 @@ INCLUDING RE-NUMBERING OF ARRAY INDICES */
     if (confirmdelete==true){
       var selectedRow = $(this).closest(".dataRow");
       var endpoint = selectedRow.attr('data-endpoint');
-
+// If element to delete is not a newly added element (i.e. it was part of the original GET response), send HTTP DELETE request for that element
       if (!selectedRow.hasClass("newelement")) {
         if(selectedRow.attr("data-jsonid")) {
           var id_to_delete = selectedRow.attr("data-jsonid");
         }
         else if (selectedRow.attr("data-actionjsonid")) {
-            var id_to_delete = selectedRow.attr("data-actionjsonid");
+          var id_to_delete = selectedRow.attr("data-actionjsonid");
         }
-          $.ajax({
-            url: '/SimCommandDelete.php?endpoint=' + endpoint + '&delete_id=' + id_to_delete,
-
-          }).done(function() {
-            alert("completed delete");
-          });
+        $.ajax({
+          url: 'SimCommandDelete.php?endpoint=' + endpoint + '&delete_id=' + id_to_delete,
+        }).done(function() {
+          alert("completed delete");
+        });
       }
-
 
       //count sibling datarows, if total is 1, do not delete and show alert
       var siblingCount = $(selectedRow).siblings().length;
@@ -317,61 +298,61 @@ INCLUDING RE-NUMBERING OF ARRAY INDICES */
         }
 
 
-      //loop through elements for a given set of assessments, actions, or states
+      //loop through elements for a given set of assessments, actions, or states, and update rowIndex
 
-          $('.one_assessment_div').each(function(rowIndex){
-            $(this).attr('data-arrayIndex', rowIndex);
-            $(this).find("input[name], select[name]").each(function(){
-              var name = $(this).attr('name');
-              var new_name = name.replace(/\[[0-9]+\]/g, '['+rowIndex+']');
-              $(this).attr('name',new_name);
-            });
-          });
-
-          $('.one_state_div').each(function(rowIndex){
-        // find each input with a name attribute inside each row.  This will change state index for embedded actions too.
-            $(this).attr('data-arrayIndex', rowIndex);
-            $(this).find("input[name], select[name], textarea[name]").each(function(){
-              var name = $(this).attr('name');
-              var new_name = name.replace(/states\[[0-9]+\]/g, 'states['+rowIndex+']');
-              // console.log('state regex');
-              $(this).attr('name',new_name);
-            });
-
-
-            //NEED TO LIMIT RE-NUMBERING TO ACTIONS FOR THE SAME STATE. SO INVOKE WHEN LOOPING THROUGH STATES TO LIMIT SCOPE
-            var childrenActions = $(this).find('.one_action_div');
-            console.log(childrenActions.length);
-            childrenActions.each(function(rowIndex){
-              console.log('begin re-numbering actions');
-              $(this).attr('data-arrayIndex', rowIndex);
-              $(this).find("input[name], select[name], textarea[name]").each(function(){
-                var name = $(this).attr('name');
-                var new_name = name.replace(/\[actions\]\[[0-9]+\]/g, '[actions]['+rowIndex+']');
-                $(this).attr('name',new_name);
-              });
-              //UPDATE IDS AND LABELS FOR RADIO BUTTONS
-              var idHolder = 'radio' + statejsonID + 'action' + new_action_index;
-              $(this).find("input:radio[id]").each(function() {
-                var radio_id= $(this).attr('id');
-                var new_radio_id = radio_id.replace(/radio[0-9]action[0-9]/g, idHolder);
-                $(this).attr('id',new_radio_id);
-              });
-
-              $(this).find("label[for]").each(function() {
-                var radio_id= $(this).attr('for');
-                var new_radio_id = radio_id.replace(/radio[0-9]action[0-9]/g, idHolder);
-                 $(this).attr('for',new_radio_id);
-              });
-
-            });
-          });
-        }
+      $('.one_assessment_div').each(function(rowIndex){
+        $(this).attr('data-arrayIndex', rowIndex);
+        $(this).find("input[name], select[name]").each(function(){
+          var name = $(this).attr('name');
+          var new_name = name.replace(/\[[0-9]+\]/g, '['+rowIndex+']');
+          $(this).attr('name',new_name);
+        });
       });
 
+      $('.one_state_div').each(function(rowIndex){
+        // find each input with a name attribute inside each row.  This will change state index for embedded actions too.
+        $(this).attr('data-arrayIndex', rowIndex);
+        $(this).find("input[name], select[name], textarea[name]").each(function(){
+          var name = $(this).attr('name');
+          var new_name = name.replace(/states\[[0-9]+\]/g, 'states['+rowIndex+']');
+          // console.log('state regex');
+          $(this).attr('name',new_name);
+        });
+
+
+          //NEED TO LIMIT RE-NUMBERING TO ACTIONS FOR THE SAME STATE. SO INVOKE WHEN LOOPING THROUGH STATES TO LIMIT SCOPE
+        var childrenActions = $(this).find('.one_action_div');
+        console.log(childrenActions.length);
+        childrenActions.each(function(rowIndex){
+          console.log('begin re-numbering actions');
+          $(this).attr('data-arrayIndex', rowIndex);
+          $(this).find("input[name], select[name], textarea[name]").each(function(){
+            var name = $(this).attr('name');
+            var new_name = name.replace(/\[actions\]\[[0-9]+\]/g, '[actions]['+rowIndex+']');
+            $(this).attr('name',new_name);
+          });
+          //UPDATE IDS AND LABELS FOR RADIO BUTTONS
+          var idHolder = 'radio' + statejsonID + 'action' + new_action_index;
+          $(this).find("input:radio[id]").each(function() {
+            var radio_id= $(this).attr('id');
+            var new_radio_id = radio_id.replace(/radio[0-9]action[0-9]/g, idHolder);
+            $(this).attr('id',new_radio_id);
+          });
+
+          $(this).find("label[for]").each(function() {
+            var radio_id= $(this).attr('for');
+            var new_radio_id = radio_id.replace(/radio[0-9]action[0-9]/g, idHolder);
+             $(this).attr('for',new_radio_id);
+          });
+        }); // end of children actions update
+      });  //end of state update
+    // }); //
+    } //end of "if confirmed"
+  }); //end of delete function
 
 
 
+//This handles deletions of non-nested multi-elements, such as author and institution lists.  No re-indexing is required.
   $(".multiInputDiv").on('click', 'a.deletefromlist', function(e){
     e.preventDefault();
     var confirmdelete = confirm("Are you sure you want to delete this?");
@@ -387,7 +368,5 @@ INCLUDING RE-NUMBERING OF ARRAY INDICES */
       }
     }
   });
-
-
 
 });

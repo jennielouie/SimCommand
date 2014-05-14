@@ -7,7 +7,7 @@ SimCommandGetAllCases.php:  Sends HTTP GET request for all cases and renders vie
 
 SimCommandEditOneCaseForm.php:  contains definition of web form and code to pre-load a case from a HTTP GET response.  Renders form. Contains definitions for state, action, assessment objects that includes id and case/state ids. HTTP put/post (if add new elements) are handled by SimCommandPutCase.php.
 
-SimCommandPutCase.php: json-encodes case data containing edits, as entered in SimCommandEditOneCaseForm.php; makes POST/PUT HTTP REQUESTS to corresponding API endpoints.
+SimCommandPutCase.php: json-encodes case data containing edits, as entered in SimCommandEditOneCaseForm.php; separates the inputs according to API endpoint (cases, states, actions, assessments, physicalexam) makes POST/PUT HTTP REQUESTS to corresponding API endpoints.
 
 SimCommandNewCaseForm.php:  contains definition of web form and renders form.  HTTP post request made by SimCommandPostNewCase.php
 
