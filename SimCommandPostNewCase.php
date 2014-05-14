@@ -50,10 +50,10 @@ curl_close($ch);
       </div>
     </div>
 
-    <div class="row requestbox">
+<!--     <div class="row requestbox">
       <h3>Request</h3>
-      <p><?php print_r($jsondata); ?></p>
-    </div>
+      <p><#?php print_r($jsondata); ?></p>
+    </div> -->
 
     <div class="row responsebox">
       <h3>Response to POST request</h3>

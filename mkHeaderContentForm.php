@@ -43,3 +43,7 @@
         </div>
       </div>
 
+
+<div class="row borderDiv">
+  <h4>Complete all sections of this form (Case Info, Instructions, Assessment, Preparation, Case Details), and then click "Save this New Case" button, which appears at the bottom of the Case Details section.</h4>
+</div>

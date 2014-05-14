@@ -78,3 +78,9 @@
 <div class="row">
   <input id="footerAddStateButton" type="button" class="small success button expand" value="Add State"/>
 </div>
+
+  <!-- SAVE BUTTON -->
+<div class="row">
+  <input type="submit" class="large primary button expand" value="Save this New Case">
+
+</div>

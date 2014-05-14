@@ -14,21 +14,20 @@ SimCommandNewCaseForm.php:  contains definition of web form and renders form.  H
 SimCommandPostNewCase.php: sends HTTP POST request to API with json-encoded case data, as entered in SimCommandNewCaseForm.php.
 
 
-
 formTemplateClass.php:  This file defines the "Template" class that the form objects (textareas, checkboxes, etc.) are based on.  Each Template object has an associated HTML render file and array of values used to render that object.
 
 SimCommandTemplates.php:  This is the file where form objects are defined.  The array of template values includes some that are no longer (or not often) used such as entity, btnlabel, btnname.  The tooltips are placeholders for clarifications or instructions about a particular element; Pamela was to provide this information.
 
 SimCommandConstants: where url root for API and authentication token are defined.  These are included in any file that includes an API call.
 
-"mk**.php" files (several): these contain html templates for various form objects.  This includes input elements as well as headers, footers, navigation bar, etc.  Note there are separate mk* set files to render *existing* states, assessments, actions, and *new* states, assessments, actions.  The main difference is that the existing states/assessments/actions will have ids included as hidden inputs.
+"mk\*\*.php" files (several): these contain html templates for various form objects.  This includes input elements as well as headers, footers, navigation bar, etc.  Note there are separate mk* set files to render *existing* states, assessments, actions, and *new* states, assessments, actions.  The main difference is that the existing states/assessments/actions will have ids included as hidden inputs.
 
-foundationSimCommand.css:  CSS file based on ZURB Foundation 5
+foundationSimCommand.css:  CSS file based on ZURB Foundation 5.  Edits made for SimCommand are at the end of the document, or within the document and indicated with comments e.g. "EDITED FOR METRICS MEDICUS".  Some of the edits may not be relevant anymore.
 
 simCommand.js: file where all custom js is defined (add/delete row)
 
-Relative filepaths:  found in "SimCommandTemplates.php", "SimCommand" files, "mk" files.
+Links to relative filepaths:  found in "SimCommandTemplates.php", "SimCommand\*" files, "mk\*" files.
 
-Delete:  uses data-attributes to specify endpoint (data-endpoint) and id of record to be deleted (data-jsonid or data-actionjsonid).  These are in the mkassessment, mkonestate, mkoneaction, mkallstates, and simcommand.js files.
+Delete functionality:  uses data-attributes to specify endpoint (data-endpoint) and id of record to be deleted (data-jsonid or data-actionjsonid).  These are in the mkassessment, mkonestate, mkoneaction, mkallstates, and simcommand.js files.
 
-Notes
+Changing form labels:  For states, assessments, actions, make edits directly in the corresponding mk\* files.  For other elements make edits in the array for that element template object in "SimCommandTemplates.php".

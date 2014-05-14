@@ -18,130 +18,132 @@ $jsoncase = json_encode($case);
 
 
 
-// //PUT ACTIONS
-// foreach($states as $state)
-// {
-//   $state_id = $state['id'];
-//   $actions = $state['actions'];
-//   foreach($actions as $action)
-//   {
-//     $action['state_id'] = $state_id;
-//     if (!empty($action['id']))
-//     {
-//       $action_id = $action['id'];
-//       $url = "$urlroot/actions/$action_id";
+//IF AN ID IS ASSIGNED TO AN ELEMENT, A PUT REQUEST IS SENT.  IF THERE IS NO ID, THEN THE ELEMENT IS NEW, AND A POST REQUEST IS SENT.
 
-//       unset($action['id']);
-//       $jsonaction = json_encode($action);
-//       $ch = curl_init();
-//       curl_setopt($ch, CURLOPT_URL, $url);
-//       curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-//       curl_setopt($ch, CURLOPT_HEADER, FALSE);
-//       curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
-//       curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonaction);
-//       curl_setopt($ch, CURLOPT_HTTPHEADER, $curlHeaderArray);
-//       $putCaseResponseJson = curl_exec($ch);
-//       $putCaseResponse = json_decode($putCaseResponseJson);
-//       curl_close($ch);
-//     } else
-//     {
-//       $url = "$urlroot/actions";
-//       $jsonaction = json_encode($action);
-//       $ch = curl_init();
-//       curl_setopt($ch, CURLOPT_URL, $url);
-//       curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-//       curl_setopt($ch, CURLOPT_HEADER, FALSE);
-//       curl_setopt($ch, CURLOPT_POST, TRUE);
-//       curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonaction);
-//       curl_setopt($ch, CURLOPT_HTTPHEADER, $curlHeaderArray);
-//       $putCaseResponseJson = curl_exec($ch);
-//       $putCaseResponse = json_decode($putCaseResponseJson);
-//       curl_close($ch);
-//     }
-//   }
-// }
+//PUT ACTIONS
+foreach($states as $state)
+{
+  $state_id = $state['id'];
+  $actions = $state['actions'];
+  foreach($actions as $action)
+  {
+    $action['state_id'] = $state_id;
+    if (!empty($action['id']))
+    {
+      $action_id = $action['id'];
+      $url = "$urlroot/actions/$action_id";
 
-
-// //PUT STATES
-
-// foreach($states as $state){
-
-//   unset($state['actions']);
-//   unset($state['physical_exam']);
-
-//   $state['case_id'] = $case_id;
-
-//   if (!empty($state['id']))
-//   {
-//     $state_id = $state['id'];
-//     $url = "$urlroot/states/$state_id";
-//     unset($state['id']);
-//     $jsonstate = json_encode($state);
-//     $ch = curl_init();
-//     curl_setopt($ch, CURLOPT_URL, $url);
-//     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-//     curl_setopt($ch, CURLOPT_HEADER, FALSE);
-//     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
-//     curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonstate);
-//     curl_setopt($ch, CURLOPT_HTTPHEADER, $curlHeaderArray);
-//     $putCaseResponseJson = curl_exec($ch);
-//     $putCaseResponse = json_decode($putCaseResponseJson);
-//     curl_close($ch);
-//   }
-//   else
-//   {
-//     $url = "$urlroot/states";
-//     $jsonstate = json_encode($state);
-//     $ch = curl_init();
-//     curl_setopt($ch, CURLOPT_URL, $url);
-//     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-//     curl_setopt($ch, CURLOPT_HEADER, FALSE);
-//     curl_setopt($ch, CURLOPT_POST, TRUE);
-//     curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonstate);
-//     curl_setopt($ch, CURLOPT_HTTPHEADER, $curlHeaderArray);
-//     $putCaseResponseJson = curl_exec($ch);
-//     $putCaseResponse = json_decode($putCaseResponseJson);
-//     curl_close($ch);
-//   }
-// }
+      unset($action['id']);
+      $jsonaction = json_encode($action);
+      $ch = curl_init();
+      curl_setopt($ch, CURLOPT_URL, $url);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+      curl_setopt($ch, CURLOPT_HEADER, FALSE);
+      curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+      curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonaction);
+      curl_setopt($ch, CURLOPT_HTTPHEADER, $curlHeaderArray);
+      $putCaseResponseJson = curl_exec($ch);
+      $putCaseResponse = json_decode($putCaseResponseJson);
+      curl_close($ch);
+    } else
+    {
+      $url = "$urlroot/actions";
+      $jsonaction = json_encode($action);
+      $ch = curl_init();
+      curl_setopt($ch, CURLOPT_URL, $url);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+      curl_setopt($ch, CURLOPT_HEADER, FALSE);
+      curl_setopt($ch, CURLOPT_POST, TRUE);
+      curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonaction);
+      curl_setopt($ch, CURLOPT_HTTPHEADER, $curlHeaderArray);
+      $putCaseResponseJson = curl_exec($ch);
+      $putCaseResponse = json_decode($putCaseResponseJson);
+      curl_close($ch);
+    }
+  }
+}
 
 
-// //PUT ASSESSMENTS
+//PUT STATES
 
-// foreach($assessment_items as $assessment){
+foreach($states as $state){
 
-//   unset($assessment['scale']);
-//   $assessment['case_id'] = $case_id;
-//   if (!empty($assessment['id'])){
-//     $assessment_id = $assessment['id'];
-//     $url = "$urlroot/assessmentitems/$assessment_id";
-//     unset($assessment['id']);
-//     $jsonassessment = json_encode($assessment);
-//     $ch = curl_init();
-//     curl_setopt($ch, CURLOPT_URL, $url);
-//     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-//     curl_setopt($ch, CURLOPT_HEADER, FALSE);
-//     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
-//     curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonassessment);
-//     curl_setopt($ch, CURLOPT_HTTPHEADER, $curlHeaderArray);
-//     $putCaseResponseJson = curl_exec($ch);
-//     $putCaseResponse = json_decode($putCaseResponseJson);
-//     curl_close($ch);
-//   } else {
-//       $url = "$urlroot/assessmentitems";
-//       $jsonassessment = json_encode($assessment);
-//       $ch = curl_init();
-//       curl_setopt($ch, CURLOPT_URL, $url);
-//       curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-//       curl_setopt($ch, CURLOPT_HEADER, FALSE);
-//       curl_setopt($ch, CURLOPT_POST, TRUE);
-//       curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonassessment);
-//       curl_setopt($ch, CURLOPT_HTTPHEADER, $curlHeaderArray);
-//       $putCaseResponseJson = curl_exec($ch);
-//       $putCaseResponse = json_decode($putCaseResponseJson);
-//       curl_close($ch);
-//     }
-// }
+  unset($state['actions']);
+  unset($state['physical_exam']);
+
+  $state['case_id'] = $case_id;
+
+  if (!empty($state['id']))
+  {
+    $state_id = $state['id'];
+    $url = "$urlroot/states/$state_id";
+    unset($state['id']);
+    $jsonstate = json_encode($state);
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+    curl_setopt($ch, CURLOPT_HEADER, FALSE);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonstate);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $curlHeaderArray);
+    $putCaseResponseJson = curl_exec($ch);
+    $putCaseResponse = json_decode($putCaseResponseJson);
+    curl_close($ch);
+  }
+  else
+  {
+    $url = "$urlroot/states";
+    $jsonstate = json_encode($state);
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+    curl_setopt($ch, CURLOPT_HEADER, FALSE);
+    curl_setopt($ch, CURLOPT_POST, TRUE);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonstate);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $curlHeaderArray);
+    $putCaseResponseJson = curl_exec($ch);
+    $putCaseResponse = json_decode($putCaseResponseJson);
+    curl_close($ch);
+  }
+}
+
+
+//PUT ASSESSMENTS
+
+foreach($assessment_items as $assessment){
+
+  unset($assessment['scale']);
+  $assessment['case_id'] = $case_id;
+  if (!empty($assessment['id'])){
+    $assessment_id = $assessment['id'];
+    $url = "$urlroot/assessmentitems/$assessment_id";
+    unset($assessment['id']);
+    $jsonassessment = json_encode($assessment);
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+    curl_setopt($ch, CURLOPT_HEADER, FALSE);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonassessment);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $curlHeaderArray);
+    $putCaseResponseJson = curl_exec($ch);
+    $putCaseResponse = json_decode($putCaseResponseJson);
+    curl_close($ch);
+  } else {
+      $url = "$urlroot/assessmentitems";
+      $jsonassessment = json_encode($assessment);
+      $ch = curl_init();
+      curl_setopt($ch, CURLOPT_URL, $url);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+      curl_setopt($ch, CURLOPT_HEADER, FALSE);
+      curl_setopt($ch, CURLOPT_POST, TRUE);
+      curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonassessment);
+      curl_setopt($ch, CURLOPT_HTTPHEADER, $curlHeaderArray);
+      $putCaseResponseJson = curl_exec($ch);
+      $putCaseResponse = json_decode($putCaseResponseJson);
+      curl_close($ch);
+    }
+}
 
 
 
@@ -161,43 +163,43 @@ curl_close($ch);
 
 
 
-// // PUT PHYSICAL EXAM EDITS
-// foreach($states as $state){
-//   $physical_exam = $state['physical_exam'];
-//   $physical_exam['state_id'] = $state['id'];
+// PUT PHYSICAL EXAM EDITS
+foreach($states as $state){
+  $physical_exam = $state['physical_exam'];
+  $physical_exam['state_id'] = $state['id'];
 
-//   if (!empty($physical_exam['id'])) {
-//       $pe_id = $physical_exam['id'];
-//       unset($physical_exam['id']);
-//       $url = "$urlroot/physicalexams/$pe_id";
-//       $jsonphysical_exam = json_encode($physical_exam);
-//       $ch = curl_init();
-//       curl_setopt($ch, CURLOPT_URL, $url);
-//       curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-//       curl_setopt($ch, CURLOPT_HEADER, FALSE);
-//       curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
-//       curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonphysical_exam);
-//       curl_setopt($ch, CURLOPT_HTTPHEADER, $curlHeaderArray);
-//       $putCaseResponseJson = curl_exec($ch);
-//       $putCaseResponse = json_decode($putCaseResponseJson);
-//       curl_close($ch);
+  if (!empty($physical_exam['id'])) {
+      $pe_id = $physical_exam['id'];
+      unset($physical_exam['id']);
+      $url = "$urlroot/physicalexams/$pe_id";
+      $jsonphysical_exam = json_encode($physical_exam);
+      $ch = curl_init();
+      curl_setopt($ch, CURLOPT_URL, $url);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+      curl_setopt($ch, CURLOPT_HEADER, FALSE);
+      curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+      curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonphysical_exam);
+      curl_setopt($ch, CURLOPT_HTTPHEADER, $curlHeaderArray);
+      $putCaseResponseJson = curl_exec($ch);
+      $putCaseResponse = json_decode($putCaseResponseJson);
+      curl_close($ch);
 
-//   } else {
-//       $url = "$urlroot/physicalexams";
-//       $jsonphysical_exam = json_encode($physical_exam);
-//       $ch = curl_init();
-//       curl_setopt($ch, CURLOPT_URL, $url);
-//       curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-//       curl_setopt($ch, CURLOPT_HEADER, FALSE);
-//       curl_setopt($ch, CURLOPT_POST, TRUE);
-//       curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonphysical_exam);
-//       curl_setopt($ch, CURLOPT_HTTPHEADER, $curlHeaderArray);
-//       $putCaseResponseJson = curl_exec($ch);
-//       $putCaseResponse = json_decode($putCaseResponseJson);
-//       curl_close($ch);
+  } else {
+      $url = "$urlroot/physicalexams";
+      $jsonphysical_exam = json_encode($physical_exam);
+      $ch = curl_init();
+      curl_setopt($ch, CURLOPT_URL, $url);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+      curl_setopt($ch, CURLOPT_HEADER, FALSE);
+      curl_setopt($ch, CURLOPT_POST, TRUE);
+      curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonphysical_exam);
+      curl_setopt($ch, CURLOPT_HTTPHEADER, $curlHeaderArray);
+      $putCaseResponseJson = curl_exec($ch);
+      $putCaseResponse = json_decode($putCaseResponseJson);
+      curl_close($ch);
 
-//   }
-// }
+  }
+}
 
 
 ?>
@@ -234,7 +236,7 @@ curl_close($ch);
     <div class="row responsebox">
       <h3>Response to PUT request</h3>
 
-      <p>Result:<?php var_dump($putCaseResponse); ?></p>
+      <p><?php var_dump($putCaseResponse); ?></p>
     </div>
 
     <div class="row">
