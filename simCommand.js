@@ -280,8 +280,10 @@ $('#footerAddStateButton').on('click', function(){
 
 //*********************************************************************************************************
 
-/* DELETE FUNCTIONALITY INCLUDING RE-NUMBERING OF ARRAY INDICES */
-  // DELEGATE LISTENER TO "MULTITEXTBAR" ROWS DIV, WHICH EXIST AT FIRST RENDER, TO REMOVE ROW WHEN "REMOVE" BUTTON IS CLICKED.
+/* DELETE FUNCTIONALITY
+INCLUDING RE-NUMBERING OF ARRAY INDICES */
+
+  // DELEGATE LISTENER TO "MULTITEXTBAR" ROWS DIV, WHICH EXIST AT FIRST RENDER, TO REMOVE ROW WHEN "REMOVE" BUTTON FOR THAT ROW IS CLICKED.
   $(".multiInputDiv").on('click', 'a.delete', function(e){
     e.preventDefault();
     var confirmdelete = confirm("Are you sure you want to delete this?");

@@ -11,8 +11,7 @@ include('formTemplateClass.php');
       'entity'=>'',
       'label' => 'Clinical Area (Click on labels for all that apply)',
       'name' => 'categories',
-      'values' => array('Obstetrics/Gynecology'=> '', 'Emergency medicine - pediatric'=> '', 'Emergency medicine - adult'=> '', 'Orthopaedic surgery'=> '', 'General surgery'=> '', 'Internal medicine'=> '', 'Family medicine'=> '', 'Pediatric medicine'=> '', 'Nursing'=> '','Midwifery'=> '','EMS'=> '' )  )
-    );
+      'values' => array('Obstetrics/Gynecology'=> '', 'Emergency medicine - pediatric'=> '', 'Emergency medicine - adult'=> '', 'Orthopaedic surgery'=> '', 'General surgery'=> '', 'Internal medicine'=> '', 'Family medicine'=> '', 'Pediatric medicine'=> '', 'Nursing'=> '','Midwifery'=> '','EMS'=> '' )));
 
   $participants = new Template('mkCheckbox.php',
     array(
@@ -20,22 +19,18 @@ include('formTemplateClass.php');
     'entity'=>'',
     'name' => 'participants',
     'label' => 'Participants (Click on labels for all that apply)',
-    'values' => array('Medicine - specialist'=> '', 'Medicine - attending/staff'=> '','Medicine - resident'=> '', 'Medicine - student'=> '','Nursing - specialist'=> '', 'Nursing - staff'=> '','Nursing - student'=> '','Social work'=> '','Physical therapist'=> '', 'Occupational therapist'=> '', 'Respiratory therapist'=> '', 'EMS'=> '', 'Psychiatric specialist'=> '', 'Pharmacist'=> '','Other'=> '' )
-    )
-  );
+    'values' => array('Medicine - specialist'=> '', 'Medicine - attending/staff'=> '','Medicine - resident'=> '', 'Medicine - student'=> '','Nursing - specialist'=> '', 'Nursing - staff'=> '','Nursing - student'=> '','Social work'=> '','Physical therapist'=> '', 'Occupational therapist'=> '', 'Respiratory therapist'=> '', 'EMS'=> '', 'Psychiatric specialist'=> '', 'Pharmacist'=> '','Other'=> '' )));
 
 
 // DROPDOWNS
 
   $actionScale = new Template('mkDropdown.php',
     array(
-      'entity'=>'',
+    'entity'=>'',
     'type' => 'dropdown',
     'name' => 'action_scale',
     'label' => 'Performance Evaluation Scale (2-6)',
-    'values' => array('2'=>'', '3'=>'', '4'=>'', '5'=>'', '6'=>'')
-    )
-  );
+    'values' => array('2'=>'', '3'=>'', '4'=>'', '5'=>'', '6'=>'')));
 
   $gender = new Template('mkDropdown.php',
     array(
@@ -43,11 +38,7 @@ include('formTemplateClass.php');
     'entity'=>'',
     'name' => 'gender',
     'label' => 'Gender',
-    'values' => array(
-      'Male'=>'','Female'=>'', 'Transgender'=>'', 'Unknown'=>''
-      )
-    )
-  );
+    'values' => array('Male'=>'','Female'=>'', 'Transgender'=>'', 'Unknown'=>'')));
 
 
 // TEXT AREA
@@ -60,8 +51,7 @@ $instGoals = new Template('mkTextarea.php', array('type' => 'singletext','entity
 
 $institutions = new Template('mkTextbarwBtnMultiple.php', array('type' => 'textarray','entity'=>'','label' =>'Institution(s)', 'name' => 'institutions', 'tooltip'=>'Institutions that participants are associated with','btnname' =>'addInstitution', 'btnlabel'=>'Add institution','values'=>array('')));
 
-$medEqmt = new Template('mkTextarea.php',
-  array('type' => 'singletext', 'entity'=>'','label' =>'Medical Equipment & Instruments', 'name' => 'medical_equipment','tooltip'=>'[add text]', 'value'=>'<ul> <li></li> </ul>'));
+$medEqmt = new Template('mkTextarea.php', array('type' => 'singletext', 'entity'=>'','label' =>'Medical Equipment & Instruments', 'name' => 'medical_equipment','tooltip'=>'[add text]', 'value'=>'<ul> <li></li> </ul>'));
 
 $medications = new Template('mkTextarea.php',array('type' => 'singletext','entity'=>'','label' =>'Medications', 'name' => 'medications','tooltip'=>'[add text]','btnname' =>'addMedication', 'btnlabel'=>'Add row', 'value'=>'<ul> <li></li> </ul>'));
 
@@ -115,29 +105,30 @@ $notes = new Template('mkTextbarwBtnMultiple.php', array('type' => 'textarray','
 
 
 // TEXT AREA WITH UPLOAD$
-$abdomen = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'physical_exam','label'=>'Abdomen', 'name'=>'physical_exam[abdomen]', 'btnname'=>'addabdomen', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
+
+// $abdomen = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'physical_exam','label'=>'Abdomen', 'name'=>'physical_exam[abdomen]', 'btnname'=>'addabdomen', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
 
 $briefing = new Template('mkTextarea.php', array('type' =>'singletext','entity'=>'','label' =>'Briefing', 'name' => 'briefing', 'btnname1' =>'addbriefing', 'btnlabel1'=>'Add row', 'btnname2'=>'uploadbriefing', 'btnlabel2'=>'Add file', 'value' =>'<ul> <li></li> </ul>'));
 
 $debriefing = new Template('mkTextarea.php', array('type' =>'singletext','entity'=>'','label' =>'Debriefing', 'name' => 'debriefing', 'btnname1' =>'adddebriefing', 'btnlabel1'=>'Add row', 'btnname2'=>'uploaddebriefing', 'btnlabel2'=>'Add file', 'values' =>'<ul> <li></li> </ul>'));
 
-$extremities = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'physical_exam','label'=>'Extremities', 'name'=>'physical_exam[extremities]', 'btnname'=>'addextremities', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
+// $extremities = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'physical_exam','label'=>'Extremities', 'name'=>'physical_exam[extremities]', 'btnname'=>'addextremities', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
 
-$generalIPE = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'physical_exam','label'=>'General', 'name'=>'physical_exam[general]', 'btnname' =>'addgeneralIPE', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
+// $generalIPE = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'physical_exam','label'=>'General', 'name'=>'physical_exam[general]', 'btnname' =>'addgeneralIPE', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
 
-$heart = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'physical_exam','label'=>'Heart', 'name'=>'physical_exam[heart]', 'btnname'=>'addheart', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
+// $heart = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'physical_exam','label'=>'Heart', 'name'=>'physical_exam[heart]', 'btnname'=>'addheart', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
 
-$heent = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'physical_exam','label'=>'HEENT', 'name'=>'physical_exam[heent]', 'btnname' =>'addheent', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
+// $heent = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'physical_exam','label'=>'HEENT', 'name'=>'physical_exam[heent]', 'btnname' =>'addheent', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
 
-$lungs = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'physical_exam','label'=>'Lungs', 'name'=>'physical_exam[lungs]', 'btnname'=>'addlung', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
+// $lungs = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'physical_exam','label'=>'Lungs', 'name'=>'physical_exam[lungs]', 'btnname'=>'addlung', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
 
 $moulage = new Template('mkTextarea.php', array('type' =>'singletext','entity'=>'','label' =>'Moulage', 'name' => 'moulage', 'btnname1' =>'addMoulage', 'btnlabel1'=>'Add row', 'btnname2'=>'uploadMoulage', 'btnlabel2'=>'Add file', 'value' =>'<ul> <li></li> </ul>'));
 
-$neck = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'physical_exam','label'=>'Neck', 'name'=>'physical_exam[neck]', 'btnname' =>'addneck', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
+// $neck = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'physical_exam','label'=>'Neck', 'name'=>'physical_exam[neck]', 'btnname' =>'addneck', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
 
-$neurological = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'physical_exam','label'=>'Neuro', 'name'=>'physical_exam[neurological]', 'btnname' =>'addneuro', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
+// $neurological = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'physical_exam','label'=>'Neuro', 'name'=>'physical_exam[neurological]', 'btnname' =>'addneuro', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
 
-$otherIPE = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'physical_exam','label'=>'Other', 'name'=>'physical_exam[otherIPE]', 'btnname' =>'addotherIPE', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
+// $otherIPE = new Template('mkTextarea.php', array('type' => 'singletext','entity'=>'physical_exam','label'=>'Other', 'name'=>'physical_exam[otherIPE]', 'btnname' =>'addotherIPE', 'btnlabel'=>'+', 'tooltip'=>'[add text]', 'value' =>'<ul> <li></li> </ul>'));
 
 $resources = new Template('mkTextarea.php', array('type' =>'singletext','entity'=>'','label' =>'Resources', 'name' => 'resources', 'btnname1' =>'addResource', 'btnlabel1'=>'Add resource', 'btnname2'=>'uploadResource', 'btnlabel2'=>'Add file', 'value' =>'<ul> <li></li> </ul>'));
 
@@ -157,13 +148,51 @@ $studyQs = new Template('mkTextarea.php', array('type' =>'singletext','entity'=>
 $supplies = new Template('mkTextarea.php', array('type' =>'singletext','entity'=>'','label' =>'Supplies', 'name' => 'supplies', 'value' =>'<ul> <li></li> </ul>'));
 
 
-//HEADER CONTENT
+//HEADERS and TABS
 
-$allCasesHeader= new Template('mkHeaderContentAllCases.php', array('tabTitle' => 'SimCommand | Case List', 'title' => 'SimCommand','formAction'=>'showAllCases.php', 'javascript'=>array('modernizrSimCommand.js','//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'simCommand.js','//tinymce/js/tinymce/tinymce.min.js','http://cdn.foundation5.zurb.com/foundation.js'),'stylesheet' => 'foundationSimCommand.css', 'caseTitle'=>'', 'caseID'=>''));
+$allCasesHeader= new Template('mkHeaderContentAllCases.php', array(
+'tabTitle' => 'SimCommand | Case List',
+'title' => 'SimCommand',
+'formAction'=>'showAllCases.php',
+'javascript'=>array(
+  'modernizrSimCommand.js',
+  '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js',
+  'simCommand.js',
+  '//tinymce/js/tinymce/tinymce.min.js',
+  'http://cdn.foundation5.zurb.com/foundation.js'),
+'stylesheet' => 'foundationSimCommand.css',
+'caseTitle'=>'',
+'caseID'=>''));
 
-$newCaseHeader= new Template('mkHeaderContentForm.php', array('tabTitle' => 'SimCommand | Case Information', 'title' => 'SimCommand New Case', 'formMethod'=>'post','formAction'=>'SimCommandPostNewCase.php', 'javascript'=>array('modernizrSimCommand.js','//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'simCommand.js','tinymce/js/tinymce/tinymce.min.js','http://cdn.foundation5.zurb.com/foundation.js','functionTinyMCE.js'),'stylesheet' => 'foundationSimCommand.css', 'caseTitle'=>'', 'caseID'=>''));
+$newCaseHeader= new Template('mkHeaderContentForm.php', array(
+  'tabTitle' => 'SimCommand | Case Information',
+  'title' => 'SimCommand New Case',
+  'formMethod'=>'post',
+  'formAction'=>'SimCommandPostNewCase.php', 'javascript'=>array(
+    'modernizrSimCommand.js',
+    '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js',
+    'simCommand.js',
+    'tinymce/js/tinymce/tinymce.min.js',
+    'http://cdn.foundation5.zurb.com/foundation.js',
+    'functionTinyMCE.js'),
+  'stylesheet' => 'foundationSimCommand.css',
+  'caseTitle'=>'',
+  'caseID'=>''));
 
-$editCaseHeader= new Template('mkHeaderContentEditForm.php', array('tabTitle' => 'SimCommand | Edit Case', 'title' => 'SimCommand Edit Case', 'formMethod'=>'post','formAction'=>'SimCommandPutCase.php?case_id=', 'javascript'=>array('modernizrSimCommand.js','//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'simCommand.js','tinymce/js/tinymce/tinymce.min.js','http://cdn.foundation5.zurb.com/foundation.js','functionTinyMCE.js'),'stylesheet' => 'foundationSimCommand.css', 'caseTitle'=>'', 'caseID'=>''));
+$editCaseHeader= new Template('mkHeaderContentEditForm.php', array(
+  'tabTitle' => 'SimCommand | Edit Case',
+  'title' => 'SimCommand Edit Case',
+  'formMethod'=>'post',
+  'formAction'=>'SimCommandPutCase.php?case_id=',
+  'javascript'=>array(
+    'modernizrSimCommand.js',
+    '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js',
+    'simCommand.js','tinymce/js/tinymce/tinymce.min.js',
+    'http://cdn.foundation5.zurb.com/foundation.js',
+    'functionTinyMCE.js'),
+  'stylesheet' => 'foundationSimCommand.css',
+  'caseTitle'=>'',
+  'caseID'=>''));
 
 $assessmentTab = new Template('mkTabHeader.php', array('tabID'=>'assessment', 'tabTitle'=>'Assessment'));
 
@@ -212,23 +241,54 @@ $action2 = new Template('mkOneActionNew.php', array(
   'timer_values'=>array('True'=>'','False'=>'')
   ));
 
-$stateNew = new Template('mkOneStateObjectNew.php', array('startcounter'=>'3333333333','notes'=>'','general'=>'','temp_celcius'=>'','resp_rate'=>'','heart_rate'=>'','notes'=>'','general'=>'','bp_systolic'=>'','bp_diastolic'=>'', 'spo2'=>'','weight'=>'','pain_score'=>'','other'=>'','discussion_items'=>'','type'=>'oneState','actions'=>array($action1, $action2),
-              'pe_general'=>'',
-              'heent'=>'',
-              'neck'=>'',
-              'lungs' =>'',
-              'heart'=>'',
-              'abdomen'=>'',
-              'extremeties'=>'',
-              'neurological'=>'',
-              'pe_other'=>''));
+$stateNew = new Template('mkOneStateObjectNew.php', array(
+  'startcounter'=>'3333333333',
+  'notes'=>'',
+  'general'=>'',
+  'temp_celcius'=>'',
+  'resp_rate'=>'',
+  'heart_rate'=>'',
+  'notes'=>'',
+  'general'=>'',
+  'bp_systolic'=>'',
+  'bp_diastolic'=>'',
+  'spo2'=>'',
+  'weight'=>'',
+  'pain_score'=>'',
+  'other'=>'',
+  'discussion_items'=>'',
+  'type'=>'oneState',
+  'actions'=>array($action1, $action2),
+  'pe_general'=>'',
+  'heent'=>'',
+  'neck'=>'',
+  'lungs' =>'',
+  'heart'=>'',
+  'abdomen'=>'',
+  'extremeties'=>'',
+  'neurological'=>'',
+  'pe_other'=>''));
 
-$allStates = new Template('mkAllStates.php', array('type'=>'allStates','statesArray'=>array($stateNew), 'is_critical_item'=>'','critical_item_label'=>'Critical Item?','critical_item_tooltip'=>'','critical_item_values'=>array('True'=>'','False'=>''),'timer_tooltip'=>'','timer_label'=>'Include Timer?','timer_values'=>array('True'=>'','False'=>'')));
+$allStates = new Template('mkAllStates.php', array(
+  'type'=>'allStates',
+  'statesArray'=>array($stateNew),
+  'is_critical_item'=>'',
+  'critical_item_label'=>'Critical Item?',
+  'critical_item_tooltip'=>'',
+  'critical_item_values'=>array('True'=>'','False'=>''),
+  'timer_tooltip'=>'',
+  'timer_label'=>'Include Timer?',
+  'timer_values'=>array('True'=>'','False'=>'')));
 
 
 //ASSESSMENT OBJECTS
 
-$assessmentNew = new Template('mkOneAssessmentObjectNew.php', array('startcounter'=>'999999','name'=>'','is_critical_item'=>'','namePrefix'=>'assessment_items', 'name_tooltip'=>'',
+$assessmentNew = new Template('mkOneAssessmentObjectNew.php', array(
+  'startcounter'=>'999999',
+  'name'=>'',
+  'is_critical_item'=>'',
+  'namePrefix'=>'assessment_items',
+  'name_tooltip'=>'',
   'scale_tooltip'=>'',
   'scale_label'=>'Scale',
   'namePrefix'=>'assessment_items',
@@ -243,7 +303,7 @@ $allAssessments = new Template('mkAllAssessments.php', array('type'=>'allAssessm
 
 
 $hiddenIPEid = new Template('mkHiddenInput.php', array('name'=>'physical_exam[id]','value'=>'','class'=>'hiddenStateJsonID'));
-$origCaseData = new Template('mkHiddenInput.php', array('name'=>'origCaseData','value'=>'','class'=>''));
+
 $globalRatingScale = new Template('mkshortTextbarAge.php', array('type' => 'singletext', 'entity'=>'','label'=>'Global Rating Scale', 'name'=>'global_rating_scale','value'=>''));
 
 $assessmentItemScale = new Template('mkshortTextbarAge.php', array('type' => 'singletext', 'entity'=>'','label'=>'Assessment Item Scale', 'name'=>'assessment_item_scale','value'=>''));
