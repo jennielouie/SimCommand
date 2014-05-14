@@ -52,7 +52,7 @@
           <span>Authors:</span></br></br>
           <ul class="authorList">
             <?php foreach($this->authors as $author) { ?>
-            <li><?php echo $author; ?></li></br></br>
+            <li><?php echo $author; ?></li>
             <?php } ?>
           </ul>
         </div>
