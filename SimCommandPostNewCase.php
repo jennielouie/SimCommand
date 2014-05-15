@@ -57,7 +57,7 @@ curl_close($ch);
 
     <div class="row responsebox">
       <h3>Response to POST request</h3>
-      <p><?php var_dump($body); ?></p>
+      <p><?php echo $body; ?></p>
       <p>Case ID: <?php echo $thisCaseID; ?></p>
     </div>
 

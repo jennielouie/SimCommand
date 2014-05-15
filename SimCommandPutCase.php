@@ -42,8 +42,8 @@ foreach($states as $state)
       curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
       curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonaction);
       curl_setopt($ch, CURLOPT_HTTPHEADER, $curlHeaderArray);
-      $putCaseResponseJson = curl_exec($ch);
-      $putCaseResponse = json_decode($putCaseResponseJson);
+      $putActionResponseJson = curl_exec($ch);
+      $putActionResponse = json_decode($putActionResponseJson, true);
       curl_close($ch);
     } else
     {
@@ -56,8 +56,8 @@ foreach($states as $state)
       curl_setopt($ch, CURLOPT_POST, TRUE);
       curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonaction);
       curl_setopt($ch, CURLOPT_HTTPHEADER, $curlHeaderArray);
-      $putCaseResponseJson = curl_exec($ch);
-      $putCaseResponse = json_decode($putCaseResponseJson);
+      $putActionResponseJson = curl_exec($ch);
+      $putActionResponse = json_decode($putActionResponseJson, true);
       curl_close($ch);
     }
   }
@@ -86,8 +86,8 @@ foreach($states as $state){
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
     curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonstate);
     curl_setopt($ch, CURLOPT_HTTPHEADER, $curlHeaderArray);
-    $putCaseResponseJson = curl_exec($ch);
-    $putCaseResponse = json_decode($putCaseResponseJson);
+    $putStateResponseJson = curl_exec($ch);
+    $putStateResponse = json_decode($putStateResponseJson, true);
     curl_close($ch);
   }
   else
@@ -101,8 +101,8 @@ foreach($states as $state){
     curl_setopt($ch, CURLOPT_POST, TRUE);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonstate);
     curl_setopt($ch, CURLOPT_HTTPHEADER, $curlHeaderArray);
-    $putCaseResponseJson = curl_exec($ch);
-    $putCaseResponse = json_decode($putCaseResponseJson);
+    $putStateResponseJson = curl_exec($ch);
+    $putStateResponse = json_decode($putStateResponseJson, true);
     curl_close($ch);
   }
 }
@@ -126,8 +126,8 @@ foreach($assessment_items as $assessment){
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
     curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonassessment);
     curl_setopt($ch, CURLOPT_HTTPHEADER, $curlHeaderArray);
-    $putCaseResponseJson = curl_exec($ch);
-    $putCaseResponse = json_decode($putCaseResponseJson);
+    $putAsmtResponseJson = curl_exec($ch);
+    $putAsmtResponse = json_decode($putAsmtResponseJson, true);
     curl_close($ch);
   } else {
       $url = "$urlroot/assessmentitems";
@@ -139,8 +139,8 @@ foreach($assessment_items as $assessment){
       curl_setopt($ch, CURLOPT_POST, TRUE);
       curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonassessment);
       curl_setopt($ch, CURLOPT_HTTPHEADER, $curlHeaderArray);
-      $putCaseResponseJson = curl_exec($ch);
-      $putCaseResponse = json_decode($putCaseResponseJson);
+      $putAsmtResponseJson = curl_exec($ch);
+      $putAsmtResponse = json_decode($putAsmtResponseJson, true);
       curl_close($ch);
     }
 }
@@ -158,7 +158,7 @@ curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
 curl_setopt($ch, CURLOPT_POSTFIELDS, $jsoncase);
 curl_setopt($ch, CURLOPT_HTTPHEADER, $curlHeaderArray);
 $putCaseResponseJson = curl_exec($ch);
-$putCaseResponse = json_decode($putCaseResponseJson);
+$putCaseResponse = json_decode($putCaseResponseJson, true);
 curl_close($ch);
 
 
@@ -170,8 +170,8 @@ foreach($states as $state){
 
   if (!empty($physical_exam['id'])) {
       $pe_id = $physical_exam['id'];
-      unset($physical_exam['id']);
       $url = "$urlroot/physicalexams/$pe_id";
+      unset($physical_exam['id']);
       $jsonphysical_exam = json_encode($physical_exam);
       $ch = curl_init();
       curl_setopt($ch, CURLOPT_URL, $url);
@@ -180,8 +180,8 @@ foreach($states as $state){
       curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
       curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonphysical_exam);
       curl_setopt($ch, CURLOPT_HTTPHEADER, $curlHeaderArray);
-      $putCaseResponseJson = curl_exec($ch);
-      $putCaseResponse = json_decode($putCaseResponseJson);
+      $putPhysResponseJson = curl_exec($ch);
+      $putPhysResponse = json_decode($putPhysResponseJson, true);
       curl_close($ch);
 
   } else {
@@ -194,8 +194,8 @@ foreach($states as $state){
       curl_setopt($ch, CURLOPT_POST, TRUE);
       curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonphysical_exam);
       curl_setopt($ch, CURLOPT_HTTPHEADER, $curlHeaderArray);
-      $putCaseResponseJson = curl_exec($ch);
-      $putCaseResponse = json_decode($putCaseResponseJson);
+      $putPhysResponseJson = curl_exec($ch);
+      $putPhysResponse = json_decode($putPhysResponseJson, true);
       curl_close($ch);
 
   }
@@ -236,7 +236,11 @@ foreach($states as $state){
     <div class="row responsebox">
       <h3>Response to PUT request</h3>
 
-      <p><?php var_dump($putCaseResponse); ?></p>
+      <p>Case: <?php print_r($putCaseResponse['result']); ?></p>
+      <p>Assessments: <?php print_r($putAsmtResponse['result']); ?></p>
+      <p>States: <?php print_r($putStateResponse['result']); ?></p>
+      <p>Actions: <?php print_r($putActionResponse['result']); ?></p>
+      <p>Physical Exam: <?php print_r($putPhysResponse['result']); ?></p>
     </div>
 
     <div class="row">
