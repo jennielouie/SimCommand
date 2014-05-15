@@ -19,12 +19,14 @@
       <!-- NAV -->
       <div class="row">
         <div class="small-12 columns">
-          <div class="sticky">
+          <!-- <div class="sticky"> -->
+          <div class="fixed">
             <nav class="top-bar" data-topbar>
               <ul class="title-area">
                 <li class="name">
                   <h1><a class="alwaysShow" href="#"><?php echo $this->title; ?></a></h1>
                 </li>
+                <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
               </ul>
 
               <dl class="tabs" data-tab data-options="deep_linking: true">
@@ -37,9 +39,25 @@
             </nav>
 
 
-              <a class="alwaysShow button tiny" href="SimCommandGetAllCases.php">Back to All Cases</a>
-              <a class="alwaysShow success button tiny" href="SimCommandNewCaseForm.php">Create New Case</a>
+            <!-- <div class="row">
+              <div class="small-2 columns">
+                <a class="alwaysShow button small" href="SimCommandGetAllCases.php">Back to All Cases</a>
+              </div>
+              <div class="small-2 columns end">
+                <a class="alwaysShow success button small" href="SimCommandNewCaseForm.php">Create New Case</a>
+              </div>
+            </div> -->
+
           </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="small-2 columns">
+          <a class="alwaysShow button small" href="SimCommandGetAllCases.php">Back to All Cases</a>
+        </div>
+        <div class="small-2 columns end">
+          <a class="alwaysShow success button small" href="SimCommandNewCaseForm.php">Create New Case</a>
         </div>
       </div>
 

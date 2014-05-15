@@ -79,7 +79,7 @@
   <input id="footerAddStateButton" type="button" class="small success button expand" value="Add State"/>
 </div>
 
-  <!-- SAVE BUTTON -->
+  <!-- COMMENT BELOW TO REMOVE SAVE BUTTON FROM STATE TAB, AND UNCOMMENT MKHEADERCONTENT.PHP AND MKHEADERCONTENTEDITFORM.PHP TO SHOW AT BOTTOM OF EACH TAB -->
 <div class="row">
   <input type="submit" class="large primary button expand" value="Save this New Case">
 

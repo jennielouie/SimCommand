@@ -18,7 +18,7 @@
 
 <!-- NAV -->
 <div class="row">
-  <div class="small-12 columns">
+  <div class="large-12 columns">
     <div class="sticky">
       <!-- <div class="contain-to-grid"> -->
       <nav class="top-bar" data-topbar>
@@ -27,13 +27,13 @@
           <li class="name">
             <h1><a href="#">SimCommand Summary of Cases</a></h1>
           </li>
-
         </ul>
-
-
       </nav>
-
-      <a class="alwaysShow success button tiny" href="SimCommandNewCaseForm.php">Create New Case</a>
+      <div class="row">
+        <div class="small-2 columns end">
+          <a class="alwaysShow success button small" href="SimCommandNewCaseForm.php">Create New Case</a>
+        </div>
+      </div>
 <!-- </div> -->
     </div>
   </div>

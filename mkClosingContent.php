@@ -1,4 +1,4 @@
-      <!-- SAVE BUTTON -->
+<!-- UNCOMMENT CODE BELOW TO SHOW SAVE BUTTON AT BOTTOM OF EACH TAB.  ALSO NEED TO COMMENT OUT THE SAVE BUTTON IN MKALLSTATES.PHP -->
 <!--     <div class="row">
       <input type="submit" class="small primary button" value='<#?php echo $this->buttonlabel1; ?>'>
 

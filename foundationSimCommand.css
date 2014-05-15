@@ -1486,12 +1486,19 @@ button, .button {
       background-color: #b9b9b9; }
     button.secondary:hover, button.secondary:focus, .button.secondary:hover, .button.secondary:focus {
       color: #333333; }
-  button.success, .button.success {
+/*  button.success, .button.success {
     background-color: #43ac6a;
     border-color: #368a55;
     color: white; }
     button.success:hover, button.success:focus, .button.success:hover, .button.success:focus {
-      background-color: #368a55; }
+      background-color: #368a55; } edited for Metrics medicus*/
+
+        button.success, .button.success {
+    background-color: #1ba39c;
+    border-color: #368a55;
+    color: white; }
+    button.success:hover, button.success:focus, .button.success:hover, .button.success:focus {
+      background-color: #3fc380; }
     button.success:hover, button.success:focus, .button.success:hover, .button.success:focus {
       color: white; }
   button.alert, .button.alert {
@@ -2322,9 +2329,11 @@ div.switch {
       /*changed background color for Metrics Medicus*/
       background: #1ba39c;
       color: #ecf0f1;
-      padding-top: 1rem;
+      /*padding-top: 1rem; changed for Metrics Medicus*/
+      padding-top: 0.6rem;
       padding-right: 2rem;
-      padding-bottom: 1.0625rem;
+      /*padding-bottom: 1.0625rem; changed for Metric Medicus*/
+      padding-bottom: 0.6rem;
       padding-left: 2rem;
       font-ftabsamily: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
       font-size: 1rem; }
