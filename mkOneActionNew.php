@@ -8,9 +8,7 @@
 
   <div class="one_action_div borderDiv newelement dataRow row" class="<?php echo "rowForState_".$state_jsonID;?>" data-arrayIndex ="<?php echo $actionIndex; ?>" data-endpoint="actions" data-statejsonID = "<?php echo $state_jsonID; ?>" data-actionjsonID="99999">
 
-<!-- commented out submittal of action ID -->
-    <!-- <input class="actionIDHiddenRow" type="hidden" name="<#?php echo $name_prefix.'[id]'; ?>" value="<#?php echo $this->id; ?>"/>
- -->
+    <input type="hidden" class="hiddenDeleteTag" name="<?php echo $name_prefix.'[deleteTag]'; ?>" value=""/>
     <div class="small-12 columns">
       <!-- <span class="actionTitle" style="color:purple">State ID: <#?php echo $state_jsonID; ?> Action <#?php echo $this->id; ?></span> -->
         <span>Name</span><input class="actionName" name="<?php echo $name_prefix.'[name]'; ?>" type="text" value="<?php echo $this->name ?>" />
@@ -62,7 +60,7 @@
       </div>
       <?php } ?>
 
-      <div class="small-1 columns" ><a href="#"  class="delete" >Delete this action</a>
+      <div class="small-1 columns" ><a href="#"  class="deleteAction" >Delete this action</a>
       </div>
     </div>
 

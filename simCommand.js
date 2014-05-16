@@ -112,6 +112,7 @@ $(document).ready(function() {
         newDiv.find("[type=text]").val('');
         newDiv.find("[type=radio][value=false]").prop('checked', true);
         newDiv.addClass("newelement");
+        newDiv.removeClass("hiddenDiv");
 
         var idHolder = 'radio'+uniqueButtonIndex+'action'+uniqueActionIndex;
         uniqueButtonIndex += 1;
@@ -140,7 +141,7 @@ $(document).ready(function() {
 
         newDiv.find("input[name], select[name], textarea[name]").each(function(){
           var name = $(this).attr('name');
-          var new_name = name.replace(/\[placeholder\]/g, 'cases[states][' + stateIndex + '][actions]['+ new_action_index +']');
+          var new_name = name.replace(/\[placeholder\]/g, 'states[' + stateIndex + '][actions]['+ new_action_index +']');
           $(this).attr('name',new_name);
         });
 
@@ -281,13 +282,14 @@ INCLUDING RE-NUMBERING OF ARRAY INDICES */
     if (confirmdelete==true){
       var selectedRow = $(this).closest(".dataRow");
       var endpoint = selectedRow.attr('data-endpoint');
-// If element to delete is not a newly added element (i.e. it was part of the original GET response), send HTTP DELETE request for that element
+
       //count sibling datarows, if total is 1, do not delete and show alert
       var siblingCount = $(selectedRow).siblings().length;
         if (siblingCount == 0) {
           alert("Sorry, cannot delete only instance of this data");
         }
         else {
+          // If element to delete is not a newly added element (i.e. it was part of the original GET response), send HTTP DELETE request for that element
           if (!selectedRow.hasClass("newelement")) {
             if(selectedRow.attr("data-jsonid")) {
               var id_to_delete = selectedRow.attr("data-jsonid");
@@ -366,6 +368,53 @@ INCLUDING RE-NUMBERING OF ARRAY INDICES */
     } //end of "if confirmed"
   }); //end of delete function
 
+
+/*88888**********/
+
+/* DELETE FUNCTIONALITY
+INCLUDING RE-NUMBERING OF ARRAY INDICES */
+
+  // DELEGATE LISTENER TO "MULTITEXTBAR" ROWS DIV, WHICH EXIST AT FIRST RENDER, TO REMOVE ROW WHEN "REMOVE" BUTTON FOR THAT ROW IS CLICKED.
+  $(".multiInputDiv").on('click', 'a.deleteState', function(e){
+    e.preventDefault();
+    var confirmdelete = confirm("Are you sure you want to delete this state?");
+    if (confirmdelete==true){
+      var selectedRow = $(this).closest(".dataRow");
+      var endpoint = selectedRow.attr('data-endpoint');
+// If element to delete is not a newly added element (i.e. it was part of the original GET response), send HTTP DELETE request for that element
+      //count sibling datarows, if total is 1, do not delete and show alert
+      var siblingCount = $(selectedRow).siblings().length;
+      if (siblingCount == 0) {
+        alert("Sorry, cannot delete only instance of this data");
+      }
+      else {
+        var deleteTag = $(selectedRow).find("input.hiddenDeleteTag");
+        deleteTag.attr('value', 'deleted');
+        $(selectedRow).addClass("hiddenDiv");
+      }
+    } //end of "if confirmed"
+  }); //end of delete function
+
+
+  $(".multiInputDiv").on('click', 'a.deleteAction', function(e){
+    e.stopPropagation();
+    var confirmdelete = confirm("Are you sure you want to delete this action?");
+    if (confirmdelete==true){
+      var selectedRow = $(this).closest(".dataRow");
+      var endpoint = selectedRow.attr('data-endpoint');
+// If element to delete is not a newly added element (i.e. it was part of the original GET response), send HTTP DELETE request for that element
+      //count sibling datarows, if total is 1, do not delete and show alert
+      var siblingCount = $(selectedRow).siblings().length;
+      if (siblingCount == 0) {
+        alert("Sorry, cannot delete only instance of this data");
+      }
+      else {
+        var deleteTag = $(selectedRow).find("input.hiddenDeleteTag");
+        deleteTag.attr('value', 'deleted');
+        $(selectedRow).addClass("hiddenDiv");
+      }
+    } //end of "if confirmed"
+  }); //end of delete function
 
 
 //This handles deletions of non-nested multi-elements, such as author and institution lists.  No re-indexing is required.

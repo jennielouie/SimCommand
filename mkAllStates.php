@@ -63,7 +63,7 @@
           <input type="radio" checked id="IDholder-tf"  name= "[placeholder][is_timeable]"  value="false" /><label for="IDholder-tf">No</label>
         </div>
 
-        <div class="small-1 columns" ><a href="#"  class="delete" >Delete this action</a>
+        <div class="small-1 columns" ><a href="#"  class="deleteAction" >Delete this action</a>
         </div>
       </div>
 

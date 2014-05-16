@@ -2,7 +2,54 @@
 <?php
 include_once('SimCommandConstants.php');
 header('Content-Type: application/json');
-$jsondata = json_encode($_POST);
+
+function remove_delete_tag($obj)
+{
+  unset($obj['deleteTag']);
+  foreach ($obj as $key=>$value)
+  {
+    if (is_array($value))
+    {
+      $newobj = remove_delete_tag($value);
+      $obj[$key] = $newobj;
+    }
+  }
+
+  return $obj;
+}
+
+$case = $_POST;
+
+$case_id = $_POST["id"];
+
+    //create empty statess array, add states that are not marked "deleted"
+$statesToPost = array();
+foreach($case['states'] as $state) {
+  if ($state["deleteTag"] != "deleted") {
+    //create empty actions array, add actions that are not marked "deleted"
+    $state['newactions'] = array();
+    foreach($state["actions"] as $action){
+      if ($action['deleteTag'] != "deleted"){
+        $state["newactions"][] = $action;
+      }
+    }
+    //replace old "actions" array with this new "actions" array
+    unset($state["actions"]);
+    $state["actions"] =$state["newactions"];
+    unset($state["newactions"]);
+    //add state to array
+    $statesToPost[] = $state;
+  }
+}
+//remove all "deleteTags", replace old state array with new state array
+$newStatesToPost = remove_delete_tag($statesToPost);
+unset($case['states']);
+
+$case['states'] = $newStatesToPost;
+
+
+
+$jsondata = json_encode($case);
 
 
 $ch = curl_init();
@@ -57,8 +104,8 @@ curl_close($ch);
 
     <div class="row responsebox">
       <h3>Response to POST request</h3>
-      <p><?php echo $body; ?></p>
-      <p>Case ID: <?php echo $thisCaseID; ?></p>
+      <p><?php print_r($response); ?></p>
+
     </div>
 
     <div class="row">

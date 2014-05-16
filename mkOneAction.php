@@ -8,6 +8,7 @@
 
 <!-- commented out submittal of action ID -->
     <input class="actionIDHiddenRow" type="hidden" name="<?php echo $name_prefix.'[id]'; ?>" value="<?php echo $this->action_id; ?>"/>
+     <input type="hidden" class="hiddenDeleteTag" name="<?php echo $name_prefix.'[deleteTag]'; ?>" value=""/>
 
     <div class="small-12 columns">
               <span>Name</span><input class="actionName" name="<?php echo $name_prefix.'[name]'; ?>" type="text" value="<?php echo $this->name ?>" />
@@ -63,7 +64,7 @@
       </div>
       <?php } ?>
 
-      <div class="small-1 columns" ><a href="#"  class="delete" data-action_id = "<?php echo $this->action_id; ?>">Delete this action</a>
+      <div class="small-1 columns" ><a href="#"  class="deleteAction" data-action_id = "<?php echo $this->action_id; ?>">Delete this action</a>
       </div>
     </div>
 

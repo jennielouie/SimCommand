@@ -12,7 +12,7 @@
       <div class="small-3 columns">
         <h3>New State</h3>
       </div>
-      <div class="small-3 columns end"><a href="#" class="delete">Delete this state</a>
+      <div class="small-3 columns end"><a href="#" class="deleteState">Delete this state</a>
       </div>
     </div>
 
@@ -20,6 +20,7 @@
 <!-- PHYSICAL EXAM INPUTS -->
 
       <div class="row">
+         <input type="hidden" class="hiddenDeleteTag" name="<?php echo $name_prefix.'[deleteTag]'; ?>" value=""/>
         <h4>Physical Examination</h4>
       </div>
       </br></br>

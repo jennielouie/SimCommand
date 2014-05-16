@@ -168,7 +168,8 @@ $newCaseHeader= new Template('mkHeaderContentForm.php', array(
   'tabTitle' => 'SimCommand | Case Information',
   'title' => 'SimCommand New Case',
   'formMethod'=>'post',
-  'formAction'=>'SimCommandPostNewCase.php', 'javascript'=>array(
+  'formAction'=>'SimCommandPostNewCase.php',
+   'javascript'=>array(
     'modernizrSimCommand.js',
     '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js',
     'simCommand.js',

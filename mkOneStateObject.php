@@ -12,13 +12,14 @@
       <div class="small-3 columns">
         <h3>State ID: <?php echo $this->state_id; ?> </h3>
       </div>
-      <div class="small-3 columns end"><a href="#" data-state_id = "<?php echo $state_jsonID; ?>"class="delete">Delete this state</a>
+      <div class="small-3 columns end"><a href="#" data-state_id = "<?php echo $state_jsonID; ?>"class="deleteState">Delete this state</a>
       </div>
     </div>
 
     <div class="row">
 
       <input type="hidden" class="hiddenStateJsonID" name="<?php echo $name_prefix.'[id]'; ?>" value="<?php echo $this->state_id; ?>"/>
+      <input type="hidden" class="hiddenDeleteTag" name="<?php echo $name_prefix.'[deleteTag]'; ?>" value=""/>
 
 <!-- PHYSICAL EXAM INPUTS -->
 <div class="row">
