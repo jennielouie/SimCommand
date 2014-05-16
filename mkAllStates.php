@@ -9,12 +9,21 @@
 </br>
 
 <div class="allStatesDiv multiInputDiv">
+
+
+<?php foreach($this->statesArray as $stateIndex=>$state) {
+  //$stateIndex should be defined one-level up
+  $state->renderstate($stateIndex);
+  // echo "</br>";
+} ?>
+
+</div> <!--multiInputDiv-->
 <!-- Beginning of hidden single action -->
 
   <div class="templateForOneActionDiv hiddenDiv">
     <div id="" class="one_action_div newelement borderDiv dataRow row" data-endpoint="actions" class="" data-arrayIndex ="0" data-statejsonID = "" data-actionjsonID="">
 
-      <!-- <input class="actionIDHiddenRow" type="hidden" name="[placeholder][id]" value=""/> -->
+
 
       <div class="small-12 columns">
         <span class="actionTitle" >Name</span>
@@ -43,10 +52,7 @@
           <input type="radio" checked id="IDholder-cf"  name= "[placeholder][is_critical_item]" value="false" /><label for="IDholder-cf">No</label>
         </div>
 
-<!--         <div class="small-4 columns uploadRow">
-          <span>Upload</span>
-          <input id="uploadBtn" type="file" class="upload" />
-        </div> -->
+
 
         <div class="small-1 columns">
           <span data-tooltip class="has-tip [tip-bottom]" title="<?php echo $this->timer_tooltip;?>"><?php echo $this->timer_label;?></span>
@@ -65,15 +71,6 @@
   </div>
 
 <!-- End of hidden single action -->
-
-<?php foreach($this->statesArray as $stateIndex=>$state) {
-  //$stateIndex should be defined one-level up
-  $state->renderstate($stateIndex);
-  echo "</br>";
-} ?>
-
-</div> <!--multiInputDiv-->
-
 </br>
 <div class="row">
   <input id="footerAddStateButton" type="button" class="small success button expand" value="Add State"/>

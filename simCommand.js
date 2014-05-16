@@ -213,6 +213,7 @@ $(document).ready(function() {
     container_div.addClass("newelement");
 
     var newDiv = $(".stateWithoutActionsSection").last().clone();
+    console.log(newDiv);
     newDiv.appendTo(container_div);
 
 //clear form values from clone
@@ -274,28 +275,32 @@ INCLUDING RE-NUMBERING OF ARRAY INDICES */
       var selectedRow = $(this).closest(".dataRow");
       var endpoint = selectedRow.attr('data-endpoint');
 // If element to delete is not a newly added element (i.e. it was part of the original GET response), send HTTP DELETE request for that element
-      if (!selectedRow.hasClass("newelement")) {
-        if(selectedRow.attr("data-jsonid")) {
-          var id_to_delete = selectedRow.attr("data-jsonid");
-        }
-        else if (selectedRow.attr("data-actionjsonid")) {
-          var id_to_delete = selectedRow.attr("data-actionjsonid");
-        }
-        $.ajax({
-          url: 'SimCommandDelete.php?endpoint=' + endpoint + '&delete_id=' + id_to_delete,
-        }).done(function() {
-          alert("completed delete");
-        });
-      }
-
       //count sibling datarows, if total is 1, do not delete and show alert
       var siblingCount = $(selectedRow).siblings().length;
         if (siblingCount == 0) {
           alert("Sorry, cannot delete only instance of this data");
         }
         else {
+          if (!selectedRow.hasClass("newelement")) {
+            if(selectedRow.attr("data-jsonid")) {
+              var id_to_delete = selectedRow.attr("data-jsonid");
+            }
+            else if (selectedRow.attr("data-actionjsonid")) {
+              var id_to_delete = selectedRow.attr("data-actionjsonid");
+            }
+            $.ajax({
+              url: 'SimCommandDelete.php?endpoint=' + endpoint + '&delete_id=' + id_to_delete,
+            }).done(function() {
+              alert("completed delete");
+            });
+          }
           $(selectedRow).remove();
         }
+
+
+
+
+
 
 
       //loop through elements for a given set of assessments, actions, or states, and update rowIndex
