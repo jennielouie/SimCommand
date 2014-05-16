@@ -143,42 +143,42 @@ foreach($states as $state){
 }
 
 
-// //PUT ASSESSMENTS
+//PUT ASSESSMENTS
 
-// foreach($assessment_items as $assessment){
+foreach($assessment_items as $assessment){
 
-//   unset($assessment['scale']);
-//   $assessment['case_id'] = $case_id;
-//   if (!empty($assessment['id'])){
-//     $assessment_id = $assessment['id'];
-//     $url = "$urlroot/assessmentitems/$assessment_id";
-//     unset($assessment['id']);
-//     $jsonassessment = json_encode($assessment);
-//     $ch = curl_init();
-//     curl_setopt($ch, CURLOPT_URL, $url);
-//     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-//     curl_setopt($ch, CURLOPT_HEADER, FALSE);
-//     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
-//     curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonassessment);
-//     curl_setopt($ch, CURLOPT_HTTPHEADER, $curlHeaderArray);
-//     $putAsmtResponseJson = curl_exec($ch);
-//     $putAsmtResponse = json_decode($putAsmtResponseJson, true);
-//     curl_close($ch);
-//   } else {
-//       $url = "$urlroot/assessmentitems";
-//       $jsonassessment = json_encode($assessment);
-//       $ch = curl_init();
-//       curl_setopt($ch, CURLOPT_URL, $url);
-//       curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-//       curl_setopt($ch, CURLOPT_HEADER, FALSE);
-//       curl_setopt($ch, CURLOPT_POST, TRUE);
-//       curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonassessment);
-//       curl_setopt($ch, CURLOPT_HTTPHEADER, $curlHeaderArray);
-//       $putAsmtResponseJson = curl_exec($ch);
-//       $putAsmtResponse = json_decode($putAsmtResponseJson, true);
-//       curl_close($ch);
-//     }
-// }
+  unset($assessment['scale']);
+  $assessment['case_id'] = $case_id;
+  if (!empty($assessment['id'])){
+    $assessment_id = $assessment['id'];
+    $url = "$urlroot/assessmentitems/$assessment_id";
+    unset($assessment['id']);
+    $jsonassessment = json_encode($assessment);
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+    curl_setopt($ch, CURLOPT_HEADER, FALSE);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonassessment);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $curlHeaderArray);
+    $putAsmtResponseJson = curl_exec($ch);
+    $putAsmtResponse = json_decode($putAsmtResponseJson, true);
+    curl_close($ch);
+  } else {
+      $url = "$urlroot/assessmentitems";
+      $jsonassessment = json_encode($assessment);
+      $ch = curl_init();
+      curl_setopt($ch, CURLOPT_URL, $url);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+      curl_setopt($ch, CURLOPT_HEADER, FALSE);
+      curl_setopt($ch, CURLOPT_POST, TRUE);
+      curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonassessment);
+      curl_setopt($ch, CURLOPT_HTTPHEADER, $curlHeaderArray);
+      $putAsmtResponseJson = curl_exec($ch);
+      $putAsmtResponse = json_decode($putAsmtResponseJson, true);
+      curl_close($ch);
+    }
+}
 
 
 

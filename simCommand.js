@@ -276,7 +276,7 @@ $(document).ready(function() {
 
 //*********************************************************************************************************
 
-/* DELETE FUNCTIONALITY
+/* DELETE FUNCTIONALITY FOR ASSESSMENTS
 INCLUDING RE-NUMBERING OF ARRAY INDICES */
 
   // DELEGATE LISTENER TO "MULTITEXTBAR" ROWS DIV, WHICH EXIST AT FIRST RENDER, TO REMOVE ROW WHEN "REMOVE" BUTTON FOR THAT ROW IS CLICKED.
@@ -373,19 +373,18 @@ INCLUDING RE-NUMBERING OF ARRAY INDICES */
   }); //end of delete function
 
 
-/*88888**********/
+/****************************************************/
 
-/* DELETE FUNCTIONALITY
-INCLUDING RE-NUMBERING OF ARRAY INDICES */
+/* DELETE FUNCTIONALITY FOR STATES AND ACTIONS
+ */
 
-  // DELEGATE LISTENER TO "MULTITEXTBAR" ROWS DIV, WHICH EXIST AT FIRST RENDER, TO REMOVE ROW WHEN "REMOVE" BUTTON FOR THAT ROW IS CLICKED.
+  // DELEGATE LISTENER TO "MULTITEXTBAR" ROWS DIV, WHICH EXIST AT FIRST RENDER, TO ADD 'HIDDENDIV' CLASS WHEN BUTTON FOR THAT ROW IS CLICKED.
   $(".multiInputDiv").on('click', 'a.deleteState', function(e){
     e.preventDefault();
     var confirmdelete = confirm("Are you sure you want to delete this state?");
     if (confirmdelete==true){
       var selectedRow = $(this).closest(".dataRow");
       var endpoint = selectedRow.attr('data-endpoint');
-// If element to delete is not a newly added element (i.e. it was part of the original GET response), send HTTP DELETE request for that element
       //count sibling datarows, if total is 1, do not delete and show alert
       var siblingCount = $(selectedRow).siblings().length;
       if (siblingCount == 0) {
@@ -406,7 +405,6 @@ INCLUDING RE-NUMBERING OF ARRAY INDICES */
     if (confirmdelete==true){
       var selectedRow = $(this).closest(".dataRow");
       var endpoint = selectedRow.attr('data-endpoint');
-// If element to delete is not a newly added element (i.e. it was part of the original GET response), send HTTP DELETE request for that element
       //count sibling datarows, if total is 1, do not delete and show alert
       var siblingCount = $(selectedRow).siblings().length;
       if (siblingCount == 0) {
