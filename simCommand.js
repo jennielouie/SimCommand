@@ -113,6 +113,8 @@ $(document).ready(function() {
         newDiv.find("[type=radio][value=false]").prop('checked', true);
         newDiv.addClass("newelement");
         newDiv.removeClass("hiddenDiv");
+        var deleteTag = newDiv.find("input.hiddenDeleteTag");
+        deleteTag.attr('value', '');
 
         var idHolder = 'radio'+uniqueButtonIndex+'action'+uniqueActionIndex;
         uniqueButtonIndex += 1;
@@ -221,6 +223,8 @@ $(document).ready(function() {
     newDiv.find("[type=text]").val('');
     newDiv.find("h3").html('New State');
     newDiv.find('input.hiddenStateJsonID').remove();
+    var deleteTag = newDiv.find("input.hiddenDeleteTag");
+    deleteTag.attr('value', '');
 
 
 

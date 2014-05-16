@@ -28,23 +28,40 @@ foreach($states as $state)
   foreach($actions as $action)
   {
     $action['state_id'] = $state_id;
+    //if this involves an existing element, need to PUT or DELETE
     if (!empty($action['id']))
     {
       $action_id = $action['id'];
       $url = "$urlroot/actions/$action_id";
-
       unset($action['id']);
-      $jsonaction = json_encode($action);
-      $ch = curl_init();
-      curl_setopt($ch, CURLOPT_URL, $url);
-      curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-      curl_setopt($ch, CURLOPT_HEADER, FALSE);
-      curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
-      curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonaction);
-      curl_setopt($ch, CURLOPT_HTTPHEADER, $curlHeaderArray);
-      $putActionResponseJson = curl_exec($ch);
-      $putActionResponse = json_decode($putActionResponseJson, true);
-      curl_close($ch);
+
+       //if has deleteTag = deleted, need to send DELETE request, otherwise move deleteTag and send PUT request.
+      if($action['deleteTag'] == "deleted"){
+        unset($action["deleteTag"]);
+       $jsonaction = json_encode($action);
+       $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($ch, CURLOPT_HEADER, FALSE);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $curlHeaderArray);
+        curl_exec($ch);
+        curl_close($ch);
+      } else {
+        unset($action["deleteTag"]);
+        $jsonaction = json_encode($action);
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($ch, CURLOPT_HEADER, FALSE);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonaction);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $curlHeaderArray);
+        $putActionResponseJson = curl_exec($ch);
+        $putActionResponse = json_decode($putActionResponseJson, true);
+        curl_close($ch);
+      }
+//if this is a new element, need to POST
     } else
     {
       $url = "$urlroot/actions";
@@ -72,24 +89,42 @@ foreach($states as $state){
   unset($state['physical_exam']);
 
   $state['case_id'] = $case_id;
-
+    //if this involves an existing element, need to PUT or DELETE
   if (!empty($state['id']))
   {
     $state_id = $state['id'];
     $url = "$urlroot/states/$state_id";
     unset($state['id']);
-    $jsonstate = json_encode($state);
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-    curl_setopt($ch, CURLOPT_HEADER, FALSE);
-    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonstate);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $curlHeaderArray);
-    $putStateResponseJson = curl_exec($ch);
-    $putStateResponse = json_decode($putStateResponseJson, true);
-    curl_close($ch);
+
+       //if has deleteTag = deleted, need to send DELETE request, otherwise move deleteTag and send PUT request.
+    if($state['deleteTag'] == "deleted"){
+      print_r('start delete');
+      print_r($url);
+     $ch = curl_init();
+      curl_setopt($ch, CURLOPT_URL, $url);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+      curl_setopt($ch, CURLOPT_HEADER, FALSE);
+      curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
+      curl_setopt($ch, CURLOPT_HTTPHEADER, $curlHeaderArray);
+      curl_exec($ch);
+      curl_close($ch);
+    } else {
+        unset($state["deleteTag"]);
+        $jsonstate = json_encode($state);
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($ch, CURLOPT_HEADER, FALSE);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonstate);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $curlHeaderArray);
+        $putStateResponseJson = curl_exec($ch);
+        $putStateResponse = json_decode($putStateResponseJson, true);
+        curl_close($ch);
+    }
+
   }
+  //if this is a new element, need to POST
   else
   {
     $url = "$urlroot/states";
@@ -108,42 +143,42 @@ foreach($states as $state){
 }
 
 
-//PUT ASSESSMENTS
+// //PUT ASSESSMENTS
 
-foreach($assessment_items as $assessment){
+// foreach($assessment_items as $assessment){
 
-  unset($assessment['scale']);
-  $assessment['case_id'] = $case_id;
-  if (!empty($assessment['id'])){
-    $assessment_id = $assessment['id'];
-    $url = "$urlroot/assessmentitems/$assessment_id";
-    unset($assessment['id']);
-    $jsonassessment = json_encode($assessment);
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-    curl_setopt($ch, CURLOPT_HEADER, FALSE);
-    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonassessment);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $curlHeaderArray);
-    $putAsmtResponseJson = curl_exec($ch);
-    $putAsmtResponse = json_decode($putAsmtResponseJson, true);
-    curl_close($ch);
-  } else {
-      $url = "$urlroot/assessmentitems";
-      $jsonassessment = json_encode($assessment);
-      $ch = curl_init();
-      curl_setopt($ch, CURLOPT_URL, $url);
-      curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-      curl_setopt($ch, CURLOPT_HEADER, FALSE);
-      curl_setopt($ch, CURLOPT_POST, TRUE);
-      curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonassessment);
-      curl_setopt($ch, CURLOPT_HTTPHEADER, $curlHeaderArray);
-      $putAsmtResponseJson = curl_exec($ch);
-      $putAsmtResponse = json_decode($putAsmtResponseJson, true);
-      curl_close($ch);
-    }
-}
+//   unset($assessment['scale']);
+//   $assessment['case_id'] = $case_id;
+//   if (!empty($assessment['id'])){
+//     $assessment_id = $assessment['id'];
+//     $url = "$urlroot/assessmentitems/$assessment_id";
+//     unset($assessment['id']);
+//     $jsonassessment = json_encode($assessment);
+//     $ch = curl_init();
+//     curl_setopt($ch, CURLOPT_URL, $url);
+//     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+//     curl_setopt($ch, CURLOPT_HEADER, FALSE);
+//     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+//     curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonassessment);
+//     curl_setopt($ch, CURLOPT_HTTPHEADER, $curlHeaderArray);
+//     $putAsmtResponseJson = curl_exec($ch);
+//     $putAsmtResponse = json_decode($putAsmtResponseJson, true);
+//     curl_close($ch);
+//   } else {
+//       $url = "$urlroot/assessmentitems";
+//       $jsonassessment = json_encode($assessment);
+//       $ch = curl_init();
+//       curl_setopt($ch, CURLOPT_URL, $url);
+//       curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+//       curl_setopt($ch, CURLOPT_HEADER, FALSE);
+//       curl_setopt($ch, CURLOPT_POST, TRUE);
+//       curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonassessment);
+//       curl_setopt($ch, CURLOPT_HTTPHEADER, $curlHeaderArray);
+//       $putAsmtResponseJson = curl_exec($ch);
+//       $putAsmtResponse = json_decode($putAsmtResponseJson, true);
+//       curl_close($ch);
+//     }
+// }
 
 
 
