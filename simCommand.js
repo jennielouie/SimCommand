@@ -252,6 +252,13 @@ $(document).ready(function() {
       $(this).attr('value','');
     });
 
+    newDiv.find("input[id], text[id], select[id], textarea[id]").each(function(){
+      var oldid = $(this).attr('id');
+      var newid = oldid.replace(/states\[[0-9]+\]/g, 'states['+ new_index +']');
+      $(this).attr('id',newid);
+      $(this).attr('value','');
+    });
+
 
     // newActionSection.find('h3').text('Actions for State ID ' + new_jsonID);
     //grab button
@@ -298,11 +305,6 @@ INCLUDING RE-NUMBERING OF ARRAY INDICES */
         }
 
 
-
-
-
-
-
       //loop through elements for a given set of assessments, actions, or states, and update rowIndex
 
       $('.one_assessment_div').each(function(rowIndex){
@@ -314,43 +316,52 @@ INCLUDING RE-NUMBERING OF ARRAY INDICES */
         });
       });
 
-      $('.one_state_div').each(function(rowIndex){
-        // find each input with a name attribute inside each row.  This will change state index for embedded actions too.
-        $(this).attr('data-arrayIndex', rowIndex);
-        $(this).find("input[name], select[name], textarea[name]").each(function(){
-          var name = $(this).attr('name');
-          var new_name = name.replace(/states\[[0-9]+\]/g, 'states['+rowIndex+']');
-          // console.log('state regex');
-          $(this).attr('name',new_name);
-        });
+      // $('.one_state_div').each(function(rowIndex){
+      //   var statejsonID = $(this).attr('data-jsonid');
+      //   // find each input with a name attribute inside each row.  This will change state index for embedded actions too.
+      //   $(this).attr('data-arrayIndex', rowIndex);
+      //   $(this).find("input[name], select[name], textarea[name]").each(function(){
+      //     var name = $(this).attr('name');
+      //     var new_name = name.replace(/states\[[0-9]+\]/g, 'states['+rowIndex+']');
+      //     // console.log('state regex');
+      //     $(this).attr('name',new_name);
+      //   });
+
+      //   $(this).find("input[id], select[id], textarea[id]").each(function(){
+      //     var oldid = $(this).attr('id');
+      //     var newid = oldid.replace(/states\[[0-9]+\]/g, 'states['+rowIndex+']');
+      //     // console.log('state regex');
+      //     $(this).attr('id',newid);
+      //   });
 
 
-          //NEED TO LIMIT RE-NUMBERING TO ACTIONS FOR THE SAME STATE. SO INVOKE WHEN LOOPING THROUGH STATES TO LIMIT SCOPE
-        var childrenActions = $(this).find('.one_action_div');
-        console.log(childrenActions.length);
-        childrenActions.each(function(rowIndex){
-          console.log('begin re-numbering actions');
-          $(this).attr('data-arrayIndex', rowIndex);
-          $(this).find("input[name], select[name], textarea[name]").each(function(){
-            var name = $(this).attr('name');
-            var new_name = name.replace(/\[actions\]\[[0-9]+\]/g, '[actions]['+rowIndex+']');
-            $(this).attr('name',new_name);
-          });
-          //UPDATE IDS AND LABELS FOR RADIO BUTTONS
-          var idHolder = 'radio' + statejsonID + 'action' + new_action_index;
-          $(this).find("input:radio[id]").each(function() {
-            var radio_id= $(this).attr('id');
-            var new_radio_id = radio_id.replace(/radio[0-9]action[0-9]/g, idHolder);
-            $(this).attr('id',new_radio_id);
-          });
+      //     //NEED TO LIMIT RE-NUMBERING TO ACTIONS FOR THE SAME STATE. SO INVOKE WHEN LOOPING THROUGH STATES TO LIMIT SCOPE
+      //   var childrenActions = $(this).find('.one_action_div');
+      //   console.log(childrenActions.length);
+      //   childrenActions.each(function(rowIndex){
+      //     console.log('begin re-numbering actions');
+      //     var idHolder = 'radio' + statejsonID + 'action' + rowIndex;
+      //     $(this).attr('data-arrayIndex', rowIndex);
+      //     $(this).find("input[name], select[name], textarea[name]").each(function(){
+      //       var name = $(this).attr('name');
+      //       var new_name = name.replace(/\[actions\]\[[0-9]+\]/g, '[actions]['+rowIndex+']');
+      //       $(this).attr('name',new_name);
+      //     });
+      //     //UPDATE IDS AND LABELS FOR RADIO BUTTONS
+      //     // var idHolder = 'radio' + statejsonID + 'action' + new_action_index;
+      //     $(this).find("input:radio[id]").each(function() {
+      //       var radio_id= $(this).attr('id');
+      //       var new_radio_id = radio_id.replace(/radio[0-9]action[0-9]/g, idHolder);
+      //       $(this).attr('id',new_radio_id);
+      //     });
 
-          $(this).find("label[for]").each(function() {
-            var radio_id= $(this).attr('for');
-            var new_radio_id = radio_id.replace(/radio[0-9]action[0-9]/g, idHolder);
-             $(this).attr('for',new_radio_id);
-          });
-        }); // end of children actions update
-      });  //end of state update
+      //     $(this).find("label[for]").each(function() {
+      //       var radio_id= $(this).attr('for');
+      //       var new_radio_id = radio_id.replace(/radio[0-9]action[0-9]/g, idHolder);
+      //        $(this).attr('for',new_radio_id);
+      //     });
+      //   }); // end of children actions update
+      // });  //end of state update
     // }); //
     } //end of "if confirmed"
   }); //end of delete function
